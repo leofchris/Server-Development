@@ -660,8 +660,9 @@ public class MaplePacketCreator {
         mplew.writeLong(0); //creation time
         mplew.writeInt(0);
         mplew.writeShort(2);//PIN
-
+        
         return mplew.getPacket();
+        
     }
 
     /**
