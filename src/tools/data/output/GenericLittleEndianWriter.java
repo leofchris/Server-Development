@@ -62,6 +62,8 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
             bos.writeByte(b[x]);
         }
     }
+    
+    
 
     /**
      * Write a byte to the stream.
