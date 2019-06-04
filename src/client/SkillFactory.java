@@ -109,7 +109,7 @@ public class SkillFactory {
 				skillid = Integer.parseInt(data2.getName());
                                 
                                 
-                                    System.out.println("Skilld ID: "+data2.getName());
+                                 
                                     
 				skills.put(skillid, loadFromData(skillid, data2));
 			    }
