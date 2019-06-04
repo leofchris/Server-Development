@@ -125,7 +125,7 @@ public class Server implements Runnable {
     @Override
     public void run() {
         
-        System.setProperty("wzpath", "C:\\Users\\Chris\\Documents\\Server\\Server-Development\\wz");
+        System.setProperty("wzpath", "C:\\Users\\Chris\\Downloads\\Server-Development\\wz");
         Properties p = new Properties();
         try {
             p.load(new FileInputStream("moople.ini"));

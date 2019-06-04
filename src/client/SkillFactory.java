@@ -107,6 +107,10 @@ public class SkillFactory {
 			for (MapleData data2 : data) { // Loop thru each jobs
 			    if (data2 != null) {
 				skillid = Integer.parseInt(data2.getName());
+                                
+                                
+                                    System.out.println("Skilld ID: "+data2.getName());
+                                    
 				skills.put(skillid, loadFromData(skillid, data2));
 			    }
 			}
@@ -120,12 +124,14 @@ public class SkillFactory {
         boolean isBuff = false;
         int skillType = MapleDataTool.getInt("skillType", data, -1);
         String elem = MapleDataTool.getString("elemAttr", data, null);
+      
         if (elem != null) {
             ret.element = Element.getFromChar(elem.charAt(0));
         } else {
             ret.element = Element.NEUTRAL;
         }
         MapleData effect = data.getChildByPath("effect");
+        
         MapleData level = data.getChildByPath("level");
         if (skillType != -1) {
             if (skillType == 2) {
@@ -353,11 +359,12 @@ public class SkillFactory {
                     break;
             }
         }
-        
+      
         if (level != null) {
         for (MapleData levelEntry : level) {
-            ret.effects.add(MapleStatEffect.loadSkillEffectFromData(level, id, isBuff));
+            ret.effects.add(MapleStatEffect.loadSkillEffectFromData(levelEntry, id, isBuff));
         }
+        
        }
         ret.animationTime = 0;
         if (effect != null) {
