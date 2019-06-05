@@ -1,0 +1,69 @@
+1. Packet Sent: 0x0E
+Odin = getHello
+Nexon = ??
+
+2. Packet Receieved: (0x01)
+Odin = LOGIN_STATUS
+Nexon = ??
+Handler = LoginPasswordHandler.java
+
+3. Packet Sent: (0x00)
+Odin = LOGIN_STATUS
+Nexon = OnCheckPasswordResult
+
+4. Packet Receieved:(0x09)
+Odin = AFTER_LOGIN
+Nexon = ??
+Handler = AfterLoginHandler.java
+
+5. Packet sent: (0x06)
+Odin = Check_PINCODE
+Nexon = OnCheckPinCodeResult
+
+6. Packet Receieved:(0x09)
+Odin = AFTER_LOGIN
+Nexon = ??
+Handler = AfterLoginHandler.java
+
+7. Packet sent: (0x06)
+Odin = Check_PINCODE
+Nexon = OnCheckPinCodeResult
+
+8. Packet Recieved:(0x0B)
+odin = SERVERLIST_REQUEST
+Nexon = ??
+Handler = ServerlistRequestHandler.java
+
+9. Packet Sent: (0x0A)
+odin = SERVERLIST
+nexon = OnWorldInformation
+
+10. Packet Sent: (0x0A)
+odin = SERVERLIST
+nexon = OnWorldInformation
+
+11. Packet Sent: (0x18)
+Odin = Last_Connected_World
+Nexon = OnLatestConnectedWorld
+
+12. Packet Sent: (0x19)
+odin = RECOMMENDED_WORLD_MESSAGE
+nexon = OnRecommendWorldMessage
+
+13. Packet Receieved: (0x06)
+odin = SERVERSTATUS_REQUEST
+nexon = ??
+Handler = ServerStatusRequestHandler.java
+
+14. Packet Sent: (0x03)
+Odin = SERVERSTATUS
+Nexon = OnCheckUserLimitResult
+
+15. Packet Recieved: (0x05)
+odin = CHARLIST_REQUEST
+nexon = ??
+Handler = CharlistrequestHandler.java
+
+16. Packet Sent: (0x0B)
+odin = charlist
+nexon = OnSelectWorldResult
