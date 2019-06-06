@@ -665,7 +665,7 @@ public class MaplePacketCreator {
       //0x19: You're logging in from outside of the service region
       //0x00|0x0C: Successful Login
       
-      mplew.write(0x00);
+      mplew.write(0x00); //sMsg
       //0x00|0x01: Successful Login
       //0x02 >: This account has not been verified
       
@@ -673,36 +673,33 @@ public class MaplePacketCreator {
       //Padding Pretty sure it does nothing
       
       if (sw > 1){
-          mplew.write(0xc7);
-          //0x28 >=: Perma Ban message
+          mplew.write(0);
+          //0x28: Your account has been blocked for using software temp ban
           //0x63: You have been blocked for typing in an invalid password or pincode 5 times
           //0xC7: You have been blocked for typing in an valid password or pincode 10 times
-          //0x12B: The ID has been permanetly blocked
+          //0x12B: Temp Ban
           mplew.writeLong(0);
+          //Padding Pretty sure it does nothing
       }
       
-      //mplew.write(0);
+    
+      mplew.writeInt(0); //BlockReasons
+      mplew.write(0); //BlockReasonIteR?
+      mplew.write(0); //nGradeCode ?
+      mplew.writeShort(0); // Waste Variable pretty sure
+      mplew.write(0); //Country ID
+      mplew.writeMapleAsciiString(""); //NexonClubID
+      mplew.write(0); // PurchaseEXP
+      mplew.write(0); //sMsg2
+      mplew.writeLong(0); //ChatUnblockDatae
+      mplew.writeLong(0); //ReigsterDate
+      mplew.writeInt(0); //nNumofCharacter ?
       
-    //  mplew.writeAsciiString("yooooooo");
-      
-      mplew.writeInt(0);
-      
-      
       mplew.write(0);
-      mplew.write(0);
-      mplew.writeShort(0);
-      mplew.write(0);
-      mplew.writeMapleAsciiString("");
-      mplew.write(0);
-      mplew.write(0);
+      //0x01: Disable Pin Operation
+      //0x02: Enable Pin Operation
+      mplew.write(0); //sMsg
       mplew.writeLong(0);
-      mplew.writeLong(0);
-      mplew.writeInt(0);
-      
-      mplew.write(0); //Enable or Disable Pin
-      mplew.write(0);
-      mplew.writeLong(0);
-      
       
       return mplew.getPacket();
         
