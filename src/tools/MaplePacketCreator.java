@@ -642,26 +642,72 @@ public class MaplePacketCreator {
      */
     public static byte[] getAuthSuccess(MapleClient c) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.LOGIN_STATUS.getValue());
-        mplew.writeInt(0);
-        mplew.writeShort(0);
-        mplew.writeInt(c.getAccID()); //user id
-        mplew.write(c.getGender());
-        mplew.writeBool(c.gmLevel() > 0); //admin byte
-        short toWrite = (short) (c.gmLevel() * 32);
-        //toWrite = toWrite |= 0x100; only in higher versions
-        mplew.write(toWrite > 0x80 ? 0x80 : toWrite);//0x80 is admin, 0x20 and 0x40 = subgm
-        mplew.writeBool(c.gmLevel() > 0);
-        //mplew.writeShort(toWrite > 0x80 ? 0x80 : toWrite); only in higher versions...
-        mplew.writeMapleAsciiString(c.getAccountName());
-        mplew.write(0);
-        mplew.write(0); //isquietbanned
-        mplew.writeLong(0);//isquietban time
-        mplew.writeLong(0); //creation time
-        mplew.writeInt(0);
-        mplew.writeShort(2);//PIN
+      mplew.writeShort(SendOpcode.LOGIN_STATUS.getValue());
+      int sw = 2;
+      
+      mplew.write(sw); 
+      /* Notes */
+     
+      //0x17: TOS
+      //0x1B: Ask to download Full Client
+      //0xFFFFFFFF|0x06|0x08|0x09: Troubles logging in
+      //0x02|0x03: This is an ID that has been deleted or blocked
+      //0x0D: Unable to Log-on as a master at UP
+      //0x05: This is not a registered ID
+      //0x04: This is an incorrect Password
+      //0x07: This is an ID that is already loggedin, or the server is under inspection
+      //0x0A: Could Not be processed due to too many questions requests to the server
+      //0x0B: Only those who are 20 years old or older can use this
+      //0x0E: You have either selected the wrong gateway or you have yet to change your personal information
+      //0x0F: We're still processing your request at this time, so you dont have access to this game for now
+      //0x10|0x15: Please verify your account via email in order to play the game
+      //0x11: Same as 0x0E? 
+      //0x19: You're logging in from outside of the service region
+      //0x00|0x0C: Successful Login
+      
+      mplew.write(0x00);
+      //0x00|0x01: Successful Login
+      //0x02 >: This account has not been verified
+      
+      mplew.writeInt(0);
+      //Padding Pretty sure it does nothing
+      
+      if (sw > 1){
+          mplew.write(0xc7);
+          //0x28 >=: Perma Ban message
+          //0x63: You have been blocked for typing in an invalid password or pincode 5 times
+          //0xC7: You have been blocked for typing in an valid password or pincode 10 times
+          //0x12B: The ID has been permanetly blocked
+          mplew.writeLong(0);
+      }
+      
+      //mplew.write(0);
+      
+    //  mplew.writeAsciiString("yooooooo");
+      
+      mplew.writeInt(0);
+      
+      
+      mplew.write(0);
+      mplew.write(0);
+      mplew.writeShort(0);
+      mplew.write(0);
+      mplew.writeMapleAsciiString("");
+      mplew.write(0);
+      mplew.write(0);
+      mplew.writeLong(0);
+      mplew.writeLong(0);
+      mplew.writeInt(0);
+      
+      mplew.write(0); //Enable or Disable Pin
+      mplew.write(0);
+      mplew.writeLong(0);
+      
+      
+      return mplew.getPacket();
         
-        return mplew.getPacket();
+        
+     
         
     }
 
@@ -825,13 +871,22 @@ public class MaplePacketCreator {
         for (MapleCharacter chr : chars) {
             addCharEntry(mplew, chr, false);
         }
+        
+      
+       
         if (ServerConstants.ENABLE_PIC) {
             mplew.write(c.getPic() == null || c.getPic().length() == 0 ? 0 : 1);
         } else {
             mplew.write(2);
         }
-
+        
+          mplew.writeLong(0);
+          mplew.writeShort(0);
+          
+          mplew.writeShort(0);
         mplew.writeInt(c.getCharacterSlots());
+        mplew.writeInt(0);
+        
         return mplew.getPacket();
     }
 
