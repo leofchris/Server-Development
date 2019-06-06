@@ -700,6 +700,7 @@ public class MaplePacketCreator {
       //0x02: Enable Pin Operation
       mplew.write(0); //sMsg
       mplew.writeLong(0);
+      //Padding sure it does nothing
       
       return mplew.getPacket();
         
