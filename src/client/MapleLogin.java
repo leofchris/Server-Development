@@ -14,6 +14,7 @@ public class MapleLogin {
     private byte banStatus = 0;
     private byte loginStatus = 0;
     private byte gReason = 0;
+ 
     
     public void setBanStatus(byte x){
         this.banStatus = x;

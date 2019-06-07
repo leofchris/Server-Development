@@ -348,7 +348,7 @@ public class MapleClient {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos, loggedin, verified FROM accounts WHERE name = ?");
+            ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos, verified FROM accounts WHERE name = ?");
             ps.setString(1, userName);
             rs = ps.executeQuery();
             if (rs.next()) {
