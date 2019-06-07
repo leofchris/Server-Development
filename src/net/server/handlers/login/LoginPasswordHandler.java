@@ -44,7 +44,7 @@ public final class LoginPasswordHandler implements MaplePacketHandler {
         
         MapleLogin loginok = new MapleLogin();
         
-        loginok = c.login(userName, password);
+       loginok = c.login(userName, password);
        c.announce(MaplePacketCreator.getAuthSuccess(c, loginok));
         
     }
