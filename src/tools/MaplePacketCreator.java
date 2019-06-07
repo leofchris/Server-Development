@@ -1,16 +1,15 @@
+
 /*
  This file is part of the OdinMS Maple Story Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
-
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Affero General Public License as
  published by the Free Software Foundation version 3 as published by
  the Free Software Foundation. You may not use, modify or distribute
  this program under any other version of the GNU Affero General Public
  License.
-
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -50,10 +49,15 @@ import java.awt.Point;
 import java.net.InetAddress;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -640,14 +644,13 @@ public class MaplePacketCreator {
      * @param account The account name.
      * @return The PIN request packet.
      */
-    public static byte[] getAuthSuccess(MapleClient c) {
-        final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-      mplew.writeShort(SendOpcode.LOGIN_STATUS.getValue());
-      int sw = 2;
-      
-      mplew.write(sw); 
-      /* Notes */
+    public static byte[] getAuthSuccess(MapleClient c, int loginok) {
      
+      final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();  
+      mplew.writeShort(SendOpcode.LOGIN_STATUS.getValue());
+      
+      mplew.write(loginok); 
+      /* Notes */
       //0x17: TOS
       //0x1B: Ask to download Full Client
       //0xFFFFFFFF|0x06|0x08|0x09: Troubles logging in
@@ -664,25 +667,27 @@ public class MaplePacketCreator {
       //0x11: Same as 0x0E? 
       //0x19: You're logging in from outside of the service region
       //0x00|0x0C: Successful Login
-      
+    
       mplew.write(0x00); //sMsg
       //0x00|0x01: Successful Login
-      //0x02 >: This account has not been verified
+      //0x01 >: This account has not been verified
       
-      mplew.writeInt(0);
+      mplew.writeInt(0x00);
       //Padding Pretty sure it does nothing
       
-      if (sw > 1){
-          mplew.write(0);
+      if (loginok == 0x02){
+          
+          mplew.write(0x12B); //reasoning
+          //0x00: Default - This is an ID that has ben deleted or blocked from connection
           //0x28: Your account has been blocked for using software temp ban
           //0x63: You have been blocked for typing in an invalid password or pincode 5 times
           //0xC7: You have been blocked for typing in an valid password or pincode 10 times
-          //0x12B: Temp Ban
-          mplew.writeLong(0);
-          //Padding Pretty sure it does nothing
-      }
+          //0x12B: You can login after 00/00/0000 0:00 am/pm 
       
-    
+           mplew.writeLong(0); //dtUnblockDate
+          //Determines how long you will be ban for 00:00:00
+      }
+         
       mplew.writeInt(0); //BlockReasons
       mplew.write(0); //BlockReasonIteR?
       mplew.write(0); //nGradeCode ?
@@ -695,14 +700,15 @@ public class MaplePacketCreator {
       mplew.writeLong(0); //ReigsterDate
       mplew.writeInt(0); //nNumofCharacter ?
       
-      mplew.write(0);
+      mplew.writeBool(ServerConstants.DISABLE_PIN);
       //0x01: Disable Pin Operation
-      //0x02: Enable Pin Operation
+      //0x00: Enable Pin Operation
+          
       mplew.write(0); //sMsg
-      mplew.writeLong(0);
+      mplew.writeLong(0); //vParam.boolVal
       //Padding sure it does nothing
       
-      return mplew.getPacket();
+      return mplew.getPacket(); 
         
         
      

@@ -342,19 +342,16 @@ public class MapleClient {
             getSession().close(true);
         }
        
-        login = "pllsz";
         int loginok = 5;
         Connection con = DatabaseConnection.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos FROM accounts WHERE name = ?");
+            ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos, loggedin, verified FROM accounts WHERE name = ?");
             ps.setString(1, login);
             rs = ps.executeQuery();
             if (rs.next()) {
-                if (rs.getByte("banned") == 1) {
-                    return 3;
-                }
+               
                 accId = rs.getInt("id");
                 gmlevel = rs.getInt("gm");
                 pin = rs.getString("pin");
@@ -363,20 +360,29 @@ public class MapleClient {
                 characterSlots = rs.getByte("characterslots");
                 String passhash = rs.getString("password");
                 String salt = rs.getString("salt");
-
-                //we do not unban
                 byte tos = rs.getByte("tos");
-                ps.close();
-                rs.close();
-                 pwd = passhash;
-                if (getLoginState() > LOGIN_NOTLOGGEDIN) { // already loggedin
+                byte banned = rs.getByte("banned");
+                byte verified = rs.getByte("verified");
+                 
+                if (banned > 0){
+                    
+                   
+                        loginok = 2;
+                   
+                    
+                }else if (getLoginState() > LOGIN_NOTLOGGEDIN) { // already loggedin
                     loggedIn = false;
                     loginok = 7;
                    
+                } else if (verified == 0) {
+                
+                      loginok = 16;
+                
                 } else if (pwd.equals(passhash) || checkHash(passhash, "SHA-1", pwd) || checkHash(passhash, "SHA-512", pwd + salt)) {
                     if (tos == 0) {
                         loginok = 23;
                     } else {
+                        loggedIn = true;
                         loginok = 0;
                     }
                 } else {
@@ -388,6 +394,14 @@ public class MapleClient {
                 ps.setInt(1, accId);
                 ps.setString(2, session.getRemoteAddress().toString());
                 ps.executeUpdate();
+                
+                 ps.close();
+                 rs.close();
+                 
+            }
+            
+            else {
+                loginok = 5;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -404,8 +418,11 @@ public class MapleClient {
         }
 
         if (loginok == 0) {
+           
             loginattempt = 0;
         }
+       
+     
         return loginok;
     }
 
@@ -852,33 +869,25 @@ public class MapleClient {
     }
 
     public boolean acceptToS() {
-        boolean disconnectForBeingAFaggot = false;
-        if (accountName == null) {
-            return true;
-        }
+    
         try {
-            PreparedStatement ps = DatabaseConnection.getConnection().prepareStatement("SELECT `tos` FROM accounts WHERE id = ?");
-            ps.setInt(1, accId);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                if (rs.getByte("tos") == 1) {
-                    disconnectForBeingAFaggot = true;
-                }
-            }
-            ps.close();
-            rs.close();
-            ps = DatabaseConnection.getConnection().prepareStatement("UPDATE accounts SET tos = 1 WHERE id = ?");
+            PreparedStatement ps = DatabaseConnection.getConnection().prepareStatement("UPDATE accounts SET tos = 1 WHERE id = ?");
             ps.setInt(1, accId);
             ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {
+            return false;
         }
-        return disconnectForBeingAFaggot;
+       return true;
     }
 
     public final Lock getLock() {
         return mutex;
+    }
+    
+    public void setLoggedIn (boolean loggedIN){
+        this.loggedIn = loggedIN;
+        
     }
 
     private static class CharNameAndId {

@@ -13,19 +13,26 @@ public final class AcceptToSHandler extends AbstractMaplePacketHandler {
 
     @Override
     public boolean validateState(MapleClient c) {
+     
         return !c.isLoggedIn();
     }
 
     @Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-        if (slea.available() == 0 || slea.readByte() != 1 || c.acceptToS()) {
-            c.disconnect(false, false);//Client dc's but just because I am cool I do this (:
-            return;
+       
+        byte loginok = 0;
+        boolean loggedIn = true;
+        
+        if (!c.acceptToS()){
+        
+           loggedIn = false;
+           loginok = 0x02;
+         
         }
-        if (c.finishLogin() == 0) {
-            c.announce(MaplePacketCreator.getAuthSuccess(c));
-        } else {
-            c.announce(MaplePacketCreator.getLoginFailed(9));//shouldn't happen XD
-        }
+            
+        
+        c.setLoggedIn(loggedIn);
+        c.announce(MaplePacketCreator.getAuthSuccess(c, loginok));
+        
     }
 }

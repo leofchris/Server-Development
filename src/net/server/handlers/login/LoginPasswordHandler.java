@@ -37,40 +37,11 @@ public final class LoginPasswordHandler implements MaplePacketHandler {
 
     @Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-        int loginok;
-        String login = slea.readMapleAsciiString();
+        int  loginok;
         String pwd = slea.readMapleAsciiString();
-        c.setAccountName(login);
+        String login = slea.readMapleAsciiString();
+        
         loginok = c.login(login, pwd);
-
-        if (c.hasBannedIP() || c.hasBannedMac()) {
-            c.announce(MaplePacketCreator.getLoginFailed(3));
-        }
-        Calendar tempban = c.getTempBanCalendar();
-        if (tempban != null) {
-            if (tempban.getTimeInMillis() > System.currentTimeMillis()) {
-                c.announce(MaplePacketCreator.getTempBan(tempban.getTimeInMillis(), c.getGReason()));
-                return;
-            }
-        }
-        if (loginok == 3) {
-            c.announce(MaplePacketCreator.getPermBan(c.getGReason()));//crashes but idc :D
-            return;
-        } else if (loginok != 0) {
-            c.announce(MaplePacketCreator.getLoginFailed(loginok));
-            return;
-        }
-        if (c.finishLogin() == 0) {
-            c.announce(MaplePacketCreator.getAuthSuccess(c));//why the fk did I do c.getAccountName()?
-            final MapleClient client = c;
-            c.setIdleTask(TimerManager.getInstance().schedule(new Runnable() {
-                @Override
-                public void run() {
-                    client.disconnect(false, false);
-                }
-            }, 600000));
-        } else {
-            c.announce(MaplePacketCreator.getLoginFailed(7));
-        }
+        c.announce(MaplePacketCreator.getAuthSuccess(c, loginok));
     }
 }
