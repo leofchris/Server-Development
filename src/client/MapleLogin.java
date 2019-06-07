@@ -23,11 +23,15 @@ public class MapleLogin {
         this.loginStatus = x;
     }
     
-    public void setgRason(byte x){
+    public void setgReason(byte x){
         this.gReason = x;
     }
     
     public byte getLoginStatus(){
         return loginStatus;
+    }
+    
+    public byte getsetgReason(){
+        return gReason;
     }
 }

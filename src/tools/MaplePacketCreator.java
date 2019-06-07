@@ -678,7 +678,7 @@ public class MaplePacketCreator {
       
       if (login.getLoginStatus() == 0x02){
           
-          mplew.write(0x12B); //reasoning
+          mplew.write(login.getsetgReason()); //reasoning
           //0x00: Default - This is an ID that has ben deleted or blocked from connection
           //0x28: Your account has been blocked for using software temp ban
           //0x63: You have been blocked for typing in an invalid password or pincode 5 times
