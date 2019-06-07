@@ -27,6 +27,7 @@ import client.MapleClient;
 import client.MapleDisease;
 import client.MapleFamilyEntry;
 import client.MapleKeyBinding;
+import client.MapleLogin;
 import client.MapleMount;
 import client.MapleQuestStatus;
 import client.MapleRing;
@@ -644,12 +645,12 @@ public class MaplePacketCreator {
      * @param account The account name.
      * @return The PIN request packet.
      */
-    public static byte[] getAuthSuccess(MapleClient c, int loginok) {
+    public static byte[] getAuthSuccess(MapleClient c, MapleLogin login) {
      
       final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();  
       mplew.writeShort(SendOpcode.LOGIN_STATUS.getValue());
       
-      mplew.write(loginok); 
+      mplew.write(login.getLoginStatus()); 
       /* Notes */
       //0x17: TOS
       //0x1B: Ask to download Full Client
@@ -675,7 +676,7 @@ public class MaplePacketCreator {
       mplew.writeInt(0x00);
       //Padding Pretty sure it does nothing
       
-      if (loginok == 0x02){
+      if (login.getLoginStatus() == 0x02){
           
           mplew.write(0x12B); //reasoning
           //0x00: Default - This is an ID that has ben deleted or blocked from connection

@@ -336,19 +336,20 @@ public class MapleClient {
         return false;
     }
 
-    public int login(String login, String pwd) {
+    public MapleLogin login(String userName, String password) {
+        
+        MapleLogin loginID = new MapleLogin();
         loginattempt++;
         if (loginattempt > 4) {
             getSession().close(true);
         }
        
-        int loginok = 5;
         Connection con = DatabaseConnection.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos, loggedin, verified FROM accounts WHERE name = ?");
-            ps.setString(1, login);
+            ps.setString(1, userName);
             rs = ps.executeQuery();
             if (rs.next()) {
                
@@ -366,28 +367,27 @@ public class MapleClient {
                  
                 if (banned > 0){
                     
+                 loginID.setBanStatus((byte)1);
+                 loginID.setloginStatus((byte)2);
                    
-                        loginok = 2;
-                   
-                    
                 }else if (getLoginState() > LOGIN_NOTLOGGEDIN) { // already loggedin
                     loggedIn = false;
-                    loginok = 7;
+                    loginID.setloginStatus((byte)7);
                    
                 } else if (verified == 0) {
                 
-                      loginok = 16;
+                     loginID.setloginStatus((byte)16);
                 
-                } else if (pwd.equals(passhash) || checkHash(passhash, "SHA-1", pwd) || checkHash(passhash, "SHA-512", pwd + salt)) {
+                } else if (password.equals(passhash) || checkHash(passhash, "SHA-1", password) || checkHash(passhash, "SHA-512", password + salt)) {
                     if (tos == 0) {
-                        loginok = 23;
+                       loginID.setloginStatus((byte)23);
                     } else {
                         loggedIn = true;
-                        loginok = 0;
+                        loginID.setloginStatus((byte)0);
                     }
                 } else {
                     loggedIn = false;
-                    loginok = 4;
+                   loginID.setloginStatus((byte)4);;
                 }
 
                 ps = con.prepareStatement("INSERT INTO iplog (accountid, ip) VALUES (?, ?)");
@@ -401,7 +401,7 @@ public class MapleClient {
             }
             
             else {
-                loginok = 5;
+                loginID.setloginStatus((byte)5);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -417,13 +417,13 @@ public class MapleClient {
             }
         }
 
-        if (loginok == 0) {
+        if (loginID.getLoginStatus() == 0) {
            
             loginattempt = 0;
         }
        
      
-        return loginok;
+        return loginID;
     }
 
     public Calendar getTempBanCalendar() {

@@ -25,6 +25,7 @@ import client.MapleClient;
 import java.util.Calendar;
 import net.MaplePacketHandler;
 import server.TimerManager;
+import client.MapleLogin;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
 
@@ -37,11 +38,14 @@ public final class LoginPasswordHandler implements MaplePacketHandler {
 
     @Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-        int  loginok;
-        String pwd = slea.readMapleAsciiString();
-        String login = slea.readMapleAsciiString();
+       
+        String password = slea.readMapleAsciiString();
+        String userName = slea.readMapleAsciiString();
         
-        loginok = c.login(login, pwd);
-        c.announce(MaplePacketCreator.getAuthSuccess(c, loginok));
+        MapleLogin loginok = new MapleLogin();
+        
+        loginok = c.login(userName, password);
+       c.announce(MaplePacketCreator.getAuthSuccess(c, loginok));
+        
     }
 }

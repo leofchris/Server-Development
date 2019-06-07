@@ -32,7 +32,7 @@ public final class AcceptToSHandler extends AbstractMaplePacketHandler {
             
         
         c.setLoggedIn(loggedIn);
-        c.announce(MaplePacketCreator.getAuthSuccess(c, loginok));
+    
         
     }
 }
