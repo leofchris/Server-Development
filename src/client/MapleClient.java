@@ -80,6 +80,7 @@ public class MapleClient {
     private IoSession session;
     private MapleCharacter player;
     private int channel = 1;
+    private int characterID = 0;
     private int accId = 1;
     private boolean loggedIn = false;
     private boolean serverTransition = false;
@@ -87,6 +88,7 @@ public class MapleClient {
     private String accountName = null;
     private int world;
     private long lastPong;
+    private short greason;
     private int gmlevel;
     private Set<String> macs = new HashSet<>();
     private Map<String, ScriptEngine> engines = new HashMap<>();
@@ -348,7 +350,7 @@ public class MapleClient {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos, verified FROM accounts WHERE name = ?");
+            ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos, verified, greason FROM accounts WHERE name = ?");
             ps.setString(1, userName);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -364,12 +366,32 @@ public class MapleClient {
                 byte tos = rs.getByte("tos");
                 byte banned = rs.getByte("banned");
                 byte verified = rs.getByte("verified");
-                 
+                greason = rs.getShort("greason");
+               
+               if (getTempBanCalendar() != null && banned > 0) {
+                   
+                   if (getTempBanCalendar().getTimeInMillis() > System.currentTimeMillis()) {
+                   
+                   try {
+                   banned = 0;
+                   con = DatabaseConnection.getConnection();
+                   ps = con.prepareStatement("UPDATE accounts SET banned = ?, tempban = DEFAULT WHERE name = ?");
+                   ps.setInt(1, banned); 
+                   ps.setString(2, userName);
+                   ps.executeUpdate();
+                   ps.close();
+                   }catch (SQLException e) {
+                         e.printStackTrace();
+                    }
+                   }
+               }
+               
                 if (banned > 0){
                     
-                 loginID.setBanStatus((byte)1);
                  loginID.setloginStatus((byte)2);
-                   
+                 loginID.setgReason(greason);
+                 loginID.setbanDate(getTempBanCalendar());
+                    
                 }else if (getLoginState() > LOGIN_NOTLOGGEDIN) { // already loggedin
                     loggedIn = false;
                     loginID.setloginStatus((byte)7);
@@ -394,10 +416,9 @@ public class MapleClient {
                 ps.setInt(1, accId);
                 ps.setString(2, session.getRemoteAddress().toString());
                 ps.executeUpdate();
-                
-                 ps.close();
-                 rs.close();
-                 
+                ps.close();
+                rs.close();
+     
             }
             
             else {
@@ -425,7 +446,7 @@ public class MapleClient {
      
         return loginID;
     }
-
+    
     public Calendar getTempBanCalendar() {
         Connection con = DatabaseConnection.getConnection();
         PreparedStatement ps = null;
@@ -442,7 +463,9 @@ public class MapleClient {
             if (blubb == 0) { // basically if timestamp in db is 0000-00-00
                 return null;
             }
+           
             lTempban.setTimeInMillis(rs.getTimestamp("tempban").getTime());
+           
             return lTempban;
         } catch (SQLException e) {
         } finally {
@@ -455,8 +478,11 @@ public class MapleClient {
                 }
             } catch (SQLException e) {
             }
+             
         }
+         
         return null;//why oh why!?!
+         
     }
 
     public static long dottedQuadToLong(String dottedQuad) throws RuntimeException {
@@ -734,10 +760,14 @@ public class MapleClient {
         this.send = null;
         //this.session = null;
     }
+    
+ 
 
     public int getChannel() {
         return channel;
     }
+    
+   
 
     public Channel getChannelServer() {
         return Server.getInstance().getChannel(world, channel);
@@ -839,7 +869,7 @@ public class MapleClient {
     public int gmLevel() {
         return this.gmlevel;
     }
-
+   
     public void setScriptEngine(String name, ScriptEngine e) {
         engines.put(name, e);
     }

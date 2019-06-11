@@ -127,7 +127,7 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
     public void writeAsciiString(String s) {
         write(s.getBytes(ASCII));
     }
-
+    
     /**
      * Writes a maple-convention ASCII string to the stream.
      *

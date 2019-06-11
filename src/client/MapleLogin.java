@@ -5,16 +5,20 @@
  */
 package client;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 /**
  *
  * @author Chris
  */
 public class MapleLogin {
-    
+   
+    Calendar banDate = new GregorianCalendar();
     private byte banStatus = 0;
     private byte loginStatus = 0;
-    private byte gReason = 0;
- 
+    private short gReason = 0;
     
     public void setBanStatus(byte x){
         this.banStatus = x;
@@ -24,15 +28,28 @@ public class MapleLogin {
         this.loginStatus = x;
     }
     
-    public void setgReason(byte x){
+    public void setgReason(short x){
         this.gReason = x;
+    }
+    
+    public void setbanDate(Calendar x){
+        
+        this.banDate = x;
     }
     
     public byte getLoginStatus(){
         return loginStatus;
     }
     
-    public byte getsetgReason(){
+    public short getsetgReason(){
         return gReason;
     }
+    
+    public long getbanDate(){
+        return banDate.getTimeInMillis();
+    }
+    
+   
+    
+    
 }

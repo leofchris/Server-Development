@@ -23,16 +23,16 @@ package net;
 
 public enum SendOpcode {
 
-    LOGIN_STATUS(0x00),
+    OnCheckPassWordResult(0x00),
     GUEST_ID_LOGIN(0x01),
     ACCOUNT_INFO(0x02),//I guess this was in v83 too :)
     SERVERSTATUS(0x03),//CHECK_USER_LIMIT_RESULT
     GENDER_DONE(0x04),//SET_ACCOUNT_RESULT
     CONFIRM_EULA_RESULT(0x05),
-    CHECK_PINCODE(0x06),
+    OnCheckPinCodeResult(0x06),
     UPDATE_PINCODE(0x07),
     
-    VIEW_ALL_CHAR(0x08),
+    OnViewAllCharResult(0x08),
     SELECT_CHARACTER_BY_VAC(0x09),
     
     SERVERLIST(0x0A),

@@ -28,6 +28,7 @@ import client.MapleDisease;
 import client.MapleFamilyEntry;
 import client.MapleKeyBinding;
 import client.MapleLogin;
+import client.MapleViewAllCharacter;
 import client.MapleMount;
 import client.MapleQuestStatus;
 import client.MapleRing;
@@ -48,6 +49,7 @@ import constants.ItemConstants;
 import constants.ServerConstants;
 import java.awt.Point;
 import java.net.InetAddress;
+import java.nio.charset.Charset;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -565,7 +567,7 @@ public class MaplePacketCreator {
      */
     public static byte[] getLoginFailed(int reason) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(8);
-        mplew.writeShort(SendOpcode.LOGIN_STATUS.getValue());
+        mplew.writeShort(SendOpcode.OnCheckPassWordResult.getValue());
         mplew.write(reason);
         mplew.write(0);
         mplew.writeInt(0);
@@ -616,7 +618,7 @@ public class MaplePacketCreator {
 
     public static byte[] getPermBan(byte reason) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.LOGIN_STATUS.getValue());
+        mplew.writeShort(SendOpcode.OnCheckPassWordResult.getValue());
         mplew.write(2); // Account is banned
         mplew.write(0);
         mplew.writeInt(0);
@@ -628,7 +630,7 @@ public class MaplePacketCreator {
 
     public static byte[] getTempBan(long timestampTill, byte reason) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(17);
-        mplew.writeShort(SendOpcode.LOGIN_STATUS.getValue());
+        mplew.writeShort(SendOpcode.OnCheckPassWordResult.getValue());
         mplew.write(2);
         mplew.write(0);
         mplew.writeInt(0);
@@ -648,7 +650,7 @@ public class MaplePacketCreator {
     public static byte[] getAuthSuccess(MapleClient c, MapleLogin login) {
      
       final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();  
-      mplew.writeShort(SendOpcode.LOGIN_STATUS.getValue());
+      mplew.writeShort(SendOpcode.OnCheckPassWordResult.getValue());
       
       mplew.write(login.getLoginStatus()); 
       /* Notes */
@@ -685,7 +687,8 @@ public class MaplePacketCreator {
           //0xC7: You have been blocked for typing in an valid password or pincode 10 times
           //0x12B: You can login after 00/00/0000 0:00 am/pm 
       
-           mplew.writeLong(0); //dtUnblockDate
+           mplew.writeLong((long)(login.getbanDate()*10000+116444592000000000L)); //dtUnblockDate
+           
           //Determines how long you will be ban for 00:00:00
       }
          
@@ -729,8 +732,12 @@ public class MaplePacketCreator {
      */
     private static byte[] pinOperation(byte mode) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(3);
-        mplew.writeShort(SendOpcode.CHECK_PINCODE.getValue());
+        mplew.writeShort(SendOpcode.OnCheckPinCodeResult.getValue());
         mplew.write(mode);
+        //0x00: when pin is success
+        //0x01 Register Pin
+        //0x02 Error re try pin
+        //0x04 Enter Pin
         return mplew.getPacket();
     }
 
@@ -4311,24 +4318,97 @@ public class MaplePacketCreator {
         return mplew.getPacket();
     }
 
-    public static byte[] showAllCharacter(int chars, int unk) {
+    public static byte[] showAllCharacter(MapleViewAllCharacter viewallchar) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(11);
-        mplew.writeShort(SendOpcode.VIEW_ALL_CHAR.getValue());
-        mplew.write(1);
-        mplew.writeInt(chars);
-        mplew.writeInt(unk);
-        return mplew.getPacket();
+      mplew.writeShort(SendOpcode.OnViewAllCharResult.getValue());
+      
+      mplew.write(0x01);
+      //0x01: Go into case 1
+      mplew.writeInt(viewallchar.getnCountRelatedSvrs()); //nCountRelatedSvrs
+      //Number of servers you have characters on
+      mplew.writeInt(viewallchar.getnCountCharacters()); //nCountCharacters
+      //Number of Characters Total?
+      return mplew.getPacket();
+        
     }
 
-    public static byte[] showAllCharacterInfo(int worldid, List<MapleCharacter> chars) {
+    public static byte[] showAllCharacterInfo(MapleViewAllCharacter viewallchar, MapleClient c, int nWorldID) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.VIEW_ALL_CHAR.getValue());
+     
+        
+        mplew.writeShort(SendOpcode.OnViewAllCharResult.getValue());
+        
+        mplew.write(0x00); // Switch Statement goes into Case 0
+       
+        mplew.write(nWorldID); //nWorldID
+        
+        mplew.write(viewallchar.getNumberOfCharacterInworld(nWorldID)); //Loop through Characters
+        
+        for (int currentCharacterCount = 0; currentCharacterCount < viewallchar.getNumberOfCharacterInworld(nWorldID); currentCharacterCount++) {
+      
+        //GW_CharacterStat::Decode
+        mplew.writeInt(viewallchar.getCharID(currentCharacterCount)); //dwCharacterID TODO
+   
+        //Name of Character
+        mplew.writeAsciiString(StringUtil.getRightPaddedStr(viewallchar.getCharName(currentCharacterCount), '\0', 13));
+        
+        mplew.write(0); //nGender
+        mplew.write(3); //nSkin
+        mplew.writeInt(20001); //nFace
+        mplew.writeInt(30022); //nHair
+        
+        mplew.writeLong(0);//Something with pets
+        mplew.writeLong(0);
+        mplew.writeLong(0);
+        
+        mplew.write(255); //Level
+        mplew.writeShort(910); //Job
+        mplew.writeShort(32767); //Str
+        mplew.writeShort(32767); //Dex
+        mplew.writeShort(32767); //Int
+        mplew.writeShort(32767); //Luk
+        mplew.writeInt(30000); //Hp
+        mplew.writeInt(30000); //maxHP;
+        mplew.writeInt(30000); //mp
+        mplew.writeInt(30000); //maxmP;
+        mplew.writeShort(95); //AP
+           
+        mplew.writeShort(68); //SP
+        mplew.writeInt(78); //exp
+        mplew.writeShort(0);//pop
+        mplew.writeInt(0); //tempEXP
+        mplew.writeInt(7); //spawnPoint
+           
+        mplew.write(0);//nmportal
+        mplew.writeInt(0);//nPlayTime
+        mplew.writeShort(0);//nSubJob
+           
+           //Avataor
+        mplew.write(0); //nGender
+        mplew.write(3); //nSkin
+        mplew.writeInt(20001); //nFace
+        mplew.write(0);//
+        mplew.writeInt(30022); //Hair?
+        
+        
+        mplew.write(-1);
+        mplew.write(-1);
+     
+        mplew.writeInt(0);
+        
+        mplew.writeLong(0);
+        mplew.writeInt(0);
+        
+        //Ranking
         mplew.write(0);
-        mplew.write(worldid);
-        mplew.write(chars.size());
-        for (MapleCharacter chr : chars) {
-            addCharEntry(mplew, chr, true);
-        }
+        
+      }
+        
+       if (nWorldID == viewallchar.getWorldSize()-1){
+           mplew.write(0); 
+           
+       }
+        
         return mplew.getPacket();
     }
 
