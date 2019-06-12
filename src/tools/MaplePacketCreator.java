@@ -152,18 +152,31 @@ public class MaplePacketCreator {
         mplew.writeShort(chr.getDex()); // dex
         mplew.writeShort(chr.getInt()); // int
         mplew.writeShort(chr.getLuk()); // luk
-        mplew.writeShort(chr.getHp()); // hp (?)
-        mplew.writeShort(chr.getMaxHp()); // maxhp
-        mplew.writeShort(chr.getMp()); // mp (?)
-        mplew.writeShort(chr.getMaxMp()); // maxmp
+        mplew.writeInt(chr.getHp()); // hp (?)
+        mplew.writeInt(chr.getMaxHp()); // maxhp
+        mplew.writeInt(chr.getMp()); // mp (?)
+        mplew.writeInt(chr.getMaxMp()); // maxmp
         mplew.writeShort(chr.getRemainingAp()); // remaining ap
-        mplew.writeShort(chr.getRemainingSp()); // remaining sp
+
+        
+        if (chr.getJob().getId()/1000 != 3 && chr.getJob().getId()/100 != 22 && chr.getJob().getId() != 2001){
+                    mplew.writeShort(chr.getRemainingSp()); // remaining sp
+        }else{
+            mplew.write(0);
+        }
+        
         mplew.writeInt(chr.getExp()); // current exp
         mplew.writeShort(chr.getFame()); // fame
         mplew.writeInt(chr.getGachaExp()); //Gacha Exp
         mplew.writeInt(chr.getMapId()); // current map id
         mplew.write(chr.getInitialSpawnpoint()); // spawnpoint
         mplew.writeInt(0);
+        if(chr.getJob().getId() == 431){
+            mplew.writeShort(1);
+        }
+        else{
+            mplew.writeShort(0);
+        }
     }
 
     private static void addCharLook(final MaplePacketLittleEndianWriter mplew, MapleCharacter chr, boolean mega) {
@@ -4338,62 +4351,179 @@ public class MaplePacketCreator {
         
         mplew.writeShort(SendOpcode.OnViewAllCharResult.getValue());
         
-        mplew.write(0x00); // Switch Statement goes into Case 0
+        mplew.write(0x00);
+        //0x00: Goes into Case 0
        
         mplew.write(nWorldID); //nWorldID
+        //Indicates what world your character is in
         
-        mplew.write(viewallchar.getNumberOfCharacterInworld(nWorldID)); //Loop through Characters
+        mplew.write(viewallchar.getNumberOfCharacterInworld(nWorldID)); 
+        
+          
+          
+        //Loop through how many characters you have in that current world
         
         for (int currentCharacterCount = 0; currentCharacterCount < viewallchar.getNumberOfCharacterInworld(nWorldID); currentCharacterCount++) {
-      
-        //GW_CharacterStat::Decode
-        mplew.writeInt(viewallchar.getCharID(currentCharacterCount)); //dwCharacterID TODO
+       
+        mplew.writeInt(viewallchar.getCharID(currentCharacterCount)); //dwCharacterID
+        //Indicates the characterID
    
-        //Name of Character
         mplew.writeAsciiString(StringUtil.getRightPaddedStr(viewallchar.getCharName(currentCharacterCount), '\0', 13));
+        //Name of the character(s)
         
-        mplew.write(0); //nGender
-        mplew.write(3); //nSkin
-        mplew.writeInt(20001); //nFace
-        mplew.writeInt(30022); //nHair
+        mplew.write(viewallchar.getCharGender(currentCharacterCount)); //nGender
+        //Gender of Character
         
-        mplew.writeLong(0);//Something with pets
-        mplew.writeLong(0);
-        mplew.writeLong(0);
+        mplew.write(viewallchar.getCharSkin(currentCharacterCount)); //nSkin
+        //Skincolour of Character
         
-        mplew.write(255); //Level
-        mplew.writeShort(910); //Job
-        mplew.writeShort(32767); //Str
-        mplew.writeShort(32767); //Dex
-        mplew.writeShort(32767); //Int
-        mplew.writeShort(32767); //Luk
-        mplew.writeInt(30000); //Hp
-        mplew.writeInt(30000); //maxHP;
-        mplew.writeInt(30000); //mp
-        mplew.writeInt(30000); //maxmP;
-        mplew.writeShort(95); //AP
+        mplew.writeInt(viewallchar.getCharFace(currentCharacterCount)); //nFace
+        //Face of character
+        
+        mplew.writeInt(viewallchar.getCharHair(currentCharacterCount)); //nHair
+        //Hair of Character
+        
+        mplew.writeLong(0); //PET
+        mplew.writeLong(0);//PET
+        mplew.writeLong(0);//PET
+        
+        mplew.write(viewallchar.getCharLevel(currentCharacterCount)); //Level
+        mplew.writeShort(viewallchar.getCharJob(currentCharacterCount)); //Job
+        mplew.writeShort(viewallchar.getCharSTR(currentCharacterCount)); //Str
+        mplew.writeShort(viewallchar.getCharDEX(currentCharacterCount)); //Dex
+        mplew.writeShort(viewallchar.getCharINT(currentCharacterCount)); //Int
+        mplew.writeShort(viewallchar.getCharLuk(currentCharacterCount)); //Luk
+        mplew.writeInt(viewallchar.getCharHP(currentCharacterCount)); //Hp
+        mplew.writeInt(viewallchar.getCharMAXHP(currentCharacterCount)); //maxHP;
+        mplew.writeInt(viewallchar.getCharMP(currentCharacterCount)); //mp
+        mplew.writeInt(viewallchar.getCharMAXMP(currentCharacterCount)); //maxmP;
+        mplew.writeShort(viewallchar.getCharAP(currentCharacterCount)); //AP
+        
+        if (viewallchar.getCharJob(currentCharacterCount)/1000 != 3 && viewallchar.getCharJob(currentCharacterCount)/100 != 22 && viewallchar.getCharJob(currentCharacterCount)/2001 != 2001) {
+            mplew.writeShort(viewallchar.getCharSP(currentCharacterCount)); //SP
+        } else{
+           mplew.write(0);
            
-        mplew.writeShort(68); //SP
-        mplew.writeInt(78); //exp
-        mplew.writeShort(0);//pop
-        mplew.writeInt(0); //tempEXP
-        mplew.writeInt(7); //spawnPoint
+        }
+       
+        mplew.writeInt(viewallchar.getCharEXP(currentCharacterCount)); //exp
+        mplew.writeShort(viewallchar.getCharFame(currentCharacterCount));//pop
+        mplew.writeInt(viewallchar.getCharGACHAEXP(currentCharacterCount)); //tempEXP
+        mplew.writeInt(viewallchar.getCharSpawnPoint(currentCharacterCount)); //spawnPoint
            
         mplew.write(0);//nmportal
         mplew.writeInt(0);//nPlayTime
-        mplew.writeShort(0);//nSubJob
+        if (viewallchar.getCharJob(currentCharacterCount) == 430 || viewallchar.getCharJob(currentCharacterCount) == 431 || viewallchar.getCharJob(currentCharacterCount) == 432 || viewallchar.getCharJob(currentCharacterCount) == 433 || viewallchar.getCharJob(currentCharacterCount) == 434){
+             mplew.writeShort(1);//nSubJob
+        }
+        else{
+            mplew.writeShort(0);//nSubJob
+        }
+        
            
-           //Avataor
-        mplew.write(0); //nGender
-        mplew.write(3); //nSkin
-        mplew.writeInt(20001); //nFace
+           //Avatar
+        mplew.write(viewallchar.getCharGender(currentCharacterCount)); //nGender
+        mplew.write(viewallchar.getCharSkin(currentCharacterCount)); //nSkin
+        if (viewallchar.getCharFace(currentCharacterCount) == 0){
+            mplew.writeInt(2000); //nFace
+        }
+        else{
+        mplew.writeInt(viewallchar.getCharFace(currentCharacterCount)); //nFace
+        }
         mplew.write(0);//
-        mplew.writeInt(30022); //Hair?
+        mplew.writeInt(viewallchar.getCharHair(currentCharacterCount)); //Hair?
         
-        
-        mplew.write(-1);
-        mplew.write(-1);
-     
+           
+                  
+             viewallchar.loadEquipment(currentCharacterCount);
+             for (int i = 0; i <viewallchar.getEquipmentSize(currentCharacterCount); i++){
+                
+                 int newItemID = viewallchar.getCurrentEquipment(i)/10000;
+                 
+                 if(newItemID == 100){
+                     mplew.write(1);
+                 }
+                
+                 else if(newItemID == 101){
+                     mplew.write(2);
+                 }
+                 
+                 else if(newItemID == 102){
+                     mplew.write(3);
+                 } 
+                 
+                 else if(newItemID == 103){
+                     mplew.write(4);
+                 } 
+                 
+                 else if(newItemID == 104 || newItemID == 105){
+                     mplew.write(5);
+                 } 
+                 
+                 else if(newItemID == 106){
+                     mplew.write(6);
+                 } 
+                 
+                 else if(newItemID == 107){
+                     mplew.write(7);
+                 } 
+                 
+                 else if(newItemID == 108){
+                     mplew.write(8);
+                 } 
+                 
+                 else if(newItemID == 109 || newItemID ==119 || newItemID == 134){
+                     mplew.write(10);
+                 } 
+                 
+                 else if(newItemID == 110){
+                     mplew.write(9);
+                 }
+                 
+                 else if(newItemID == 113){
+                     mplew.write(50);
+                 }
+                 
+                 else if(newItemID == 114){
+                     mplew.write(49);
+                 }
+                 else if(newItemID == 115){
+                     mplew.write(51);
+                 }
+                 
+                 else if(newItemID == 165){
+                     mplew.write(1104);
+                 }
+                 
+                 else if (newItemID == 190){
+                     mplew.write(18);
+                 }
+                 
+                 else if (newItemID == 191){
+                     mplew.write(19);
+                 }
+                 
+                 else if (newItemID == 192){
+                     mplew.write(20);
+                 }
+
+                 else{
+                     int new2 = newItemID/10;
+                     if(new2 == 13 || new2 == 14 || new2 == 16 || new2 == 17){
+                         mplew.write(11);
+                     }
+                     else{
+                         mplew.write(0);
+                     }
+                 }
+                 
+                 mplew.writeInt(viewallchar.getCurrentEquipment(i));
+             }
+              mplew.write(-1);
+               
+              mplew.write(-1);
+            
+       
         mplew.writeInt(0);
         
         mplew.writeLong(0);
@@ -4402,14 +4532,15 @@ public class MaplePacketCreator {
         //Ranking
         mplew.write(0);
         
+        
       }
         
        if (nWorldID == viewallchar.getWorldSize()-1){
            mplew.write(0); 
            
        }
-        
-        return mplew.getPacket();
+       
+          return mplew.getPacket();
     }
 
     public static byte[] updateMount(int charid, MapleMount mount, boolean levelup) {

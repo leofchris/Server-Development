@@ -48,8 +48,7 @@ public final class ViewCharHandler extends AbstractMaplePacketHandler {
       
         
         for (int nWorldID = 0; nWorldID < viewallchar.getWorldSize(); nWorldID++){   
-        viewallchar.loadCharacterID(nWorldID, c);
-        viewallchar.loadCharacterName(nWorldID, c);
+        viewallchar.loadCharacterStats(nWorldID, c);
         c.announce(MaplePacketCreator.showAllCharacterInfo(viewallchar, c, nWorldID));
         }
     }
