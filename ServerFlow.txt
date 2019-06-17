@@ -10,7 +10,7 @@ Handler = LoginPasswordHandler.java
 3. Packet Sent: (0x00)
 Odin = LOGIN_STATUS
 Nexon = OnCheckPasswordResult
-
+dsadsda
 4. Packet Receieved:(0x09)
 Odin = AFTER_LOGIN
 Nexon = ??
