@@ -58,7 +58,7 @@ Handler = ServerStatusRequestHandler.java
 14. Packet Sent: (0x03)
 Odin = SERVERSTATUS
 Nexon = OnCheckUserLimitResult
-
+asdasd
 15. Packet Recieved: (0x05)
 odin = CHARLIST_REQUEST
 nexon = ??
