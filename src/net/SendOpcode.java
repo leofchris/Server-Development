@@ -50,7 +50,7 @@ public enum SendOpcode {
     CHECK_CRC_RESULT(0x200),
     LAST_CONNECTED_WORLD(0x18),
     RECOMMENDED_WORLD_MESSAGE(0x19),
-    CHECK_SPW_RESULT(0x1C),
+    CHECK_SPW_RESULT(0x1B),
     
     /*CWvsContext::OnPacket*/
     INVENTORY_OPERATION(0x1D),

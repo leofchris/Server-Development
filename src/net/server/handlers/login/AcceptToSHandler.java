@@ -1,9 +1,9 @@
 package net.server.handlers.login;
 
 import client.MapleClient;
-import client.MapleLogin;
 import net.AbstractMaplePacketHandler;
 import tools.MaplePacketCreator;
+import net.server.supports.login.LoginPasswordSupport;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 /**
@@ -19,12 +19,12 @@ public final class AcceptToSHandler extends AbstractMaplePacketHandler {
     }
 
     @Override
-    public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-
-      MapleLogin loginok = new MapleLogin();
-      c.acceptToS();
-        
-      c.setLoggedIn(true);
-      c.announce(MaplePacketCreator.getAuthSuccess(c, loginok));
+    public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {      
+    
+      //--------------------Initate and Load-----------------//  
+      LoginPasswordSupport login = new LoginPasswordSupport(c);
+      
+      //-----------------Send Pack to client-------------//
+      c.announce(MaplePacketCreator.getAuthSuccess(login));
     }
 }

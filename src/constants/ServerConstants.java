@@ -34,6 +34,7 @@ public class ServerConstants {
     public static final boolean DISABLE_PIN = true;
     //Event Configuration
     public static final boolean PERFECT_PITCH = false;
+    public static final boolean ENABLE_WORLD_RANKING = true;
     public static final String EVENTS = "automsg KerningPQ Boats Subway AirPlane elevator";
     // IP Configuration
     public static final String HOST = "localhost";

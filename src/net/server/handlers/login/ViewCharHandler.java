@@ -35,21 +35,18 @@ import net.AbstractMaplePacketHandler;
 import tools.DatabaseConnection;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
-import client.MapleViewAllCharacter;
+import net.server.supports.login.ViewAllCharSupport;
 
 public final class ViewCharHandler extends AbstractMaplePacketHandler {
     @Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
        
-       
-        MapleViewAllCharacter viewallchar = new MapleViewAllCharacter();
-        viewallchar.loadData(c);
+        ViewAllCharSupport viewallchar = new ViewAllCharSupport(c); 
         c.announce(MaplePacketCreator.showAllCharacter(viewallchar));
-      
         
-        for (int nWorldID = 0; nWorldID < viewallchar.getWorldSize(); nWorldID++){   
-        viewallchar.loadCharacterStats(nWorldID, c);
-        c.announce(MaplePacketCreator.showAllCharacterInfo(viewallchar, c, nWorldID));
+        for (int i = 0; i < viewallchar.getWorld().size(); i++){
+             ViewAllCharSupport loadChar = new ViewAllCharSupport(i, c);
+             c.announce(MaplePacketCreator.showAllCharacterInfo(loadChar,(byte)i));
         }
-    }
+    } 
 }
