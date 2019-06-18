@@ -666,12 +666,7 @@ public class MaplePacketCreator {
        mplew.writeLong(0);
        mplew.writeLong(0);
        mplew.writeInt(c.getCharacterSlots());
-       
-       if (constants.ServerConstants.DISABLE_PIN){
-           mplew.write(1);
-       } else{
-           mplew.write(0);
-       }
+       mplew.writeBool(constants.ServerConstants.DISABLE_PIN);
        mplew.write(0);
        mplew.writeLong(0);
        
