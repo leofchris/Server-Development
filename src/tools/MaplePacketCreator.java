@@ -27,7 +27,6 @@ import client.MapleClient;
 import client.MapleDisease;
 import client.MapleFamilyEntry;
 import client.MapleKeyBinding;
-import net.server.supports.login.LoginPasswordSupport;
 
 import client.MapleMount;
 import client.MapleQuestStatus;
@@ -76,7 +75,6 @@ import net.server.guild.MapleAlliance;
 import net.server.guild.MapleGuild;
 import net.server.guild.MapleGuildCharacter;
 import net.server.guild.MapleGuildSummary;
-import net.server.supports.login.ViewAllCharSupport;
 import net.server.world.MapleParty;
 import net.server.world.MaplePartyCharacter;
 import net.server.world.PartyOperation;

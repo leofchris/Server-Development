@@ -35,7 +35,7 @@ import net.AbstractMaplePacketHandler;
 import tools.DatabaseConnection;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
-import net.server.supports.login.ViewAllCharSupport;
+
 
 public final class ViewCharHandler extends AbstractMaplePacketHandler {
     @Override

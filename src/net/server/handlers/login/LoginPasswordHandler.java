@@ -25,7 +25,6 @@ import client.MapleClient;
 import java.util.Calendar;
 import net.MaplePacketHandler;
 import server.TimerManager;
-import net.server.supports.login.LoginPasswordSupport;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
 

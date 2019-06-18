@@ -3,7 +3,6 @@ package net.server.handlers.login;
 import client.MapleClient;
 import net.AbstractMaplePacketHandler;
 import tools.MaplePacketCreator;
-import net.server.supports.login.LoginPasswordSupport;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 /**
