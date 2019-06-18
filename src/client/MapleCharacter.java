@@ -146,7 +146,6 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int hpMpApUsed;
     private int hair;
     private int face;
-    private int subJob;
     private int remainingAp, remainingSp;
     private int fame;
     private int initialSpawnPoint;
@@ -2526,7 +2525,6 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ret.int_ = rs.getInt("int");
             ret.luk = rs.getInt("luk");
             ret.exp.set(rs.getInt("exp"));
-            ret.subJob = rs.getInt("subJob");
             ret.gachaexp.set(rs.getInt("gachaexp"));
             ret.hp = rs.getInt("hp");
             ret.maxhp = rs.getInt("maxhp");
@@ -3938,10 +3936,6 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public void setHair(int hair) {
         this.hair = hair;
-    }
-    
-    public void setSubJob(int subJob){
-        this.subJob = subJob;
     }
 
     public void setHasMerchant(boolean set) {

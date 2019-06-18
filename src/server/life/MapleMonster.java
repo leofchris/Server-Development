@@ -587,14 +587,10 @@ public class MapleMonster extends AbstractLoadedMapleLife {
         } else if (status.getSkill().getId() == 4121004 || status.getSkill().getId() == 4221004) { // Ninja Ambush
             final Skill skill = SkillFactory.getSkill(status.getSkill().getId());
             final byte level = from.getSkillLevel(skill);
-            int damage = (int) ((from.getStr() + from.getLuk()) * (1.5 + (level * 0.05)) * skill.getEffect(level).getDamage());
+            final int damage = (int) ((from.getStr() + from.getLuk()) * (1.5 + (level * 0.05)) * skill.getEffect(level).getDamage());
             /*if (getHp() - damage <= 1)  { make hp 1 betch
             damage = getHp() - (getHp() - 1);
             }*/
-            
-            if (damage > 32767){
-                damage = 32767;
-            }
 
             status.setValue(MonsterStatus.NINJA_AMBUSH, Integer.valueOf(damage));
             status.setDamageSchedule(timerManager.register(new DamageTask(damage, from, status, cancelTask, 2), 1000, 1000));
@@ -764,13 +760,11 @@ public class MapleMonster extends AbstractLoadedMapleLife {
             int damage = dealDamage;
             if (damage >= hp) {
                 damage = hp - 1;
-                if (type == 1) {
+                if (type == 1 || type == 2) {
                     map.broadcastMessage(MaplePacketCreator.damageMonster(getObjectId(), damage), getPosition());
-                   
+                    cancelTask.run();
+                    status.getCancelTask().cancel(false);
                 }
-                
-                cancelTask.run();
-                status.getCancelTask().cancel(false);
             }
             if (hp > 1 && damage > 0) {
                 damage(chr, damage, false);

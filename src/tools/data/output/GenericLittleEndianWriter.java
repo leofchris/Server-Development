@@ -62,8 +62,6 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
             bos.writeByte(b[x]);
         }
     }
-    
-    
 
     /**
      * Write a byte to the stream.
@@ -74,8 +72,6 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
     public void write(byte b) {
         bos.writeByte(b);
     }
-    
-    
 
     /**
      * Write a byte in integer form to the stream.
@@ -91,8 +87,6 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
     public void skip(int b) {
         write(new byte[b]);
     }
-    
-   
 
     /**
      * Write a short integer to the stream.
@@ -127,7 +121,7 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
     public void writeAsciiString(String s) {
         write(s.getBytes(ASCII));
     }
-    
+
     /**
      * Writes a maple-convention ASCII string to the stream.
      *

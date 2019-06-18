@@ -130,12 +130,9 @@ public class GenericLittleEndianAccessor implements LittleEndianAccessor {
      */
     public final String readAsciiString(int n) {
         char ret[] = new char[n];
-   
         for (int x = 0; x < n; x++) {
             ret[x] = (char) readByte();
         }
-        
-         
         return String.valueOf(ret);
     }
 

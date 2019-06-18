@@ -23,16 +23,16 @@ package net;
 
 public enum SendOpcode {
 
-    OnCheckPassWordResult(0x00),
+    LOGIN_STATUS(0x00),
     GUEST_ID_LOGIN(0x01),
     ACCOUNT_INFO(0x02),//I guess this was in v83 too :)
     SERVERSTATUS(0x03),//CHECK_USER_LIMIT_RESULT
     GENDER_DONE(0x04),//SET_ACCOUNT_RESULT
     CONFIRM_EULA_RESULT(0x05),
-    OnCheckPinCodeResult(0x06),
+    CHECK_PINCODE(0x06),
     UPDATE_PINCODE(0x07),
     
-    OnViewAllCharResult(0x08),
+    VIEW_ALL_CHAR(0x08),
     SELECT_CHARACTER_BY_VAC(0x09),
     
     SERVERLIST(0x0A),
@@ -47,10 +47,10 @@ public enum SendOpcode {
     CHANNEL_SELECTED(0x14),
     HACKSHIELD_REQUEST(0x15),//maybe this is RELOG_RESPONSE, can't care less
     RELOG_RESPONSE(0x16),
-    CHECK_CRC_RESULT(0x200),
-    LAST_CONNECTED_WORLD(0x18),
-    RECOMMENDED_WORLD_MESSAGE(0x19),
-    CHECK_SPW_RESULT(0x1B),
+    CHECK_CRC_RESULT(0x19),
+    LAST_CONNECTED_WORLD(0x1A),
+    RECOMMENDED_WORLD_MESSAGE(0x1B),
+    CHECK_SPW_RESULT(0x1C),
     
     /*CWvsContext::OnPacket*/
     INVENTORY_OPERATION(0x1D),

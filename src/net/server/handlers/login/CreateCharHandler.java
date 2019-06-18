@@ -44,7 +44,6 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
         MapleCharacter newchar = MapleCharacter.getDefault(c);
         newchar.setWorld(c.getWorld());
         int job = slea.readInt();
-        newchar.setSubJob(slea.readShort());
         int face = slea.readInt();
         newchar.setFace(face);
         newchar.setHair(slea.readInt() + slea.readInt());

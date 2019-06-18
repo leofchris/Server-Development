@@ -80,15 +80,13 @@ public class MapleClient {
     private IoSession session;
     private MapleCharacter player;
     private int channel = 1;
-    private int characterID = 0;
-    private int accId;
+    private int accId = 1;
     private boolean loggedIn = false;
     private boolean serverTransition = false;
     private Calendar birthday = null;
     private String accountName = null;
     private int world;
     private long lastPong;
-    private short greason;
     private int gmlevel;
     private Set<String> macs = new HashSet<>();
     private Map<String, ScriptEngine> engines = new HashMap<>();
@@ -173,10 +171,6 @@ public class MapleClient {
 
     public boolean isLoggedIn() {
         return loggedIn;
-    }
-    
-    public int getLOGINNOTLOGGEDIN(){
-        return this.LOGIN_NOTLOGGEDIN;
     }
 
     public boolean hasBannedIP() {
@@ -299,24 +293,6 @@ public class MapleClient {
     }
 
     public String getPin() {
-        
-        Connection con = DatabaseConnection.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            ps = con.prepareStatement("SELECT pin FROM accounts WHERE id = ?");
-            ps.setInt(1, getAccID());
-            rs = ps.executeQuery();
-            if (rs.next()) {   
-                pin =  rs.getString("pin");
-            }
-        } catch (SQLException e) {
-        } try{
-             ps.close();
-             rs.close();
-        }catch(SQLException e){
-                
-                }
         return pin;
     }
 
@@ -345,35 +321,7 @@ public class MapleClient {
     }
 
     public String getPic() {
-        
-        Connection con = DatabaseConnection.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            ps = con.prepareStatement("SELECT pic FROM accounts WHERE id = ?");
-            ps.setInt(1, getAccID());
-            rs = ps.executeQuery();
-            if (rs.next()) {   
-                pic =  rs.getString("pic");
-            }
-        } catch (SQLException e) {
-        } try{
-             ps.close();
-             rs.close();
-        }catch(SQLException e){
-                
-                }
-       
-    return pic;
-    }
-    
-    public void setLoginAttempt(byte x){
-        this.loginattempt = x;
-    }
-    
-    public byte getLoginAttempt(){
-        
-        return this.loginattempt;
+        return pic;
     }
 
     public boolean checkPic(String other) {
@@ -388,8 +336,75 @@ public class MapleClient {
         return false;
     }
 
-  
-    
+    public int login(String login, String pwd) {
+        loginattempt++;
+        if (loginattempt > 4) {
+            getSession().close(true);
+        }
+        int loginok = 5;
+        Connection con = DatabaseConnection.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos FROM accounts WHERE name = ?");
+            ps.setString(1, login);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                if (rs.getByte("banned") == 1) {
+                    return 3;
+                }
+                accId = rs.getInt("id");
+                gmlevel = rs.getInt("gm");
+                pin = rs.getString("pin");
+                pic = rs.getString("pic");
+                gender = rs.getByte("gender");
+                characterSlots = rs.getByte("characterslots");
+                String passhash = rs.getString("password");
+                String salt = rs.getString("salt");
+
+                //we do not unban
+                byte tos = rs.getByte("tos");
+                ps.close();
+                rs.close();
+                if (getLoginState() > LOGIN_NOTLOGGEDIN) { // already loggedin
+                    loggedIn = false;
+                    loginok = 7;
+                } else if (pwd.equals(passhash) || checkHash(passhash, "SHA-1", pwd) || checkHash(passhash, "SHA-512", pwd + salt)) {
+                    if (tos == 0) {
+                        loginok = 23;
+                    } else {
+                        loginok = 0;
+                    }
+                } else {
+                    loggedIn = false;
+                    loginok = 4;
+                }
+
+                ps = con.prepareStatement("INSERT INTO iplog (accountid, ip) VALUES (?, ?)");
+                ps.setInt(1, accId);
+                ps.setString(2, session.getRemoteAddress().toString());
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ps != null && !ps.isClosed()) {
+                    ps.close();
+                }
+                if (rs != null && !rs.isClosed()) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+            }
+        }
+
+        if (loginok == 0) {
+            loginattempt = 0;
+        }
+        return loginok;
+    }
+
     public Calendar getTempBanCalendar() {
         Connection con = DatabaseConnection.getConnection();
         PreparedStatement ps = null;
@@ -406,9 +421,7 @@ public class MapleClient {
             if (blubb == 0) { // basically if timestamp in db is 0000-00-00
                 return null;
             }
-           
             lTempban.setTimeInMillis(rs.getTimestamp("tempban").getTime());
-           
             return lTempban;
         } catch (SQLException e) {
         } finally {
@@ -421,11 +434,8 @@ public class MapleClient {
                 }
             } catch (SQLException e) {
             }
-             
         }
-         
         return null;//why oh why!?!
-         
     }
 
     public static long dottedQuadToLong(String dottedQuad) throws RuntimeException {
@@ -703,14 +713,10 @@ public class MapleClient {
         this.send = null;
         //this.session = null;
     }
-    
- 
 
     public int getChannel() {
         return channel;
     }
-    
-   
 
     public Channel getChannelServer() {
         return Server.getInstance().getChannel(world, channel);
@@ -812,7 +818,7 @@ public class MapleClient {
     public int gmLevel() {
         return this.gmlevel;
     }
-   
+
     public void setScriptEngine(String name, ScriptEngine e) {
         engines.put(name, e);
     }
@@ -842,25 +848,33 @@ public class MapleClient {
     }
 
     public boolean acceptToS() {
-    
+        boolean disconnectForBeingAFaggot = false;
+        if (accountName == null) {
+            return true;
+        }
         try {
-            PreparedStatement ps = DatabaseConnection.getConnection().prepareStatement("UPDATE accounts SET tos = 1 WHERE id = ?");
+            PreparedStatement ps = DatabaseConnection.getConnection().prepareStatement("SELECT `tos` FROM accounts WHERE id = ?");
+            ps.setInt(1, accId);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                if (rs.getByte("tos") == 1) {
+                    disconnectForBeingAFaggot = true;
+                }
+            }
+            ps.close();
+            rs.close();
+            ps = DatabaseConnection.getConnection().prepareStatement("UPDATE accounts SET tos = 1 WHERE id = ?");
             ps.setInt(1, accId);
             ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {
-            return false;
         }
-       return true;
+        return disconnectForBeingAFaggot;
     }
 
     public final Lock getLock() {
         return mutex;
-    }
-    
-    public void setLoggedIn (boolean loggedIN){
-        this.loggedIn = loggedIN;
-        
     }
 
     private static class CharNameAndId {
@@ -886,25 +900,7 @@ public class MapleClient {
     }
 
     public short getCharacterSlots() {
-        Connection con = DatabaseConnection.getConnection();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            ps = con.prepareStatement("SELECT characterslots FROM accounts WHERE id = ?");
-            ps.setInt(1, getAccID());
-            rs = ps.executeQuery();
-            if (rs.next()) {   
-                characterSlots =  rs.getByte("characterslots");
-            }
-        } catch (SQLException e) {
-        } try{
-             ps.close();
-             rs.close();
-        }catch(SQLException e){
-                
-                }
-       
-    return characterSlots;
+        return characterSlots;
     }
 
     public boolean gainCharacterSlot() {
