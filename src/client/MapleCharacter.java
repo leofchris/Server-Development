@@ -148,6 +148,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int face;
     private int remainingAp, remainingSp;
     private int fame;
+    private short subJob;
     private int initialSpawnPoint;
     private int mapid;
     private int gender;
@@ -356,6 +357,9 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public void addExcluded(int x) {
         excluded.add(x);
+    }
+    public short getSubJob(){
+        return subJob;
     }
 
     public void addFame(int famechange) {
@@ -2216,6 +2220,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public int gmLevel() {
         return gmLevel;
     }
+    
+    public void setSubJob(short subJob){
+        this.subJob = subJob;
+    }
 
     public String guildCost() {
         return nf.format(MapleGuild.CREATE_GUILD_COST);
@@ -2523,6 +2531,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ret.str = rs.getInt("str");
             ret.dex = rs.getInt("dex");
             ret.int_ = rs.getInt("int");
+            ret.subJob = rs.getShort("subJob");
             ret.luk = rs.getInt("luk");
             ret.exp.set(rs.getInt("exp"));
             ret.gachaexp.set(rs.getInt("gachaexp"));

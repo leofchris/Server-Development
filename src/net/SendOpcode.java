@@ -35,7 +35,7 @@ public enum SendOpcode {
     VIEW_ALL_CHAR(0x08),
     SELECT_CHARACTER_BY_VAC(0x09),
     
-    SERVERLIST(0x0A),
+    SERVERLIST(0x0A), 
     CHARLIST(0x0B),
     SERVER_IP(0x0C),
     CHAR_NAME_RESPONSE(0x0D),
@@ -48,9 +48,9 @@ public enum SendOpcode {
     HACKSHIELD_REQUEST(0x15),//maybe this is RELOG_RESPONSE, can't care less
     RELOG_RESPONSE(0x16),
     CHECK_CRC_RESULT(0x19),
-    LAST_CONNECTED_WORLD(0x1A),
-    RECOMMENDED_WORLD_MESSAGE(0x1B),
-    CHECK_SPW_RESULT(0x1C),
+    LAST_CONNECTED_WORLD(0x18),//(0x1A) V83
+    RECOMMENDED_WORLD_MESSAGE(0x19), //(0x1B) v83
+    CHECK_SPW_RESULT(0x1B), //(0x1C) v83
     
     /*CWvsContext::OnPacket*/
     INVENTORY_OPERATION(0x1D),

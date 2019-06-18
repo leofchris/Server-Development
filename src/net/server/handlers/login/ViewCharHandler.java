@@ -63,8 +63,8 @@ public final class ViewCharHandler extends AbstractMaplePacketHandler {
                     }
                 }
             }
-            int unk = charsNum + 3 - charsNum % 3;
-            c.announce(MaplePacketCreator.showAllCharacter(charsNum, unk));
+           
+            c.announce(MaplePacketCreator.showAllCharacter(worlds.size(), charsNum));
             for (Iterator<Integer> it = worlds.iterator(); it.hasNext();) {
                 int w = it.next();
                 List<MapleCharacter> chrsinworld = new ArrayList<>();
@@ -73,7 +73,7 @@ public final class ViewCharHandler extends AbstractMaplePacketHandler {
                         chrsinworld.add(chr);
                     }
                 }
-                c.announce(MaplePacketCreator.showAllCharacterInfo(w, chrsinworld));
+                c.announce(MaplePacketCreator.showAllCharacterInfo(w, chrsinworld, c, worlds));
             }
         } catch (Exception e) {
         }

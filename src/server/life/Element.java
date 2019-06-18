@@ -22,7 +22,7 @@
 package server.life;
 
 public enum Element {
-    NEUTRAL, FIRE, ICE, LIGHTING, POISON, HOLY;
+    NEUTRAL, FIRE, ICE, LIGHTING, POISON, HOLY, DARKNESS;
 
     public static Element getFromChar(char c) {
         switch (Character.toUpperCase(c)) {
@@ -38,6 +38,8 @@ public enum Element {
                 return HOLY;
             case 'P':
                 return NEUTRAL;
+            case 'D':
+                return DARKNESS;
         }
         throw new IllegalArgumentException("unknown elemnt char " + c);
     }

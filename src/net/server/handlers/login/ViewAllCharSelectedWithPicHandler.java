@@ -38,6 +38,7 @@ public class ViewAllCharSelectedWithPicHandler extends AbstractMaplePacketHandle
             c.updateLoginState(MapleClient.LOGIN_SERVER_TRANSITION);
 
             String[] socket = Server.getInstance().getIP(c.getWorld(), c.getChannel()).split(":");
+          
             try {
                 c.announce(MaplePacketCreator.getServerIP(InetAddress.getByName(socket[0]), Integer.parseInt(socket[1]), charId));
             } catch (UnknownHostException e) {

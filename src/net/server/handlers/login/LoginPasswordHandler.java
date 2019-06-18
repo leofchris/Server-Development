@@ -38,8 +38,8 @@ public final class LoginPasswordHandler implements MaplePacketHandler {
     @Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
         int loginok;
-        String login = slea.readMapleAsciiString();
         String pwd = slea.readMapleAsciiString();
+        String login = slea.readMapleAsciiString();
         c.setAccountName(login);
         loginok = c.login(login, pwd);
 
