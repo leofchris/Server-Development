@@ -237,7 +237,9 @@ public class CashShop {
             factory = ItemFactory.CASH_ARAN;
         } else if (jobType == 3){
             factory = ItemFactory.CASH_CITIZEN;
+            
         }
+   
 
         Connection con = DatabaseConnection.getConnection();
         PreparedStatement ps = null;

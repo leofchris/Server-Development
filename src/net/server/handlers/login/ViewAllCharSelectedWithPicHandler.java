@@ -22,7 +22,8 @@ public class ViewAllCharSelectedWithPicHandler extends AbstractMaplePacketHandle
         int charId = slea.readInt();
         int world = slea.readInt();//world
         c.setWorld(world);
-        int channel = Randomizer.rand(0, Server.getInstance().getWorld(world).getChannels().size());
+        
+        int channel = Randomizer.rand(1, Server.getInstance().getWorld(world).getChannels().size());
         c.setChannel(channel);
         String macs = slea.readMapleAsciiString();
         c.updateMacs(macs);
@@ -36,12 +37,13 @@ public class ViewAllCharSelectedWithPicHandler extends AbstractMaplePacketHandle
                 c.getIdleTask().cancel(true);
             }
             c.updateLoginState(MapleClient.LOGIN_SERVER_TRANSITION);
-
-            String[] socket = Server.getInstance().getIP(c.getWorld(), c.getChannel()).split(":");
-          
+             String[] socket = Server.getInstance().getIP(c.getWorld(), c.getChannel()).split(":");
+             
             try {
+               
                 c.announce(MaplePacketCreator.getServerIP(InetAddress.getByName(socket[0]), Integer.parseInt(socket[1]), charId));
             } catch (UnknownHostException e) {
+                System.out.println("idk");
             }
 
         } else {
