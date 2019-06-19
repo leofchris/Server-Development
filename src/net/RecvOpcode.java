@@ -41,8 +41,8 @@ public enum RecvOpcode {
     PLAYER_LOGGEDIN(0x14),
     CHECK_CHAR_NAME(0x15),
     CREATE_CHAR(0x16),
-    DELETE_CHAR(0x17),
-    PONG(0x18),
+    DELETE_CHAR(0x18), //(0x17) v83
+    PONG(0x19),// (0x18) v83
     CLIENT_START_ERROR(0x19),
     CLIENT_ERROR(0x1A),
     STRANGE_DATA(0x1B),

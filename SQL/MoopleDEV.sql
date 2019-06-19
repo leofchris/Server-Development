@@ -158,6 +158,7 @@ CREATE TABLE `characters` (
   `meso` int(11) NOT NULL DEFAULT '0',
   `hpMpUsed` int(11) unsigned NOT NULL DEFAULT '0',
   `job` int(11) NOT NULL DEFAULT '0',
+  `subJob` int(11) NOT NULL DEFAULT '0',
   `skincolor` int(11) NOT NULL DEFAULT '0',
   `gender` int(11) NOT NULL DEFAULT '0',
   `fame` int(11) NOT NULL DEFAULT '0',
