@@ -95,7 +95,7 @@ public final class PlayerLoggedinHandler extends AbstractMaplePacketHandler {
         c.updateLoginState(MapleClient.LOGIN_LOGGEDIN);
 
         cserv.addPlayer(player);
-        List<PlayerBuffValueHolder> buffs = server.getPlayerBuffStorage().getBuffsFromStorage(cid);
+       List<PlayerBuffValueHolder> buffs = server.getPlayerBuffStorage().getBuffsFromStorage(cid);
         if (buffs != null) {
             player.silentGiveBuffs(buffs);
         }
@@ -135,7 +135,7 @@ public final class PlayerLoggedinHandler extends AbstractMaplePacketHandler {
             }
         }
         c.announce(MaplePacketCreator.getCharInfo(player));
-        if (!player.isHidden()) {
+       /* if (!player.isHidden()) {
             player.toggleHide(true);
         }
         player.sendKeymap();
@@ -210,6 +210,6 @@ public final class PlayerLoggedinHandler extends AbstractMaplePacketHandler {
         player.changeSkillLevel(SkillFactory.getSkill(10000000 * player.getJobType() + 12), (byte) (player.getLinkedLevel() / 10), 20, -1);
         player.checkBerserk();
         player.expirationTask();
-        player.setRates();
+        player.setRates();*/
     }
 }

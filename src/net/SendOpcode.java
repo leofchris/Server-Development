@@ -87,10 +87,10 @@ public enum SendOpcode {
     GUILD_OPERATION(0x41),
     ALLIANCE_OPERATION(0x42),
     SPAWN_PORTAL(0x43),
-    SERVERMESSAGE(0x44),
+    SERVERMESSAGE(0x47), //(0x44) v83
     INCUBATOR_RESULT(0x45),
     SHOP_SCANNER_RESULT(0x46),
-    SHOP_LINK_RESULT(0x47),
+    SHOP_LINK_RESULT(0x4777),
     
     MARRIAGE_REQUEST(0x48),
     MARRIAGE_RESULT(0x49),
@@ -151,7 +151,7 @@ public enum SendOpcode {
     MACRO_SYS_DATA_INIT(0x7C),
     
     /*CStage::OnPacket*/
-    SET_FIELD(0x7D),
+    SET_FIELD(0x8D), //(0x7D) v83
     SET_ITC(0x7E),
     SET_CASH_SHOP(0x7F),
     
