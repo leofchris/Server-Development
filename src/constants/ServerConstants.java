@@ -23,6 +23,7 @@ package constants;
 
 public class ServerConstants {
     public static short VERSION = 95;
+    public static String MaplePatch = "50";
     public static String[] WORLD_NAMES = {"Scania", "Bera", "Broa", "Windia", "Khaini", "Bellocan", "Mardia", "Kradia", "Yellonde", "Demethos", "Galicia", "El Nido", "Zenith", "Arcenia", "Kastia", "Judis", "Plana", "Kalluna", "Stius", "Croa", "Medere"};;
     // Rate Configuration
     public static final byte QUEST_EXP_RATE = 4;
@@ -31,7 +32,7 @@ public class ServerConstants {
     public static final int CHANNEL_LOAD = 150;//Players per channel
     public static final long RANKING_INTERVAL = 3600000;
     public static final boolean ENABLE_PIC = true;
-    public static final boolean DISABLE_PIN = false;
+    public static final boolean DISABLE_PIN = true;
     public static final boolean ENABLE_WORLD_RANKING = true;
     //Event Configuration
     public static final boolean PERFECT_PITCH = false;

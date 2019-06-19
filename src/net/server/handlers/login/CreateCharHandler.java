@@ -44,34 +44,45 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
         MapleCharacter newchar = MapleCharacter.getDefault(c);
         newchar.setWorld(c.getWorld());
         int job = slea.readInt();
-        newchar.setSubJob(slea.readShort());
+        short subJob = slea.readShort();
         int face = slea.readInt();
         newchar.setFace(face);
         newchar.setHair(slea.readInt() + slea.readInt());
+        newchar.setSubJob(subJob);
         int skincolor = slea.readInt();
         if (skincolor > 3) {
             return;
         }
         newchar.setSkinColor(MapleSkinColor.getById(skincolor));
+        
         int top = slea.readInt();
         int bottom = slea.readInt();
         int shoes = slea.readInt();
         int weapon = slea.readInt();
         newchar.setGender(slea.readByte());
         newchar.setName(name);
-        if (job == 0) { // Knights of Cygnus
+        if (job == 2) { // Knights of Cygnus
             newchar.setJob(MapleJob.NOBLESSE);
             newchar.setMapId(130030000);
             newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161047, (byte) 0, (short) 1));
         } else if (job == 1) { // Adventurer
             newchar.setJob(MapleJob.BEGINNER);
-            newchar.setMapId(/*specialJobType == 2 ? 3000600 : */10000);
+            newchar.setMapId(10000);
             newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161001, (byte) 0, (short) 1));
-        } else if (job == 2) { // Aran
+        } else if (job == 3) { // Aran
             newchar.setJob(MapleJob.LEGEND);
             newchar.setMapId(914000000);
             newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161048, (byte) 0, (short) 1));
-        } else {
+        } else if (job == 0){ // Resistance
+            newchar.setJob(MapleJob.CITIZEN);
+            newchar.setMapId(310000000);
+            newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161054, (byte) 0, (short) 1));
+        } else if(job == 4){
+            newchar.setJob(MapleJob.EVAN);
+            newchar.setMapId(914000000);
+             newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161052, (byte) 0, (short) 1));
+        }
+        else {
             c.announce(MaplePacketCreator.deleteCharResponse(0, 9));
             return;
         }
@@ -88,9 +99,13 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
         Item eq_top = MapleItemInformationProvider.getInstance().getEquipById(top);
         eq_top.setPosition((byte) -5);
         equip.addFromDB(eq_top);
+        
+        if (job > 0){
         Item eq_bottom = MapleItemInformationProvider.getInstance().getEquipById(bottom);
         eq_bottom.setPosition((byte) -6);
         equip.addFromDB(eq_bottom);
+        }
+       
         Item eq_shoes = MapleItemInformationProvider.getInstance().getEquipById(shoes);
         eq_shoes.setPosition((byte) -7);
         equip.addFromDB(eq_shoes);
