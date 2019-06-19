@@ -41,7 +41,8 @@ public enum ItemFactory {
     CASH_EXPLORER(3, true),
     CASH_CYGNUS(4, false),
     CASH_ARAN(5, false),
-    MERCHANT(6, false);
+    MERCHANT(6, false),
+    CASH_CITIZEN(7, false);
     private int value;
     private boolean account;
 
