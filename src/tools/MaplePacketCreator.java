@@ -907,15 +907,30 @@ public class MaplePacketCreator {
     public static byte[] getCharInfo(MapleCharacter chr) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.SET_FIELD.getValue());
-        mplew.writeInt(chr.getClient().getChannel() - 1);
-        mplew.write(1);
+        //mplew.writeInt(chr.getClient().getChannel() - 1);
+       /*mplew.write(1);
         mplew.write(1);
         mplew.writeShort(0);
         for (int i = 0; i < 3; i++) {
             mplew.writeInt(Randomizer.nextInt());
         }
         addCharacterInfo(mplew, chr);
-        mplew.writeLong(getTime(System.currentTimeMillis()));
+        mplew.writeLong(getTime(System.currentTimeMillis()));*/
+        
+        mplew.writeInt(0);
+        mplew.writeInt(0);
+        
+        mplew.write(0);
+        mplew.write(0);
+        mplew.writeShort(0);
+        
+        mplew.write(0);
+        mplew.writeInt(0);
+        mplew.write(0);
+        mplew.writeInt(0);
+        mplew.write(0);
+        
+        mplew.writeLong(0);
         return mplew.getPacket();
     }
 
