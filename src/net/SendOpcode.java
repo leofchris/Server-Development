@@ -42,7 +42,7 @@ public enum SendOpcode {
     CreateNewCharacterResult(0x0E),
     DeleteCharacterResult(0x0F),
     CHANGE_CHANNEL(0x10),
-    PING(0x11),
+    AliveReq(0x11),
     KOREAN_INTERNET_CAFE_SHIT(0x12),//Useless ignore it.
     CHANNEL_SELECTED(0x14),
     HACKSHIELD_REQUEST(0x15),//maybe this is RELOG_RESPONSE, can't care less

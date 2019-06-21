@@ -543,7 +543,7 @@ public class MaplePacketCreator {
      */
     public static byte[] getPing() {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(2);
-        mplew.writeShort(SendOpcode.PING.getValue());
+        mplew.writeShort(SendOpcode.AliveReq.getValue());
         return mplew.getPacket();
     }
 
