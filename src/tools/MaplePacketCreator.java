@@ -2209,7 +2209,7 @@ public class MaplePacketCreator {
 
     public static byte[] selectWorld(int world) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.LAST_CONNECTED_WORLD.getValue());
+        mplew.writeShort(SendOpcode.LatestConnectedWorld.getValue());
         mplew.writeInt(world);//According to GMS, it should be the world that contains the most characters (most active)
         return mplew.getPacket();
     }

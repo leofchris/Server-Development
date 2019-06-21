@@ -48,7 +48,7 @@ public enum SendOpcode {
     HACKSHIELD_REQUEST(0x15),//maybe this is RELOG_RESPONSE, can't care less
     RELOG_RESPONSE(0x16),
     CHECK_CRC_RESULT(0x199999),
-    LAST_CONNECTED_WORLD(0x18),//(0x1A) V83 -2
+    LatestConnectedWorld(0x18),//(0x1A) V83 -2
     RecommendWorldMessage(0x19), //(0x1B) v83 -2
     CheckSPWResult(0x1B), //(0x1C) v83 -1
     
