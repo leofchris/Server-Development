@@ -81,6 +81,7 @@ public class MapleClient {
     private MapleCharacter player;
     private int channel = 1;
     private int accId = 1;
+    private int verified = 0;
     private boolean loggedIn = false;
     private boolean serverTransition = false;
     private Calendar birthday = null;
@@ -346,7 +347,7 @@ public class MapleClient {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos FROM accounts WHERE name = ?");
+            ps = con.prepareStatement("SELECT id, password, salt, gender, banned, gm, pin, pic, characterslots, tos,verified FROM accounts WHERE name = ?");
             ps.setString(1, login);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -357,6 +358,7 @@ public class MapleClient {
                 gmlevel = rs.getInt("gm");
                 pin = rs.getString("pin");
                 pic = rs.getString("pic");
+                verified = rs.getInt("verified");
                 gender = rs.getByte("gender");
                 characterSlots = rs.getByte("characterslots");
                 String passhash = rs.getString("password");
@@ -372,8 +374,11 @@ public class MapleClient {
                 } else if (pwd.equals(passhash) || checkHash(passhash, "SHA-1", pwd) || checkHash(passhash, "SHA-512", pwd + salt)) {
                     if (tos == 0) {
                         loginok = 23;
-                    } else {
-                        loginok = 0;
+                    } else if(verified == 0){
+                        loginok = 16;
+                        
+                     } else{
+                          loginok = 0;
                     }
                 } else {
                     loggedIn = false;
