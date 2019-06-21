@@ -372,18 +372,25 @@ public class MapleClient {
                     loggedIn = false;
                     loginok = 7;
                 } else if (pwd.equals(passhash) || checkHash(passhash, "SHA-1", pwd) || checkHash(passhash, "SHA-512", pwd + salt)) {
+                 
                     if (tos == 0) {
-                        loginok = 23;
+                        if (verified > 0){
+                            loginok = 23;
+                        } else{
+                            loginok = 16;
+                        }
+                     
                     } else if(verified == 0){
-                        loginok = 16;
-                        
-                     } else{
-                          loginok = 0;
+                          loginok = 16;
+                    }
+                    else{
+                        loginok = 0;
                     }
                 } else {
                     loggedIn = false;
                     loginok = 4;
                 }
+               
 
                 ps = con.prepareStatement("INSERT INTO iplog (accountid, ip) VALUES (?, ?)");
                 ps.setInt(1, accId);
