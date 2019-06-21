@@ -44,7 +44,7 @@ public final class PickCharHandler extends AbstractMaplePacketHandler {
             return;
         }
         try {
-            c.setChannel(Randomizer.nextInt(Server.getInstance().getWorld(world).getChannels().size()));
+            c.setChannel(Randomizer.rand(1, Server.getInstance().getWorld(world).getChannels().size()));
         } catch (Exception e) {
             c.setChannel(1);
         }

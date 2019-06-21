@@ -56,6 +56,7 @@ public final class PlayerLoggedinHandler extends AbstractMaplePacketHandler {
 
     @Override
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
+        
         final int cid = slea.readInt();
         final Server server = Server.getInstance();
         MapleCharacter player = c.getWorldServer().getPlayerStorage().getCharacterById(cid);
@@ -87,6 +88,7 @@ public final class PlayerLoggedinHandler extends AbstractMaplePacketHandler {
                 break;
             }
         }
+        
         if (state != MapleClient.LOGIN_SERVER_TRANSITION || !allowLogin) {
             c.setPlayer(null);
             c.announce(MaplePacketCreator.getAfterLoginError(7));
@@ -95,45 +97,11 @@ public final class PlayerLoggedinHandler extends AbstractMaplePacketHandler {
         c.updateLoginState(MapleClient.LOGIN_LOGGEDIN);
 
         cserv.addPlayer(player);
-       List<PlayerBuffValueHolder> buffs = server.getPlayerBuffStorage().getBuffsFromStorage(cid);
+      List<PlayerBuffValueHolder> buffs = server.getPlayerBuffStorage().getBuffsFromStorage(cid);
         if (buffs != null) {
             player.silentGiveBuffs(buffs);
         }
-        Connection con = DatabaseConnection.getConnection();
-        PreparedStatement ps = null;
-        PreparedStatement pss = null;
-        ResultSet rs = null;
-        try {
-            ps = con.prepareStatement("SELECT Mesos FROM dueypackages WHERE RecieverId = ? and Checked = 1");
-            ps.setInt(1, player.getId());
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                try {
-                    pss = DatabaseConnection.getConnection().prepareStatement("UPDATE dueypackages SET Checked = 0 where RecieverId = ?");
-                    pss.setInt(1, player.getId());
-                    pss.executeUpdate();
-                    pss.close();
-                } catch (SQLException e) {
-                }
-                c.announce(MaplePacketCreator.sendDueyMSG((byte) 0x1B));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pss != null) {
-                    pss.close();
-                }
-                if (ps != null) {
-                    ps.close();
-                }
-            } catch (SQLException ex) {
-                //ignore
-            }
-        }
+        
         c.announce(MaplePacketCreator.getCharInfo(player));
        /* if (!player.isHidden()) {
             player.toggleHide(true);
