@@ -75,30 +75,30 @@ public final class PacketProcessor {
     public void reset(int channel) {
         handlers = new MaplePacketHandler[handlers.length];
 
-        registerHandler(RecvOpcode.PONG, new KeepAliveHandler());
+        registerHandler(RecvOpcode.AliveAck, new KeepAliveHandler());
         registerHandler(RecvOpcode.CUSTOM_PACKET, new CustomPacketHandler());
         if (channel < 0) {//login
             registerHandler(RecvOpcode.ACCEPT_TOS, new AcceptToSHandler());
-            registerHandler(RecvOpcode.AFTER_LOGIN, new AfterLoginHandler());
+            registerHandler(RecvOpcode.CheckPinCode, new AfterLoginHandler());
             registerHandler(RecvOpcode.SERVERLIST_REREQUEST, new ServerlistRequestHandler());
-            registerHandler(RecvOpcode.CHARLIST_REQUEST, new CharlistRequestHandler());
+            registerHandler(RecvOpcode.SelectWorld, new CharlistRequestHandler());
             registerHandler(RecvOpcode.CHAR_SELECT, new CharSelectedHandler());
-            registerHandler(RecvOpcode.LOGIN_PASSWORD, new LoginPasswordHandler());
+            registerHandler(RecvOpcode.CheckPassword, new LoginPasswordHandler());
             registerHandler(RecvOpcode.RELOG, new RelogRequestHandler());
-            registerHandler(RecvOpcode.SERVERLIST_REQUEST, new ServerlistRequestHandler());
-            registerHandler(RecvOpcode.SERVERSTATUS_REQUEST, new ServerStatusRequestHandler());
-            registerHandler(RecvOpcode.CHECK_CHAR_NAME, new CheckCharNameHandler());
-            registerHandler(RecvOpcode.CREATE_CHAR, new CreateCharHandler());
-            registerHandler(RecvOpcode.DELETE_CHAR, new DeleteCharHandler());
-            registerHandler(RecvOpcode.VIEW_ALL_CHAR, new ViewCharHandler());
-            registerHandler(RecvOpcode.PICK_ALL_CHAR, new PickCharHandler());
-            registerHandler(RecvOpcode.REGISTER_PIN, new RegisterPinHandler());
+            registerHandler(RecvOpcode.WorldRequest, new ServerlistRequestHandler());
+            registerHandler(RecvOpcode.CheckUserLimit, new ServerStatusRequestHandler());
+            registerHandler(RecvOpcode.CheckDuplicatedID, new CheckCharNameHandler());
+            registerHandler(RecvOpcode.CreateNewCharacter, new CreateCharHandler());
+            registerHandler(RecvOpcode.DeleteCharacter, new DeleteCharHandler());
+            registerHandler(RecvOpcode.ViewAllChar, new ViewCharHandler());
+            registerHandler(RecvOpcode.SelectCharacterByVAC, new PickCharHandler());
+            registerHandler(RecvOpcode.UpdatePinCode, new RegisterPinHandler());
             registerHandler(RecvOpcode.GUEST_LOGIN, new GuestLoginHandler());
-            registerHandler(RecvOpcode.REGISTER_PIC, new RegisterPicHandler());
-            registerHandler(RecvOpcode.CHAR_SELECT_WITH_PIC, new CharSelectedWithPicHandler());
+            registerHandler(RecvOpcode.EnableSPWRequest, new RegisterPicHandler());
+            registerHandler(RecvOpcode.CheckSPWRequest, new CharSelectedWithPicHandler());
             registerHandler(RecvOpcode.SET_GENDER, new SetGenderHandler());
-            registerHandler(RecvOpcode.VIEW_ALL_WITH_PIC, new ViewAllCharSelectedWithPicHandler());
-            registerHandler(RecvOpcode.VIEW_ALL_PIC_REGISTER, new ViewAllPicRegisterHandler());
+            registerHandler(RecvOpcode.CheckSPWRequestByACV, new ViewAllCharSelectedWithPicHandler());
+            registerHandler(RecvOpcode.EnableSPWRequestByACV, new ViewAllPicRegisterHandler());
         } else {
             //CHANNEL HANDLERS
             registerHandler(RecvOpcode.CHANGE_CHANNEL, new ChangeChannelHandler());

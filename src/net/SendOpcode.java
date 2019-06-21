@@ -23,34 +23,34 @@ package net;
 
 public enum SendOpcode {
 
-    LOGIN_STATUS(0x00),
+    CheckPasswordResult(0x00),
     GUEST_ID_LOGIN(0x01),
-    ACCOUNT_INFO(0x02),//I guess this was in v83 too :)
-    SERVERSTATUS(0x03),//CHECK_USER_LIMIT_RESULT
-    GENDER_DONE(0x04),//SET_ACCOUNT_RESULT
+    ACCOUNT_INFO(0x02),
+    CheckUserLimitResult(0x03),
+    GENDER_DONE(0x04),
     CONFIRM_EULA_RESULT(0x05),
-    CHECK_PINCODE(0x06),
-    UPDATE_PINCODE(0x07),
+    CheckPinCodeResult(0x06),
+    UpdatePinCodeResult(0x07),
     
-    VIEW_ALL_CHAR(0x08),
+    ViewAllCharResult(0x08),
     SELECT_CHARACTER_BY_VAC(0x09),
     
-    SERVERLIST(0x0A), 
-    CHARLIST(0x0B),
+    WorldInformation(0x0A), 
+    SelectWorldResult(0x0B),
     SERVER_IP(0x0C),
-    CHAR_NAME_RESPONSE(0x0D),
-    ADD_NEW_CHAR_ENTRY(0x0E),
-    DELETE_CHAR_RESPONSE(0x0F),
+    CheckDuplicatedIDResult(0x0D),
+    CreateNewCharacterResult(0x0E),
+    DeleteCharacterResult(0x0F),
     CHANGE_CHANNEL(0x10),
     PING(0x11),
     KOREAN_INTERNET_CAFE_SHIT(0x12),//Useless ignore it.
     CHANNEL_SELECTED(0x14),
     HACKSHIELD_REQUEST(0x15),//maybe this is RELOG_RESPONSE, can't care less
     RELOG_RESPONSE(0x16),
-    CHECK_CRC_RESULT(0x19),
-    LAST_CONNECTED_WORLD(0x18),//(0x1A) V83
-    RECOMMENDED_WORLD_MESSAGE(0x19), //(0x1B) v83
-    CHECK_SPW_RESULT(0x1B), //(0x1C) v83
+    CHECK_CRC_RESULT(0x199999),
+    LAST_CONNECTED_WORLD(0x18),//(0x1A) V83 -2
+    RecommendWorldMessage(0x19), //(0x1B) v83 -2
+    CheckSPWResult(0x1B), //(0x1C) v83 -1
     
     /*CWvsContext::OnPacket*/
     INVENTORY_OPERATION(0x1D),

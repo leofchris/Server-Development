@@ -22,35 +22,133 @@
 package net;
 
 public enum RecvOpcode {
+    
+    //Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+//Unhandled Packets
+    //VACFlagSet = 0xF
+    //UpdateScreenSetting 0xDA
+
     CUSTOM_PACKET(0x3713),//13 37 lol
     
-    LOGIN_PASSWORD(0x01),
+    CheckPassword(0x01),
     GUEST_LOGIN(0x02),
     SERVERLIST_REREQUEST(0x04),
-    CHARLIST_REQUEST(0x05),
-    SERVERSTATUS_REQUEST(0x06),
+    SelectWorld(0x05),
+    CheckUserLimit(0x06),
     ACCEPT_TOS(0x07),
     SET_GENDER(0x08),
-    AFTER_LOGIN(0x09),
-    REGISTER_PIN(0x0A),
-    SERVERLIST_REQUEST(0x0B),
+    CheckPinCode(0x09),
+    UpdatePinCode(0x0A),
+    WorldRequest(0x0B),
     PLAYER_DC(0x0C),
-    VIEW_ALL_CHAR(0x0D),
-    PICK_ALL_CHAR(0x0E),
+    ViewAllChar(0x0D),
+    SelectCharacterByVAC(0x0E),
     CHAR_SELECT(0x13),
     PLAYER_LOGGEDIN(0x14),
-    CHECK_CHAR_NAME(0x15),
-    CREATE_CHAR(0x16),
-    DELETE_CHAR(0x18), //(0x17) v83
-    PONG(0x19),// (0x18) v83
+    CheckDuplicatedID(0x15),
+    CreateNewCharacter(0x16),
+    DeleteCharacter(0x18), //(0x17) v83 +1
+    AliveAck(0x19),// (0x18) v83 +1
     CLIENT_START_ERROR(0x19),
     CLIENT_ERROR(0x1A),
     STRANGE_DATA(0x1B),
     RELOG(0x1CCCC),
-    REGISTER_PIC(0x1C), //(0x1D) v83
-    CHAR_SELECT_WITH_PIC(0x1D), // (0x1E) v83
-    VIEW_ALL_PIC_REGISTER(0x1E),// (0x1F) v83
-    VIEW_ALL_WITH_PIC(0x1F), // (0x20) v83
+    EnableSPWRequest(0x1C), //(0x1D) v83 -1
+    CheckSPWRequest(0x1D), // (0x1E) v83 -1
+    EnableSPWRequestByACV(0x1E),// (0x1F) v83 -1 
+    CheckSPWRequestByACV(0x1F), // (0x20) v83 -1
     CHANGE_MAP(0x26),
     CHANGE_CHANNEL(0x27),
     ENTER_CASHSHOP(0x28),

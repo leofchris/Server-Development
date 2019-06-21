@@ -17,7 +17,7 @@ public final class ViewAllPicRegisterHandler extends AbstractMaplePacketHandler 
         slea.readByte();
         int charId = slea.readInt();
         c.setWorld(slea.readInt()); //world
-        int channel = Randomizer.rand(0, Server.getInstance().getWorld(c.getWorld()).getChannels().size());
+        int channel = Randomizer.rand(1, Server.getInstance().getWorld(c.getWorld()).getChannels().size());
         c.setChannel(channel);
         String mac = slea.readMapleAsciiString();
         c.updateMacs(mac);
