@@ -31,7 +31,7 @@ public class ServerConstants {
     // Login Configuration
     public static final int CHANNEL_LOAD = 150;//Players per channel
     public static final long RANKING_INTERVAL = 3600000;
-    public static final boolean ENABLE_PIC = true;
+    public static final boolean ENABLE_PIC = false;
     public static final boolean DISABLE_PIN = true;
     public static final boolean ENABLE_WORLD_RANKING = true;
     //Event Configuration

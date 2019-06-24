@@ -178,6 +178,7 @@ public class MaplePacketCreator {
     private static void addCharacterInfo(final MaplePacketLittleEndianWriter mplew, MapleCharacter chr) {
         mplew.writeLong(-1);
         mplew.write(0);
+        mplew.write(0);
         addCharStats(mplew, chr);
         mplew.write(chr.getBuddylist().getCapacity());
 
@@ -429,7 +430,11 @@ public class MaplePacketCreator {
         for (byte i = 1; i <= 5; i++) {
             mplew.write(chr.getInventory(MapleInventoryType.getByType(i)).getSlotLimit());
         }
-        mplew.writeLong(getTime(-2));
+        
+        mplew.writeInt(0);
+        mplew.writeInt(0);
+        
+      //  mplew.writeLong(getTime(-2));
         MapleInventory iv = chr.getInventory(MapleInventoryType.EQUIPPED);
         Collection<Item> equippedC = iv.list();
         List<Item> equipped = new ArrayList<>(equippedC.size());
@@ -441,7 +446,7 @@ public class MaplePacketCreator {
                 equipped.add((Item) item);
             }
         }
-        Collections.sort(equipped);
+       Collections.sort(equipped);
         for (Item item : equipped) {
             addItemInfo(mplew, item);
         }
@@ -906,8 +911,21 @@ public class MaplePacketCreator {
     public static byte[] getCharInfo(MapleCharacter chr) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.SET_FIELD.getValue());
-      
+        
+        mplew.writeShort(0);
+        mplew.writeInt(chr.getClient().getChannel() - 1);
+        mplew.writeInt(0);
+        mplew.write(1);
+        mplew.write(1);
+        mplew.writeShort(0);
+        mplew.writeInt(0);
+        mplew.writeInt(0);
+        mplew.writeInt(0);
+        
+       addCharacterInfo(mplew, chr);
+       mplew.writeLong(getTime(System.currentTimeMillis()));
         return mplew.getPacket();
+    
    
     }
 
