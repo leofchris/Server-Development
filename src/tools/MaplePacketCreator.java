@@ -915,7 +915,7 @@ public class MaplePacketCreator {
         mplew.writeShort(0);
         mplew.writeInt(chr.getClient().getChannel() - 1);
         mplew.writeInt(0);
-        mplew.write(1);
+        mplew.write(0);
         mplew.write(1);
         mplew.writeShort(0);
         mplew.writeInt(0);
@@ -924,6 +924,7 @@ public class MaplePacketCreator {
         
        addCharacterInfo(mplew, chr);
        mplew.writeLong(getTime(System.currentTimeMillis()));
+       
         return mplew.getPacket();
     
    
