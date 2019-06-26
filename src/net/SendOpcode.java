@@ -190,7 +190,7 @@ public enum SendOpcode {
     PYRAMID_SCORE(0x9E),
     SPAWN_PLAYER(0xA0),
     REMOVE_PLAYER_FROM_MAP(0xA1),
-    CHATTEXT(0xA2), //0
+    CHATTEXT(0xB5), //(0xA2) v83
     CHATTEXT1(0xA3), //1
     CHALKBOARD(0xA4),
     UPDATE_CHAR_BOX(0xA5),
