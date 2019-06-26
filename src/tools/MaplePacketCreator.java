@@ -400,7 +400,7 @@ public class MaplePacketCreator {
            mplew.write(0);
            mplew.write(0);
            mplew.writeInt(0);
-           mplew.writeInt(0);
+           mplew.writeInt(100);
            mplew.writeInt(0);
            mplew.write(0);
            mplew.write(0);

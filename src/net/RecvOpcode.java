@@ -83,12 +83,12 @@ public enum RecvOpcode {
     ADMIN_SHOP(0x44),//oh lol
     ITEM_SORT(0x45),
     ITEM_SORT2(0x46),
-    ITEM_MOVE(0x47),
+    ITEM_MOVE(0x4D), //(0x47) V83
     USE_ITEM(0x48),
     CANCEL_ITEM_EFFECT(0x49),
     USE_SUMMON_BAG(0x4B),
     PET_FOOD(0x4C),
-    USE_MOUNT_FOOD(0x4D),
+    USE_MOUNT_FOOD(0x4DD),
     SCRIPTED_ITEM(0x4E),
     USE_CASH_ITEM(0x4F),
 
