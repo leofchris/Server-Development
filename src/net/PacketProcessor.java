@@ -110,7 +110,7 @@ public final class PacketProcessor {
             registerHandler(RecvOpcode.QUEST_ACTION, new QuestActionHandler());
             registerHandler(RecvOpcode.NPC_SHOP, new NPCShopHandler());
             registerHandler(RecvOpcode.ITEM_SORT, new ItemSortHandler());
-            registerHandler(RecvOpcode.ITEM_MOVE, new ItemMoveHandler());
+            registerHandler(RecvOpcode.UserChangeSlotPositionRequest, new ItemMoveHandler());
             registerHandler(RecvOpcode.MESO_DROP, new MesoDropHandler());
             registerHandler(RecvOpcode.PLAYER_LOGGEDIN, new PlayerLoggedinHandler());
             registerHandler(RecvOpcode.CHANGE_MAP, new ChangeMapHandler());
@@ -121,7 +121,7 @@ public final class PacketProcessor {
             registerHandler(RecvOpcode.TAKE_DAMAGE, new TakeDamageHandler());
             registerHandler(RecvOpcode.MOVE_PLAYER, new MovePlayerHandler());
             registerHandler(RecvOpcode.USE_CASH_ITEM, new UseCashItemHandler());
-            registerHandler(RecvOpcode.USE_ITEM, new UseItemHandler());
+            registerHandler(RecvOpcode.UserStatChangeItemUseRequest, new UseItemHandler());
             registerHandler(RecvOpcode.USE_RETURN_SCROLL, new UseItemHandler());
             registerHandler(RecvOpcode.USE_UPGRADE_SCROLL, new ScrollHandler());
             registerHandler(RecvOpcode.USE_SUMMON_BAG, new UseSummonBag());
@@ -150,7 +150,7 @@ public final class PacketProcessor {
             registerHandler(RecvOpcode.MOVE_SUMMON, new MoveSummonHandler());
             registerHandler(RecvOpcode.SUMMON_ATTACK, new SummonDamageHandler());
             registerHandler(RecvOpcode.BUDDYLIST_MODIFY, new BuddylistModifyHandler());
-            registerHandler(RecvOpcode.USE_ITEMEFFECT, new UseItemEffectHandler());
+            registerHandler(RecvOpcode.UserActivateEffectItem, new UseItemEffectHandler());
             registerHandler(RecvOpcode.USE_CHAIR, new UseChairHandler());
             registerHandler(RecvOpcode.CANCEL_CHAIR, new CancelChairHandler());
             registerHandler(RecvOpcode.DAMAGE_REACTOR, new ReactorHitHandler());

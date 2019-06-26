@@ -53,7 +53,7 @@ public enum SendOpcode {
     CheckSPWResult(0x1B), //(0x1C) v83 -1
     
     /*CWvsContext::OnPacket*/
-    INVENTORY_OPERATION(0x1D),
+    InventoryOperation(0x1C), //(0x1D) V83
     INVENTORY_GROW(0x1E),
     STAT_CHANGED(0x1F),
     GIVE_BUFF(0x20),
@@ -87,7 +87,7 @@ public enum SendOpcode {
     GUILD_OPERATION(0x41),
     ALLIANCE_OPERATION(0x42),
     SPAWN_PORTAL(0x43),
-    SERVERMESSAGE(0x47), //(0x44) v83
+    BroadcastMsg(0x47), //(0x44) v83
     INCUBATOR_RESULT(0x45),
     SHOP_SCANNER_RESULT(0x46),
     SHOP_LINK_RESULT(0x4777),
@@ -151,7 +151,7 @@ public enum SendOpcode {
     MACRO_SYS_DATA_INIT(0x7C),
     
     /*CStage::OnPacket*/
-    SET_FIELD(0x8D), //(0x7D) v83
+    SetField(0x8D), //(0x7D) v83
     SET_ITC(0x7E),
     SET_CASH_SHOP(0x7F),
     
@@ -190,7 +190,7 @@ public enum SendOpcode {
     PYRAMID_SCORE(0x9E),
     SPAWN_PLAYER(0xA0),
     REMOVE_PLAYER_FROM_MAP(0xA1),
-    CHATTEXT(0xB5), //(0xA2) v83
+    UserChat(0xB5), //(0xA2) v83
     CHATTEXT1(0xA3), //1
     CHALKBOARD(0xA4),
     UPDATE_CHAR_BOX(0xA5),

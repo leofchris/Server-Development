@@ -23,9 +23,7 @@ package net;
 
 public enum RecvOpcode {
     
-    //Unhandled Packets
-    //VACFlagSet = 0xF
-    //UpdateScreenSetting 0xDA
+  
     CUSTOM_PACKET(0x3713),//13 37 lol
     
     CheckPassword(0x01),
@@ -60,18 +58,18 @@ public enum RecvOpcode {
     ENTER_CASHSHOP(0x28),
     MOVE_PLAYER(0x29),
     CANCEL_CHAIR(0x2A),
-    USE_CHAIR(0x2B),
+    USE_CHAIR(0x2E),
     CLOSE_RANGE_ATTACK(0x2C),
     RANGED_ATTACK(0x2D),
-    MAGIC_ATTACK(0x2E),
+    MAGIC_ATTACK(0x2EE),
     TOUCH_MONSTER_ATTACK(0x2F),
     TAKE_DAMAGE(0x30),
     GENERAL_CHAT(0x36), //(0x31) v83
     CLOSE_CHALKBOARD(0x32),
     FACE_EXPRESSION(0x33),
-    USE_ITEMEFFECT(0x34),
+    UserActivateEffectItem(0x39), //(0x34) v83
     USE_DEATHITEM(0x35),
-    MONSTER_BOOK_COVER(0x39),
+    MONSTER_BOOK_COVER(0x309),
     NPC_TALK(0x3A),
     REMOTE_STORE(0x3B),
     NPC_TALK_MORE(0x3C),
@@ -83,13 +81,13 @@ public enum RecvOpcode {
     ADMIN_SHOP(0x44),//oh lol
     ITEM_SORT(0x45),
     ITEM_SORT2(0x46),
-    ITEM_MOVE(0x4D), //(0x47) V83
-    USE_ITEM(0x48),
+    UserChangeSlotPositionRequest(0x4D), //(0x47) V83
+    UserStatChangeItemUseRequest(0x4E), //(0x48) v83 
     CANCEL_ITEM_EFFECT(0x49),
     USE_SUMMON_BAG(0x4B),
     PET_FOOD(0x4C),
     USE_MOUNT_FOOD(0x4DD),
-    SCRIPTED_ITEM(0x4E),
+    SCRIPTED_ITEM(0x4EE),
     USE_CASH_ITEM(0x4F),
 
     USE_CATCH_ITEM(0x51),

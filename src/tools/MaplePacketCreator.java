@@ -895,7 +895,7 @@ public class MaplePacketCreator {
      */
     public static byte[] getCharInfo(MapleCharacter chr) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SET_FIELD.getValue());
+        mplew.writeShort(SendOpcode.SetField.getValue());
         
         mplew.writeShort(0); // CClientOptMan:: DecodeOpt
         
@@ -998,7 +998,7 @@ public class MaplePacketCreator {
      */
     public static byte[] getWarpToMap(MapleMap to, int spawnPoint, MapleCharacter chr) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SET_FIELD.getValue());
+        mplew.writeShort(SendOpcode.SetField.getValue());
         mplew.writeInt(chr.getClient().getChannel() - 1);
         mplew.writeInt(0);//updated
         mplew.write(0);//updated
@@ -1182,7 +1182,7 @@ public class MaplePacketCreator {
      */
     private static byte[] serverMessage(int type, int channel, String message, boolean servermessage, boolean megaEar) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SERVERMESSAGE.getValue());
+        mplew.writeShort(SendOpcode.BroadcastMsg.getValue());
         
         mplew.write(0);
         //Needs to be worked on
@@ -1226,7 +1226,7 @@ public class MaplePacketCreator {
      */
     public static byte[] gachaponMessage(Item item, String town, MapleCharacter player) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SERVERMESSAGE.getValue());
+        mplew.writeShort(SendOpcode.BroadcastMsg.getValue());
         mplew.write(0x0B);
         mplew.writeMapleAsciiString(player.getName() + " : got a(n)");
         mplew.writeInt(0); //random?
@@ -1485,12 +1485,12 @@ public class MaplePacketCreator {
      */
     public static byte[] getChatText(int cidfrom, String text, boolean gm, int show) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.CHATTEXT.getValue());
+        mplew.writeShort(SendOpcode.UserChat.getValue());
         mplew.writeInt(cidfrom);
         mplew.writeBool(gm);
         mplew.writeMapleAsciiString(text);
         mplew.write(show);
-        mplew.writeMapleAsciiString(text);
+        
         return mplew.getPacket();
     }
 
@@ -2043,7 +2043,7 @@ public class MaplePacketCreator {
 
     public static byte[] modifyInventory(boolean updateTick, final List<ModifyInventory> mods) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.INVENTORY_OPERATION.getValue());
+        mplew.writeShort(SendOpcode.InventoryOperation.getValue());
         mplew.writeBool(updateTick);
         mplew.write(mods.size());
         //mplew.write(0); v104 :)
@@ -5474,7 +5474,7 @@ public class MaplePacketCreator {
 
     public static byte[] itemMegaphone(String msg, boolean whisper, int channel, Item item) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SERVERMESSAGE.getValue());
+        mplew.writeShort(SendOpcode.BroadcastMsg.getValue());
         mplew.write(8);
         mplew.writeMapleAsciiString(msg);
         mplew.write(channel - 1);
@@ -5640,7 +5640,7 @@ public class MaplePacketCreator {
 
     public static byte[] getMultiMegaphone(String[] messages, int channel, boolean showEar) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SERVERMESSAGE.getValue());
+        mplew.writeShort(SendOpcode.BroadcastMsg.getValue());
         mplew.write(0x0A);
         if (messages[0] != null) {
             mplew.writeMapleAsciiString(messages[0]);
