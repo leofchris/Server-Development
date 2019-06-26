@@ -435,42 +435,52 @@ public class MaplePacketCreator {
             }
         }
              
+        
+        //Current Equip
          Collections.sort(equipped);
-        for (Item item : equipped) {
+             for (Item item : equipped) {
             addItemInfo(mplew, item);
-}
+            }
               mplew.writeShort(0);
-            
- for (Item item : equippedCash) {
+            //Current Cash Equip
+            for (Item item : equippedCash) {
             addItemInfo(mplew, item);
-}
+            }
+ 
               mplew.writeShort(0);
-for (Item item : chr.getInventory(MapleInventoryType.EQUIP).list()) {
+              //Equip
+            for (Item item : chr.getInventory(MapleInventoryType.EQUIP).list()) {
             addItemInfo(mplew, item);
-}
+            }
 
               mplew.writeShort(0);
-  for (Item item : chr.getInventory(MapleInventoryType.USE).list()) {
-            addItemInfo(mplew, item);
-}
-
               mplew.writeShort(0);
-for (Item item : chr.getInventory(MapleInventoryType.SETUP).list()) {
-            addItemInfo(mplew, item);
-}            
-
               mplew.writeShort(0);
-              
-   for (Item item : chr.getInventory(MapleInventoryType.ETC).list()) {
+
+              //Use
+              for (Item item : chr.getInventory(MapleInventoryType.USE).list()) {
             addItemInfo(mplew, item);
 }
               mplew.write(0);
+              
+              //Setup
+              for (Item item : chr.getInventory(MapleInventoryType.SETUP).list()) {
+            addItemInfo(mplew, item);
+}
+              mplew.write(0);
+              
+              //ETC
+                 for (Item item : chr.getInventory(MapleInventoryType.ETC).list()) {
+            addItemInfo(mplew, item);
+ }
+              mplew.write(0);
+              
+              //Cash
               for (Item item : chr.getInventory(MapleInventoryType.CASH).list()) {
             addItemInfo(mplew, item);
 }
               mplew.write(0);
-              mplew.write(0);
-              mplew.write(0);
+                          
     }
 
     private static void addSkillInfo(final MaplePacketLittleEndianWriter mplew, MapleCharacter chr) {
