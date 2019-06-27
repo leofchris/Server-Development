@@ -54,8 +54,8 @@ public enum SendOpcode {
     
     /*CWvsContext::OnPacket*/
     InventoryOperation(0x1C), //(0x1D) V83
-    INVENTORY_GROW(0x1E),
-    STAT_CHANGED(0x1F),
+    INVENTORY_GROW(0x1D), //(0x1E) v83
+    STAT_CHANGED(0x1E), //(0x1F) v83
     GIVE_BUFF(0x20),
     CANCEL_BUFF(0x21),
     FORCED_STAT_SET(0x22),
@@ -225,7 +225,7 @@ public enum SendOpcode {
     GIVE_FOREIGN_BUFF(0xC7),
     CANCEL_FOREIGN_BUFF(0xC8),
     UPDATE_PARTYMEMBER_HP(0xC9),
-    CANCEL_CHAIR(0xCD),
+    CANCEL_CHAIR(0xE7), //(0XCD) v83
     SHOW_ITEM_GAIN_INCHAT(0xCE),
     DOJO_WARP_UP(0xCF),
     LUCKSACK_PASS(0xD0),

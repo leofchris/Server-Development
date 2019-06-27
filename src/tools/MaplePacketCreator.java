@@ -985,6 +985,8 @@ public class MaplePacketCreator {
                 }
             }
         }
+        mplew.write(0);
+        mplew.write(0);
         return mplew.getPacket();
     }
 
