@@ -104,7 +104,7 @@ public enum RecvOpcode {
     SKILL_EFFECT(0x5D),
     MESO_DROP(0x5E),
     GIVE_FAME(0x5F),
-    CHAR_INFO_REQUEST(0x61),
+    CHAR_INFO_REQUEST(0x6D),
     SPAWN_PET(0x62),
     CANCEL_DEBUFF(0x63),
     CHANGE_MAP_SPECIAL(0x70), //(0x64) v83

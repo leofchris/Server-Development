@@ -91,6 +91,7 @@ public class MapleMap {
     private int runningOid = 100;
     private int returnMapId;
     private int channel, world;
+  
     private byte monsterRate;
     private boolean clock;
     private boolean boat;
