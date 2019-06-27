@@ -75,11 +75,11 @@ public final class CreateCharHandler extends AbstractMaplePacketHandler {
             newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161048, (byte) 0, (short) 1));
         } else if (job == 0){ // Resistance
             newchar.setJob(MapleJob.CITIZEN);
-            newchar.setMapId(310000000);
+            newchar.setMapId(931000000);
             newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161054, (byte) 0, (short) 1));
         } else if(job == 4){
             newchar.setJob(MapleJob.EVAN);
-            newchar.setMapId(914000000);
+            newchar.setMapId(900010000);
              newchar.getInventory(MapleInventoryType.ETC).addItem(new Item(4161052, (byte) 0, (short) 1));
         }
         else {
