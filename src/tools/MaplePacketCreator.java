@@ -1679,10 +1679,10 @@ public class MaplePacketCreator {
                 mplew.write(new byte[6]);
             }
         }
-        mplew.writeInt(0);
-        mplew.writeShort(0); //v83
-        mplew.write(0xFC);
-        mplew.write(1);
+      //  mplew.writeInt(0);
+      //  mplew.writeShort(0); //v83
+      //  mplew.write(0xFC);
+      //  mplew.write(1);
         if (chr.getBuffedValue(MapleBuffStat.MORPH) != null) {
             mplew.writeInt(2);
         } else {

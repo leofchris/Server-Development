@@ -820,6 +820,7 @@ public class MapleMap {
     }
 
     public MapleMapObject getMapObject(int oid) {
+        
         return mapobjects.get(oid);
     }
 
@@ -1237,7 +1238,7 @@ public class MapleMap {
             broadcastMessage(chr, MaplePacketCreator.spawnPlayerMapobject(chr), false);
         }
 
-        sendObjectPlacement(chr.getClient());
+      /*  sendObjectPlacement(chr.getClient());
         if (isStartingEventMap() && !eventStarted()) {
             chr.getMap().getPortal("join00").setPortalStatus(false);
         }
@@ -1301,7 +1302,7 @@ public class MapleMap {
         } else if (hasBoat() == 1 && (chr.getMapId() != 200090000 || chr.getMapId() != 200090010)) {
             chr.getClient().announce(MaplePacketCreator.boatPacket(false));
         }
-        chr.receivePartyMemberHP();
+        chr.receivePartyMemberHP();*/
     }
 
     public MaplePortal findClosestPortal(Point from) {

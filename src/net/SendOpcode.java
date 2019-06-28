@@ -148,7 +148,7 @@ public enum SendOpcode {
     SET_BUY_EQUIP_EXT(0x79),
     SCRIPT_PROGRESS_MESSAGE(0x7A),
     DATA_CRC_CHECK_FAILED(0x7B),
-    MACRO_SYS_DATA_INIT(0x7C),
+    MACRO_SYS_DATA_INIT(0x8C), //(0x7C)
     
     /*CStage::OnPacket*/
     SetField(0x8D), //(0x7D) v83
@@ -169,7 +169,7 @@ public enum SendOpcode {
     
     FIELD_EFFECT(0x8A),
     FIELD_OBSTACLE_ONOFF(0x8B),
-    FIELD_OBSTACLE_ONOFF_STATUS(0x8C),
+    FIELD_OBSTACLE_ONOFF_STATUS(0x8CC),
     FIELD_OBSTACLE_ALL_RESET(0x8D),
     BLOW_WEATHER(0x8E),
     PLAY_JUKEBOX(0x8F),
@@ -323,7 +323,7 @@ public enum SendOpcode {
     QUERY_CASH_RESULT(0x144),
     CASHSHOP_OPERATION(0x145),
     
-    KEYMAP(0x14F),
+    KEYMAP(0x18E), //(0x14F)
     AUTO_HP_POT(0x150),
     AUTO_MP_POT(0x151),
     SEND_TV(0x155),
