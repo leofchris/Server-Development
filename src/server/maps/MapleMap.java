@@ -1192,23 +1192,23 @@ public class MapleMap {
             chrWLock.unlock();
         }
         chr.setMapId(mapid);
-        if (onFirstUserEnter.length() != 0 && !chr.hasEntered(onFirstUserEnter, mapid) && MapScriptManager.getInstance().scriptExists(onFirstUserEnter, true)) {
+    if (onFirstUserEnter.length() != 0 && !chr.hasEntered(onFirstUserEnter, mapid) && MapScriptManager.getInstance().scriptExists(onFirstUserEnter, true)) {
             if (getAllPlayer().size() <= 1) {
                 chr.enteredScript(onFirstUserEnter, mapid);
-                MapScriptManager.getInstance().getMapScript(chr.getClient(), onFirstUserEnter, true);
+               MapScriptManager.getInstance().getMapScript(chr.getClient(), onFirstUserEnter, true);
             }
         }
-        if (onUserEnter.length() != 0) {
+       if (onUserEnter.length() != 0) {
             if (onUserEnter.equals("cygnusTest") && (mapid < 913040000 || mapid > 913040006)) {
                 chr.saveLocation("INTRO");
             }
-            MapScriptManager.getInstance().getMapScript(chr.getClient(), onUserEnter, false);
+           MapScriptManager.getInstance().getMapScript(chr.getClient(), onUserEnter, false);
         }
-        if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
+       /*     if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
             chr.cancelEffectFromBuffStat(MapleBuffStat.MONSTER_RIDING);
             chr.cancelBuffStats(MapleBuffStat.MONSTER_RIDING);
         }
-        if (mapid == 923010000 && getMonsterById(9300102) == null) { // Kenta's Mount Quest
+            if (mapid == 923010000 && getMonsterById(9300102) == null) { // Kenta's Mount Quest
             spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(9300102), new Point(77, 426));
         } else if (mapid == 910110000) { // Henesys Party Quest
             chr.getClient().announce(MaplePacketCreator.getClock(15 * 60));
@@ -1231,7 +1231,7 @@ public class MapleMap {
             }
         }
 
-        if (chr.isHidden()) {
+       if (chr.isHidden()) {
             broadcastGMMessage(chr, MaplePacketCreator.spawnPlayerMapobject(chr), false);
             chr.announce(MaplePacketCreator.getGMEffect(0x10, (byte) 1));
         } else {

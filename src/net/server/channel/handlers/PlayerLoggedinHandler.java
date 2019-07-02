@@ -106,10 +106,10 @@ public final class PlayerLoggedinHandler extends AbstractMaplePacketHandler {
    if (!player.isHidden()) {
             player.toggleHide(true);
         }
-        /*  player.sendKeymap();
-        player.sendMacros();
-        player.getMap().addPlayer(player);
-       World world = server.getWorld(c.getWorld());
+       player.sendKeymap();
+     player.sendMacros();
+      player.getMap().addPlayer(player);
+     /*  World world = server.getWorld(c.getWorld());
         world.getPlayerStorage().addPlayer(player);
         
         int buddyIds[] = player.getBuddylist().getBuddyIds();

@@ -1,351 +1,11 @@
-Error for player ; sdasda on map ; 900010000 - account ; pllsz
-All: C0 00 00 00 00 00
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 6D D7 99 43 8D 70 99 36 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 125
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; sdadasd on map ; 900010000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dsasds on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
@@ -371,12 +31,13 @@ java.lang.ArrayIndexOutOfBoundsException: 6
 
 ---------------------------------
 Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 D3 19 D7 F6 CE 3B C3 7C A3 FF D5 01 00 00 00 00 02 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 2C 01 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 08 D2 00 11 00 00 00 00 00 00 00 00 00 A3 FF D5 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 94
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
@@ -402,12 +63,13 @@ java.lang.ArrayIndexOutOfBoundsException: 6
 
 ---------------------------------
 Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 62 19 E4 D3 5D 96 BB AB A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 125
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
@@ -433,12 +95,13 @@ java.lang.ArrayIndexOutOfBoundsException: 6
 
 ---------------------------------
 Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 1D EE 45 72 20 CF 4E F1 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 125
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
@@ -464,229 +127,13 @@ java.lang.ArrayIndexOutOfBoundsException: 6
 
 ---------------------------------
 Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 26 82 FB AF 29 0B F2 B9 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 125
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasdasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasdasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasdasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasdasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasdasdas on map ; 310000000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasdas on map ; 310000000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasdas on map ; 310000000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
@@ -712,74 +159,13 @@ java.lang.ArrayIndexOutOfBoundsException: 6
 
 ---------------------------------
 Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 95 33 33 69 13 DB 4A 4A A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 125
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasdad on map ; 900010000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasd on map ; 900010000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
@@ -805,12 +191,13 @@ java.lang.ArrayIndexOutOfBoundsException: 6
 
 ---------------------------------
 Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 9D E4 8D A4 DC 10 4E 66 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 125
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
@@ -836,12 +223,13 @@ java.lang.ArrayIndexOutOfBoundsException: 6
 
 ---------------------------------
 Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 A9 0C 04 19 F8 59 7B C9 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 125
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
@@ -867,43 +255,13 @@ java.lang.ArrayIndexOutOfBoundsException: 6
 
 ---------------------------------
 Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 6D 4B CC 61 FE C8 C0 50 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 125
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
-	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
-	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
-	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
-	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
-	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
-	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-	at java.lang.Thread.run(Thread.java:722)
-
----------------------------------
-Error for player ; dasdasd on map ; 900010000 - account ; pllsz
-All: C0 00 00 00 00 00
-Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
-	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
-	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
@@ -929,12 +287,845 @@ java.lang.ArrayIndexOutOfBoundsException: 6
 
 ---------------------------------
 Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
-All: C0 00 00 00 00 00
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 95 15 2D 62 AD 3F 3E 01 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
 Now: kevintjuh93 pwns
-java.lang.ArrayIndexOutOfBoundsException: 6
+java.lang.ArrayIndexOutOfBoundsException: 125
 	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
 	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
-	at net.server.channel.handlers.MobDamageMobFriendlyHandler.handlePacket(MobDamageMobFriendlyHandler.java:37)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 19 62 B8 D4 DC 5C D7 97 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 7C C5 1B 51 A2 AC 03 6A A3 FF D5 01 00 00 00 00 02 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 4A 01 00 B4 FF D5 01 7D 00 00 00 31 00 00 00 00 00 02 B4 00 11 00 00 00 00 00 40 44 44 04 A3 FF D5 01 B4 FF D5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 6B 49 D6 B5 EB 22 5E 06 B4 FF D5 01 7D 00 00 00 05 00 D7 FF D5 01 7D 00 00 00 31 00 00 00 00 00 02 18 01 00 DA FF D5 01 7D 00 00 00 00 00 00 00 00 00 06 14 00 00 E9 FF E3 01 7D 00 F0 00 00 00 00 00 00 00 06 78 00 00 EA FF E5 01 3E 00 00 00 00 00 00 00 00 00 06 06 00 00 F1 FF E5 01 7D 00 00 00 22 00 00 00 00 00 02 54 00 11 44 44 44 44 44 44 44 44 04 B4 FF D5 01 F1 FF E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 148
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 FF E8 9E 15 DF 7E 90 74 F1 FF E5 01 7D 00 00 00 02 00 2D 00 E5 01 7D 00 00 00 22 00 00 00 00 00 02 E0 01 00 31 00 E5 01 7D 00 00 00 25 00 00 00 00 00 02 1E 00 11 44 44 44 44 44 44 44 44 04 F1 FF E5 01 31 00 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 87 D6 33 4B A2 37 7E 2D 31 00 E5 01 7D 00 00 00 01 00 71 00 E5 01 7D 00 00 00 25 00 00 00 00 00 02 FE 01 11 44 44 44 44 44 44 44 44 04 31 00 E5 01 71 00 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 76
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 15 95 17 B6 93 AE 41 3D 71 00 E5 01 7D 00 00 00 02 00 87 00 E5 01 7D 00 00 00 25 00 00 00 00 00 02 B0 00 00 B1 00 E5 01 7D 00 00 00 24 00 00 00 00 00 02 4E 01 11 44 44 44 44 44 44 44 44 04 71 00 E5 01 B1 00 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 97 4A A5 DA 49 27 4E 44 B1 00 E5 01 7D 00 00 00 02 00 E1 00 E5 01 7D 00 00 00 24 00 00 00 00 00 02 80 01 00 F1 00 E5 01 7D 00 00 00 23 00 00 00 00 00 02 7E 00 11 44 44 44 44 44 44 44 44 04 B1 00 E5 01 F1 00 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 49 72 3B 83 5C 99 AB 2B F1 00 E5 01 7D 00 00 00 01 00 31 01 E5 01 7D 00 00 00 23 00 00 00 00 00 02 FE 01 11 44 44 44 44 44 44 44 44 04 F1 00 E5 01 31 01 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 76
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 66 5C D5 5D 64 59 60 D6 31 01 E5 01 7D 00 00 00 04 00 3B 01 E5 01 7D 00 00 00 23 00 00 00 00 00 02 50 00 00 4F 01 E4 01 7D 00 00 00 20 00 00 00 00 00 02 A0 00 01 7D 00 D5 FD 06 00 00 00 71 01 97 01 7D 00 F1 FF 00 00 00 00 00 00 06 0E 01 11 44 44 44 44 44 44 44 44 04 31 01 97 01 71 01 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 8C 4D 11 5D 58 23 14 63 71 01 97 01 7D 00 F1 FF 03 00 80 01 A3 01 7D 00 E1 00 00 00 00 00 00 00 06 78 00 00 82 01 A9 01 3E 00 00 00 00 00 00 00 00 00 06 15 00 00 AE 01 A9 01 7D 00 00 00 1D 00 00 00 00 00 02 71 01 11 44 44 44 44 44 44 44 44 04 71 01 97 01 AE 01 A9 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 23 04 AA 30 94 34 8E 17 AE 01 A9 01 7D 00 00 00 06 00 B1 01 A8 01 7D 00 00 00 1D 00 00 00 00 00 02 1E 00 01 7D 00 D5 FD 06 00 00 00 D3 01 5B 01 7D 00 F1 FF 00 00 00 00 00 00 06 0E 01 00 E2 01 67 01 7D 00 E1 00 00 00 00 00 00 00 06 78 00 00 E5 01 6D 01 3E 00 00 00 00 00 00 00 00 00 06 15 00 00 EC 01 6D 01 7D 00 00 00 1A 00 00 00 00 00 02 45 00 11 44 44 44 44 44 44 44 44 04 AE 01 5B 01 EC 01 A9 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 156
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 24 52 81 A4 82 71 B6 A7 EC 01 6D 01 7D 00 00 00 03 00 EF 01 6D 01 7D 00 00 00 1A 00 00 00 00 00 02 18 00 00 16 02 6D 01 7D 00 00 00 16 00 00 00 00 00 02 38 01 00 2C 02 6D 01 7D 00 00 00 1B 00 00 00 00 00 02 AE 00 11 44 44 44 44 44 44 44 44 04 EC 01 6D 01 2C 02 6D 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 FA B7 17 A1 B6 4E 60 AB 2C 02 6D 01 7D 00 00 00 02 00 49 02 6D 01 7D 00 00 00 1B 00 00 00 00 00 02 E8 00 00 6C 02 6D 01 7D 00 00 00 14 00 00 00 00 00 02 16 01 11 44 44 44 44 44 44 44 44 04 2C 02 6D 01 6C 02 6D 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 4C 34 5B EC 38 20 52 0B 6C 02 6D 01 7D 00 00 00 02 00 A3 02 6D 01 7D 00 00 00 14 00 00 00 00 00 02 B8 01 00 AC 02 6D 01 7D 00 00 00 13 00 00 00 00 00 02 46 00 11 44 44 44 44 44 44 44 44 04 6C 02 6D 01 AC 02 6D 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 3C D0 BB 44 C2 8F 26 59 AC 02 6D 01 7D 00 00 00 01 00 EC 02 6D 01 7D 00 00 00 13 00 00 00 00 00 02 FE 01 11 44 44 44 44 44 44 44 44 04 AC 02 6D 01 EC 02 6D 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 76
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 7D BB FC 9E 84 F2 16 46 EC 02 6D 01 7D 00 00 00 02 00 FD 02 6D 01 7D 00 00 00 13 00 00 00 00 00 02 88 00 00 2C 03 6D 01 7D 00 00 00 15 00 00 00 00 00 02 76 01 11 44 44 44 44 44 44 44 44 04 EC 02 6D 01 2C 03 6D 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 40 5D E2 B2 37 F1 3C DD 2C 03 6D 01 7D 00 00 00 02 00 57 03 6D 01 7D 00 00 00 15 00 00 00 00 00 02 58 01 00 6C 03 6D 01 7D 00 00 00 2A 00 00 00 00 00 02 A6 00 11 44 44 44 44 44 44 44 44 04 2C 03 6D 01 6C 03 6D 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 D7 7C E0 2D 87 42 F7 A3 6C 03 6D 01 7D 00 00 00 08 00 7B 03 6D 01 7D 00 00 00 2A 00 00 00 00 00 02 78 00 00 83 03 6D 01 35 00 00 00 2A 00 00 00 00 00 0A 5A 00 0B 35 00 00 00 2A 00 0A 00 00 0C 83 03 6C 01 35 00 00 00 2A 00 2A 00 00 00 00 00 0A 00 00 0C 83 03 6C 01 35 00 00 00 00 00 2A 00 00 00 00 00 06 00 00 0C 83 03 62 01 00 00 F0 FF 00 00 2A 00 00 00 00 00 06 5A 00 0C 83 03 6E 01 00 00 DF 00 00 00 2A 00 00 00 00 00 06 78 00 0C 84 03 8B 01 09 00 94 01 00 00 2A 00 00 00 00 00 06 5A 00 11 44 55 11 11 11 11 11 55 05 6C 03 62 01 84 03 8B 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 207
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 59 D1 CE D3 FC 6A 21 2B 84 03 8B 01 09 00 94 01 03 0C 85 03 DD 01 09 00 9E 02 00 00 2A 00 00 00 00 00 06 96 00 0C 85 03 E5 01 04 00 00 00 00 00 2A 00 00 00 00 00 06 0A 00 00 A9 03 E5 01 7D 00 00 00 3E 00 00 00 00 00 02 5E 01 11 44 44 44 44 44 44 44 44 04 84 03 8B 01 A9 03 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 CC FA 7C D8 D4 78 1C 91 A9 03 E5 01 7D 00 00 00 02 00 B1 03 E5 01 7D 00 00 00 3E 00 00 00 00 00 02 40 00 00 E9 03 E5 01 7D 00 00 00 35 00 00 00 00 00 02 BE 01 11 44 44 44 44 44 44 44 44 04 A9 03 E5 01 E9 03 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 B5 F2 BA 98 69 CF 94 96 E9 03 E5 01 7D 00 00 00 02 00 0B 04 E5 01 7D 00 00 00 35 00 00 00 00 00 02 10 01 00 29 04 E5 01 7D 00 00 00 3B 00 00 00 00 00 02 EE 00 11 44 44 44 44 44 44 44 44 04 E9 03 E5 01 29 04 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 94
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 96 1B AE D8 15 B5 37 73 29 04 E5 01 7D 00 00 00 03 00 34 04 E5 01 7D 00 00 00 3B 00 00 00 00 00 02 5A 00 00 3E 04 E5 01 05 00 00 00 3B 00 00 00 00 00 04 96 00 00 3E 04 E5 01 00 00 00 00 3B 00 00 00 00 00 04 0E 01 11 64 26 22 00 22 02 00 22 00 29 04 E5 01 3E 04 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 30 E9 30 14 DA 54 74 C2 3E 04 E5 01 00 00 00 00 04 00 3E 04 E4 01 00 00 00 00 3B 00 00 00 00 00 04 1E 00 01 00 00 D5 FD 06 00 00 00 3E 04 97 01 00 00 F1 FF 00 00 00 00 00 00 06 0E 01 00 3E 04 C0 01 00 00 95 01 00 00 00 00 00 00 06 D2 00 11 00 00 00 00 00 00 00 00 00 3E 04 97 01 3E 04 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 F2 D8 D0 EE AD 17 07 FA 3E 04 C0 01 00 00 95 01 03 00 3E 04 DB 01 00 00 0D 02 00 00 00 00 00 00 06 3C 00 00 3E 04 E5 01 00 00 00 00 00 00 00 00 00 00 06 0F 00 00 3E 04 E5 01 00 00 00 00 3B 00 00 00 00 00 04 B3 01 11 00 00 00 00 00 00 00 00 00 3E 04 C0 01 3E 04 E5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 4B 33 A0 8B E9 8D EC B5 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
+	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter$ProtocolDecoderOutputImpl.flush(ProtocolCodecFilter.java:407)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:236)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+
+---------------------------------
+Error for player ; dsadsadasd on map ; 10000 - account ; pllsz
+All: 2C 00 FF FF FF FF FF FF FF FF 00 FF FF FF FF FF FF FF FF 51 8A E8 12 3A 94 06 76 AD AD 93 24 A3 FF B8 01 00 00 00 00 03 00 A3 FF CE 01 00 00 2C 01 00 00 00 00 00 00 06 96 00 00 A3 FF D5 01 00 00 00 00 00 00 00 00 00 00 06 14 00 00 A3 FF D5 01 00 00 00 00 31 00 00 00 00 00 04 54 01 11 00 00 00 00 00 00 00 00 00 A3 FF B8 01 A3 FF D5 01
+Now: kevintjuh93 pwns
+java.lang.ArrayIndexOutOfBoundsException: 125
+	at tools.data.input.ByteArrayByteStream.readByte(ByteArrayByteStream.java:54)
+	at tools.data.input.GenericLittleEndianAccessor.readInt(GenericLittleEndianAccessor.java:64)
+	at net.server.channel.handlers.AbstractDealDamageHandler.parseDamage(AbstractDealDamageHandler.java:415)
+	at net.server.channel.handlers.CloseRangeDamageHandler.handlePacket(CloseRangeDamageHandler.java:57)
 	at net.MapleServerHandler.messageReceived(MapleServerHandler.java:127)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain$TailFilter.messageReceived(DefaultIoFilterChain.java:690)
 	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)

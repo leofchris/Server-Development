@@ -22,40 +22,42 @@
 package net;
 
 public enum SendOpcode {
-
+    /*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*/
     CheckPasswordResult(0x00),
-    GUEST_ID_LOGIN(0x01),
-    ACCOUNT_INFO(0x02),
+    GuestIDLoginResult(0x01),
+    AccountInfoResult(0x02),
     CheckUserLimitResult(0x03),
-    GENDER_DONE(0x04),
-    CONFIRM_EULA_RESULT(0x05),
+    SetAccountResult(0x04),
+    ConfirmEULAResult(0x05),
     CheckPinCodeResult(0x06),
     UpdatePinCodeResult(0x07),
-    
     ViewAllCharResult(0x08),
-    SELECT_CHARACTER_BY_VAC(0x09),
-    
+    SelectCharacterByVACResult(0x09),
     WorldInformation(0x0A), 
     SelectWorldResult(0x0B),
-    SERVER_IP(0x0C),
+    SelectCharacterResult(0x0C),
     CheckDuplicatedIDResult(0x0D),
     CreateNewCharacterResult(0x0E),
     DeleteCharacterResult(0x0F),
-    CHANGE_CHANNEL(0x10),
-    AliveReq(0x11),
-    KOREAN_INTERNET_CAFE_SHIT(0x12),//Useless ignore it.
-    CHANNEL_SELECTED(0x14),
-    HACKSHIELD_REQUEST(0x15),//maybe this is RELOG_RESPONSE, can't care less
-    RELOG_RESPONSE(0x16),
-    CHECK_CRC_RESULT(0x199999),
     LatestConnectedWorld(0x18),//(0x1A) V83 -2
     RecommendWorldMessage(0x19), //(0x1B) v83 -2
     CheckSPWResult(0x1B), //(0x1C) v83 -1
     
+    /*CClientSocket::ProcessPacket*/
+    AliveReq(0x11),
+    CheckCrcResult(0x17),
+    MigrateCommand(0x10),
+      
+    /*Unknown*/
+    KOREAN_INTERNET_CAFE_SHIT(0x12),//Useless ignore it.
+    CHANNEL_SELECTED(0x14),
+    HACKSHIELD_REQUEST(0x15),//maybe this is RELOG_RESPONSE, can't care less
+    RELOG_RESPONSE(0x16),
+
     /*CWvsContext::OnPacket*/
     InventoryOperation(0x1C), //(0x1D) V83
-    INVENTORY_GROW(0x1D), //(0x1E) v83
-    STAT_CHANGED(0x1E), //(0x1F) v83
+    InventoryGrow(0x1D), //(0x1E) v83
+    StatChanged(0x1E), //(0x1F) v83
     GIVE_BUFF(0x20),
     CANCEL_BUFF(0x21),
     FORCED_STAT_SET(0x22),
@@ -148,7 +150,7 @@ public enum SendOpcode {
     SET_BUY_EQUIP_EXT(0x79),
     SCRIPT_PROGRESS_MESSAGE(0x7A),
     DATA_CRC_CHECK_FAILED(0x7B),
-    MACRO_SYS_DATA_INIT(0x8C), //(0x7C)
+    MacroSysDataInit(0x8C), //(0x7C)
     
     /*CStage::OnPacket*/
     SetField(0x8D), //(0x7D) v83
@@ -167,7 +169,7 @@ public enum SendOpcode {
     SPOUSE_CHAT(0x88),
     SUMMON_ITEM_INAVAILABLE(0x89), //You can't use it in this map
     
-    FIELD_EFFECT(0x8A),
+    FieldEffect(0x9A),//(0x8A) v83
     FIELD_OBSTACLE_ONOFF(0x8B),
     FIELD_OBSTACLE_ONOFF_STATUS(0x8CC),
     FIELD_OBSTACLE_ALL_RESET(0x8D),
@@ -184,7 +186,7 @@ public enum SendOpcode {
     SET_QUEST_TIME(0x97),
     WARN_MESSAGE(0x98),
     SET_OBJECT_STATE(0x99),
-    STOP_CLOCK(0x9A),
+    STOP_CLOCK(0x9AA),
     ARIANT_ARENA_SHOW_RESULT(0x9B),
     PYRAMID_GAUGE(0x9D),
     PYRAMID_SCORE(0x9E),
@@ -225,7 +227,7 @@ public enum SendOpcode {
     GIVE_FOREIGN_BUFF(0xC7),
     CANCEL_FOREIGN_BUFF(0xC8),
     UPDATE_PARTYMEMBER_HP(0xC9),
-    CANCEL_CHAIR(0xE7), //(0XCD) v83
+    SitResult(0xE7), //(0XCD) v83
     SHOW_ITEM_GAIN_INCHAT(0xCE),
     DOJO_WARP_UP(0xCF),
     LUCKSACK_PASS(0xD0),
@@ -235,8 +237,8 @@ public enum SendOpcode {
     PLAYER_HINT(0xD6),
     KOREAN_EVENT(0xDB),
     OPEN_UI(0xDC),
-    LOCK_UI(0xDD),
-    DISABLE_UI(0xDE),
+    SetDirectionMode(0xFD), //(0xDD) v83
+    SetStandAloneMode(0xFE), //(0xDE) v83
     SPAWN_GUIDE(0xDF),
     TALK_GUIDE(0xE0),
     SHOW_COMBO(0xE1),
@@ -255,7 +257,7 @@ public enum SendOpcode {
     SHOW_MONSTER_HP(0xFA),
     SHOW_DRAGGED(0xFB),//CATCH
     CATCH_MONSTER(0xFC),
-    SHOW_MAGNET(0xFD),
+    SHOW_MAGNET(0xFDD),
     SPAWN_NPC(0x101),
     REMOVE_NPC(0x102),
     SPAWN_NPC_REQUEST_CONTROLLER(0x103),
@@ -323,7 +325,7 @@ public enum SendOpcode {
     QUERY_CASH_RESULT(0x144),
     CASHSHOP_OPERATION(0x145),
     
-    KEYMAP(0x18E), //(0x14F)
+    KEYMAP(0x18E), //(0x14F) v83
     AUTO_HP_POT(0x150),
     AUTO_MP_POT(0x151),
     SEND_TV(0x155),
