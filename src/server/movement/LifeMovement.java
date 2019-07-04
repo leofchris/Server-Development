@@ -25,7 +25,16 @@ import java.awt.Point;
 
 public interface LifeMovement extends LifeMovementFragment {
     Point getPosition();
-    byte getNewstate();
-    int getDuration();
     byte getType();
+    short getElapse();
+    byte getMoveAction();
+    short getFh();
+    short getFhFallStart();
+    short getxOffset();
+    short getyOffset();
+    Point getVelocity();
+    short getCurrentVX();
+    short getCurrentVY();
+    short getCurrentX();
+    short getCurrentY();
 }

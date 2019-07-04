@@ -25,20 +25,26 @@ import java.awt.Point;
 import tools.data.output.LittleEndianWriter;
 
 public class ChangeEquip implements LifeMovementFragment {
-    private int wui;
+    
+    private byte  type, stat;
 
-    public ChangeEquip(int wui) {
-        this.wui = wui;
+    public ChangeEquip(byte type, byte stat) {
+       this.type = type;
+       this.stat = stat;
     }
 
-    @Override
+   @Override
     public void serialize(LittleEndianWriter lew) {
-        lew.write(10);
-        lew.write(wui);
-    }
+        lew.write(getType());
+        lew.write(getStat());
+     }
 
     @Override
-    public Point getPosition() {
-        return new Point(0, 0);
+    public byte getType() {
+        return type;
+    }
+    
+    public byte getStat(){
+        return stat;
     }
 }

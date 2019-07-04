@@ -24,35 +24,85 @@ package server.movement;
 import java.awt.Point;
 
 public abstract class AbstractLifeMovement implements LifeMovement {
-    private Point position;
-    private int duration;
-    private byte newstate, type;
 
-    public AbstractLifeMovement(byte type, Point position, int duration, byte newstate) {
-        super();
+    private Point position, velocity;
+    private byte moveAction, type;
+    private short fh, fhFallStart, xOffset, yOffset, elapse,currentVX, currentVY, currentX, currentY;
+
+    public AbstractLifeMovement(byte type, Point position, Point velocity, short fh,  short fhFallStart, short xOffset, short yOffset, byte moveAction, short elapse,short currentVX, short currentVY, short currentX, short currentY) {
+       
         this.type = type;
         this.position = position;
-        this.duration = duration;
-        this.newstate = newstate;
+        this.velocity = velocity;
+        this.fh = fh;
+        this.fhFallStart = fhFallStart;
+        this.xOffset = xOffset;
+        this.yOffset = yOffset;
+        this.moveAction = moveAction;
+        this.elapse = elapse;
+        this.currentVX = currentVX;
+        this.currentVY = currentVY;
+        this.currentX = currentX;
+        this.currentY = currentY;
     }
-
+    
+   
+    
     @Override
-    public byte getType() {
-        return this.type;
+    public short getElapse() {
+        return elapse;
     }
-
-    @Override
-    public int getDuration() {
-        return duration;
-    }
-
-    @Override
-    public byte getNewstate() {
-        return newstate;
-    }
-
+    
     @Override
     public Point getPosition() {
-        return position;
+   return position;
     }
+   
+    @Override
+     public byte getMoveAction() {
+        return moveAction;
+    }
+
+    @Override
+    public short getFh() {
+        return fh;
+    }
+
+    @Override
+    public short getFhFallStart() {
+        return fhFallStart;
+    }
+
+    @Override
+    public short getxOffset() {
+        return xOffset;
+    }
+
+    @Override
+    public short getyOffset() {
+        return yOffset;
+    }
+
+    @Override
+    public Point getVelocity() {
+        return velocity;
+    }
+
+    public short getCurrentVX() {
+        return currentVX;
+    }
+
+    public short getCurrentVY() {
+        return currentVY;
+    }
+
+    public short getCurrentX() {
+        return currentX;
+    }
+
+    public short getCurrentY() {
+        return currentY;
+    }
+    
+    
 }

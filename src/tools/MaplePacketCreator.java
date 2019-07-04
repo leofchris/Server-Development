@@ -94,6 +94,7 @@ import server.maps.MapleMist;
 import server.maps.MapleReactor;
 import server.maps.MapleSummon;
 import server.maps.PlayerNPCs;
+import server.movement.AbsoluteLifeMovement;
 import server.movement.LifeMovementFragment;
 import server.partyquest.MonsterCarnivalParty;
 import tools.data.output.LittleEndianWriter;
@@ -1880,7 +1881,7 @@ public class MaplePacketCreator {
     }
 
     private static void serializeMovementList(LittleEndianWriter lew, List<LifeMovementFragment> moves) {
-        lew.write(moves.size());
+    
         for (LifeMovementFragment move : moves) {
             move.serialize(lew);
         }
@@ -1888,9 +1889,14 @@ public class MaplePacketCreator {
 
     public static byte[] movePlayer(int cid, List<LifeMovementFragment> moves) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.MOVE_PLAYER.getValue());
+        mplew.writeShort(SendOpcode.Move.getValue());
         mplew.writeInt(cid);
-        mplew.writeInt(0);
+        
+        mplew.writeShort(((AbsoluteLifeMovement)moves.get(0)).getCurrentX());
+        mplew.writeShort(((AbsoluteLifeMovement)moves.get(0)).getCurrentY());
+        mplew.writeShort(((AbsoluteLifeMovement)moves.get(0)).getCurrentVX());
+        mplew.writeShort(((AbsoluteLifeMovement)moves.get(0)).getCurrentVY());
+        
         serializeMovementList(mplew, moves);
         return mplew.getPacket();
     }

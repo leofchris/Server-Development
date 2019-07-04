@@ -24,14 +24,16 @@ package net.server.channel.handlers;
 import net.server.channel.handlers.AbstractMovementPacketHandler;
 import java.util.List;
 import client.MapleClient;
+import server.movement.AbsoluteLifeMovement;
 import server.movement.LifeMovementFragment;
+
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 public final class MovePlayerHandler extends AbstractMovementPacketHandler {
     public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
-        slea.skip(9);
-        final List<LifeMovementFragment> res = parseMovement(slea);
+        slea.skip(29);
+       final List<LifeMovementFragment> res = parseMovement(slea);
         if (res != null) {
             updatePosition(res, c.getPlayer(), 0);
             c.getPlayer().getMap().movePlayer(c.getPlayer(), c.getPlayer().getPosition());

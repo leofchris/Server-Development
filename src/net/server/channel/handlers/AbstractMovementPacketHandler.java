@@ -30,107 +30,124 @@ import server.movement.AbsoluteLifeMovement;
 import server.movement.ChairMovement;
 import server.movement.ChangeEquip;
 import server.movement.JumpDownMovement;
-import server.movement.LifeMovement;
 import server.movement.LifeMovementFragment;
+import server.movement.RandomMovement;
+
 import server.movement.RelativeLifeMovement;
+import server.movement.TeleportLifeMovement;
 import tools.data.input.LittleEndianAccessor;
 
 public abstract class AbstractMovementPacketHandler extends AbstractMaplePacketHandler {
 
     protected List<LifeMovementFragment> parseMovement(LittleEndianAccessor lea) {
-        List<LifeMovementFragment> res = new ArrayList<>();
+       List<LifeMovementFragment> res = new ArrayList<>();
+        
+        int lock = 0;
+        short fhFallStart = 0;
+        short currentX = lea.readShort();
+        short currentY = lea.readShort();
+        short currentVX = lea.readShort();
+        short currentVY = lea.readShort();
         byte numCommands = lea.readByte();
+
         for (byte i = 0; i < numCommands; i++) {
             byte command = lea.readByte();
             switch (command) {
                 case 0: // normal move
                 case 5:
-                case 17: { // Float
-                    short xpos = lea.readShort();
-                    short ypos = lea.readShort();
-                    short xwobble = lea.readShort();
-                    short ywobble = lea.readShort();
-                    short unk = lea.readShort();
-                    byte newstate = lea.readByte();
-                    short duration = lea.readShort();
-                    AbsoluteLifeMovement alm = new AbsoluteLifeMovement(command, new Point(xpos, ypos), duration, newstate);
-                    alm.setUnk(unk);
-                    alm.setPixelsPerSecond(new Point(xwobble, ywobble));
-                    res.add(alm);
+                case 12:
+                case 14:
+                case 35:
+                case 36:
+                    short x = lea.readShort();
+                    short y = lea.readShort();
+                    short vx = lea.readShort();
+                    short vy = lea.readShort();
+                    short fh = lea.readShort();
+                    if (command == 12){
+                       lock = 1;
+                       fhFallStart = lea.readShort();
+                    }
+                    short xOffset = lea.readShort();
+                    short yOffset = lea.readShort();
+                    
+                    byte moveAction = lea.readByte();
+                    short elapse = lea.readShort();
+                         AbsoluteLifeMovement alm = new AbsoluteLifeMovement(command, new Point(x, y), new Point(vx, vy), fh, fhFallStart, xOffset, yOffset, moveAction, elapse, currentVX, currentVY, currentX, currentY, lock);
+                         res.add(alm);
+                         lock = 0;
                     break;
-                }
                 case 1:
                 case 2:
-                case 6: // fj
-                case 12:
                 case 13: // Shot-jump-back thing
-                case 16: { // Float
-                    short xpos = lea.readShort();
-                    short ypos = lea.readShort();
-                    byte newstate = lea.readByte();
-                    short duration = lea.readShort();
-                    RelativeLifeMovement rlm = new RelativeLifeMovement(command, new Point(xpos, ypos), duration, newstate);
-                    res.add(rlm);
+                case 16: 
+                case 18:
+                case 31:
+                case 32:
+                case 33:
+                case 34:
+                     vx = lea.readShort();
+                     vy = lea.readShort();
+                     moveAction = lea.readByte();
+                     elapse = lea.readShort();
+                     RelativeLifeMovement rlm = new RelativeLifeMovement(command, new Point(vx, vy), moveAction, elapse);
+                     res.add(rlm);
                     break;
-                }
                 case 3:
                 case 4: // tele... -.-
-                case 7: // assaulter
-                case 8: // assassinate
-                case 9: // rush
-                case 14: { // Before Jump Down - fixes item/mobs dissappears
-                    lea.skip(9);
+                case 6: // assaulter
+                case 7: // assassinate
+                case 8: // rush
+                case 10:
+                    x = lea.readShort();
+                    y = lea.readShort();
+                    fh = lea.readShort();   
+                    moveAction = lea.readByte();
+                    elapse = lea.readShort();
+                    TeleportLifeMovement tlm = new TeleportLifeMovement(command, new Point(x,y), fh, moveAction, elapse);
+                    res.add(tlm);
+                    break;    
+                case 9:
+                     byte stat = lea.readByte();
+                     ChangeEquip ce = new ChangeEquip(command, stat);
+                     res.add(ce);
                     break;
-                    /*case 14: {
-                     short xpos = lea.readShort();
-                     short ypos = lea.readShort();
-                     short xwobble = lea.readShort();
-                     short ywobble = lea.readShort();
-                     byte newstate = lea.readByte();
-                     TeleportMovement tm = new TeleportMovement(command, new Point(xpos, ypos), newstate);
-                     tm.setPixelsPerSecond(new Point(xwobble, ywobble));
-                     res.add(tm);
-                     break;
-                     } */
-                }
-                case 10: // Change Equip
-                    res.add(new ChangeEquip(lea.readByte()));
-                    break;
-                case 11: { // Chair
-                    short xpos = lea.readShort();
-                    short ypos = lea.readShort();
-                    short unk = lea.readShort();
-                    byte newstate = lea.readByte();
-                    short duration = lea.readShort();
-                    ChairMovement cm = new ChairMovement(command, new Point(xpos, ypos), duration, newstate);
-                    cm.setUnk(unk);
-                    res.add(cm);
-                    break;
-                }
-                case 15: {
-                    short xpos = lea.readShort();
-                    short ypos = lea.readShort();
-                    short xwobble = lea.readShort();
-                    short ywobble = lea.readShort();
-                    short unk = lea.readShort();
-                    short fh = lea.readShort();
-                    byte newstate = lea.readByte();
-                    short duration = lea.readShort();
-                    JumpDownMovement jdm = new JumpDownMovement(command, new Point(xpos, ypos), duration, newstate);
-                    jdm.setUnk(unk);
-                    jdm.setPixelsPerSecond(new Point(xwobble, ywobble));
-                    jdm.setFH(fh);
+                case 11: 
+                    vx = lea.readShort();
+                    vy = lea.readShort();
+                    fhFallStart = lea.readShort();
+                    moveAction = lea.readByte();
+                    elapse = lea.readShort();
+                    JumpDownMovement jdm = new JumpDownMovement(command, new Point(vx, vy), fhFallStart, moveAction, elapse);
                     res.add(jdm);
                     break;
-                }
-                case 21: {//Causes aran to do weird stuff when attacking o.o
-                    /*byte newstate = lea.readByte();
-                     short unk = lea.readShort();
-                     AranMovement am = new AranMovement(command, null, unk, newstate);
-                     res.add(am);*/
-                    lea.skip(3);
+                case 17: 
+                   x = lea.readShort();
+                   y = lea.readShort();
+                   vx = lea.readShort();
+                   vy = lea.readShort();
+                   moveAction = lea.readByte();
+                   elapse = lea.readShort();
+                   ChairMovement cm = new ChairMovement(command, new Point(x,y), new Point(vx, vy), moveAction, elapse);
+                   res.add(cm);
+                   break;
+                case 20: 
+                case 21:
+                case 22:
+                case 23:
+                case 24:
+                case 25:
+                case 26:
+                case 27:
+                case 28:
+                case 29:
+                case 30: 
+                    moveAction = lea.readByte();
+                    elapse = lea.readShort();
+                    RandomMovement rm = new RandomMovement(command, moveAction, elapse);
+                    res.add(rm);
                     break;
-                }
+
                 default:
                     return null;
             }
@@ -140,14 +157,10 @@ public abstract class AbstractMovementPacketHandler extends AbstractMaplePacketH
 
     protected void updatePosition(List<LifeMovementFragment> movement, AnimatedMapleMapObject target, int yoffset) {
         for (LifeMovementFragment move : movement) {
-            if (move instanceof LifeMovement) {
-                if (move instanceof AbsoluteLifeMovement) {
-                    Point position = ((LifeMovement) move).getPosition();
-                    position.y += yoffset;
+            
+                    Point position = ((AbsoluteLifeMovement) move).getPosition();
+     
                     target.setPosition(position);
-                }
-                target.setStance(((LifeMovement) move).getNewstate());
             }
         }
-    }
 }

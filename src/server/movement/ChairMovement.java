@@ -24,29 +24,53 @@ package server.movement;
 import java.awt.Point;
 import tools.data.output.LittleEndianWriter;
 
-public class ChairMovement extends AbstractLifeMovement {
-    private int unk;
-
-    public ChairMovement(byte type, Point position, int duration, byte newstate) {
-        super(type, position, duration, newstate);
-    }
-
-    public int getUnk() {
-        return unk;
-    }
-
-    public void setUnk(int unk) {
-        this.unk = unk;
+public class ChairMovement implements LifeMovementFragment {
+   
+    private Point position, velocity;
+    private byte moveAction, type;
+    private short elapse;
+    
+    public ChairMovement(byte type, Point position, Point velocity, byte moveAction, short elapse) {
+       this.type = type;
+       this.position = position;
+       this.velocity = velocity;
+       this.moveAction = moveAction;
+       this.elapse = elapse;
     }
 
     @Override
     public void serialize(LittleEndianWriter lew) {
-        lew.write(getType());
-        lew.writeShort(getPosition().x);
-        lew.writeShort(getPosition().y);
-        lew.writeShort(unk);
-        lew.write(getNewstate());
-        lew.writeShort(getDuration());
+       lew.write(getType());
+       lew.writeShort(getPosition().x);
+       lew.writeShort(getPosition().y);
+       lew.writeShort(getVelocity().x);
+       lew.writeShort(getVelocity().y);
+       lew.write(getMoveAction());
+       lew.writeShort(getElapse());
     }
+    @Override
+    public byte getType() {
+        return type;
+    }
+
+    public Point getVelocity() {
+        return velocity;
+    }
+
+    public byte getMoveAction() {
+        return moveAction;
+    }
+
+    public Point getPosition() {
+        return position;
+    }
+
+    
+
+    public short getElapse() {
+        return elapse;
+    }
+    
+    
 }
 

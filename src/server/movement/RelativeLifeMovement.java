@@ -24,17 +24,44 @@ package server.movement;
 import java.awt.Point;
 import tools.data.output.LittleEndianWriter;
 
-public class RelativeLifeMovement extends AbstractLifeMovement {
-    public RelativeLifeMovement(byte type, Point position, int duration, byte newstate) {
-        super(type, position, duration, newstate);
+public class RelativeLifeMovement implements LifeMovementFragment {
+    
+    private Point velocity;
+    private byte moveAction, type;
+    private short elapse;
+    
+    
+    public RelativeLifeMovement(byte type, Point velocity, byte moveAction, short elapse) {
+       this.type = type;
+       this.velocity = velocity;
+       this.moveAction = moveAction;
+       this.elapse = elapse;
+     
     }
 
     @Override
     public void serialize(LittleEndianWriter lew) {
-        lew.write(getType());
-        lew.writeShort(getPosition().x);
-        lew.writeShort(getPosition().y);
-        lew.write(getNewstate());
-        lew.writeShort(getDuration());
+       lew.write(getType());
+       lew.write(getVelocity().x);
+       lew.write(getVelocity().y);
+       lew.write(getMoveAction());
+       lew.writeShort(getElapse());
+    }
+  
+    public Point getVelocity() {
+        return velocity;
+    }
+
+    public byte getMoveAction() {
+        return moveAction;
+    }
+
+    @Override
+    public byte getType() {
+        return type;
+    }
+
+    public short getElapse() {
+        return elapse;
     }
 }
