@@ -97,7 +97,7 @@ public enum RecvOpcode {
     USE_UPGRADE_SCROLL(0x56),
     DISTRIBUTE_AP(0x57),
     AUTO_DISTRIBUTE_AP(0x58),
-    HEAL_OVER_TIME(0x59),
+    UserChangeStatRequest(0x64), //(0x59) v83
     DISTRIBUTE_SP(0x5A),
     SPECIAL_MOVE(0x5B),
     CANCEL_BUFF(0x5C),
