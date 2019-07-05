@@ -1204,11 +1204,11 @@ public class MapleMap {
             }
            MapScriptManager.getInstance().getMapScript(chr.getClient(), onUserEnter, false);
         }
-       /*     if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
+          if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
             chr.cancelEffectFromBuffStat(MapleBuffStat.MONSTER_RIDING);
             chr.cancelBuffStats(MapleBuffStat.MONSTER_RIDING);
         }
-            if (mapid == 923010000 && getMonsterById(9300102) == null) { // Kenta's Mount Quest
+          if (mapid == 923010000 && getMonsterById(9300102) == null) { // Kenta's Mount Quest
             spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(9300102), new Point(77, 426));
         } else if (mapid == 910110000) { // Henesys Party Quest
             chr.getClient().announce(MaplePacketCreator.getClock(15 * 60));
@@ -1221,8 +1221,8 @@ public class MapleMap {
                 }
             }, 15 * 60 * 1000 + 3000);
         }
-        MaplePet[] pets = chr.getPets();
-        for (int i = 0; i < chr.getPets().length; i++) {
+          MaplePet[] pets = chr.getPets();
+      for (int i = 0; i < chr.getPets().length; i++) {
             if (pets[i] != null) {
                 pets[i].setPos(getGroundBelow(chr.getPosition()));
                 chr.announce(MaplePacketCreator.showPet(chr, pets[i], false, false));
@@ -1231,34 +1231,34 @@ public class MapleMap {
             }
         }
 
-       if (chr.isHidden()) {
+      if (chr.isHidden()) {
             broadcastGMMessage(chr, MaplePacketCreator.spawnPlayerMapobject(chr), false);
             chr.announce(MaplePacketCreator.getGMEffect(0x10, (byte) 1));
         } else {
             broadcastMessage(chr, MaplePacketCreator.spawnPlayerMapobject(chr), false);
         }
 
-      /*  sendObjectPlacement(chr.getClient());
+      /*   sendObjectPlacement(chr.getClient());
         if (isStartingEventMap() && !eventStarted()) {
             chr.getMap().getPortal("join00").setPortalStatus(false);
         }
-        if (hasForcedEquip()) {
+       if (hasForcedEquip()) {
             chr.getClient().announce(MaplePacketCreator.showForcedEquip(-1));
         }
-        if (specialEquip()) {
+     if (specialEquip()) {
             chr.getClient().announce(MaplePacketCreator.coconutScore(0, 0));
             chr.getClient().announce(MaplePacketCreator.showForcedEquip(chr.getTeam()));
         }
         objectWLock.lock();
-        try {
+           try {
             this.mapobjects.put(Integer.valueOf(chr.getObjectId()), chr);
         } finally {
             objectWLock.unlock();
         }
-        if (chr.getPlayerShop() != null) {
+      if (chr.getPlayerShop() != null) {
             addMapObject(chr.getPlayerShop());
-        }
-        MapleStatEffect summonStat = chr.getStatForBuff(MapleBuffStat.SUMMON);
+          }
+       /*  MapleStatEffect summonStat = chr.getStatForBuff(MapleBuffStat.SUMMON);
         if (summonStat != null) {
             MapleSummon summon = chr.getSummons().get(summonStat.getSourceId());
             summon.setPosition(chr.getPosition());

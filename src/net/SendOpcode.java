@@ -22,6 +22,7 @@
 package net;
 
 public enum SendOpcode {
+    
     /*CLogin::OnPacket*/
     CheckPasswordResult(0x00),
     GuestIDLoginResult(0x01),
@@ -190,7 +191,8 @@ public enum SendOpcode {
     ARIANT_ARENA_SHOW_RESULT(0x9B),
     PYRAMID_GAUGE(0x9D),
     PYRAMID_SCORE(0x9E),
-    SPAWN_PLAYER(0xB3),
+    /*CUserPool::OnPacket*/
+    UserEnterField(0xB3),
     REMOVE_PLAYER_FROM_MAP(0xA1),
     UserChat(0xB5), //(0xA2) v83
     CHATTEXT1(0xA3), //1
@@ -211,6 +213,8 @@ public enum SendOpcode {
     SUMMON_ATTACK(0xB2),
     DAMAGE_SUMMON(0xB33),
     SUMMON_SKILL(0xB4),
+    
+    /*CUserPool::OnUserRemotePacket*/
     Move(0xD2),
     CLOSE_RANGE_ATTACK(0xBA),
     RANGED_ATTACK(0xBB),

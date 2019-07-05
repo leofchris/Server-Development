@@ -164,6 +164,8 @@ public class Commands {
             MapleShopFactory.getInstance().getShop(1337).sendShop(c);
         } else if (sub[0].equals("heal")) {
             player.setHpMp(30000);
+        } else if (sub[0].equals("yo")) {
+            player.setHpMp(1);
         } else if (sub[0].equals("id")) {
             try {
                 try (BufferedReader dis = new BufferedReader(new InputStreamReader(new URL("http://www.mapletip.com/search_java.php?search_value=" + sub[1] + "&check=true").openConnection().getInputStream()))) {

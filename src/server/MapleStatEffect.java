@@ -624,7 +624,7 @@ public class MapleStatEffect {
             applyto.setStance(0);
             applyto.getMap().broadcastMessage(applyto, MaplePacketCreator.removePlayerFromMap(applyto.getId()), false);
             applyto.getMap().broadcastMessage(applyto, MaplePacketCreator.spawnPlayerMapobject(applyto), false);
-        }
+       }
         if (isDispel() && makeChanceResult()) {
             applyto.dispelDebuffs();
         } else if (isHeroWill()) {

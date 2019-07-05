@@ -991,6 +991,7 @@ public class MaplePacketCreator {
             }
         }
         mplew.write(0);
+    
         mplew.write(0);
         return mplew.getPacket();
     }
@@ -1664,7 +1665,7 @@ public class MaplePacketCreator {
      */
     public static byte[] spawnPlayerMapobject(MapleCharacter chr) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SPAWN_PLAYER.getValue());
+        mplew.writeShort(SendOpcode.UserEnterField.getValue());
         mplew.writeInt(chr.getId());
         mplew.write(chr.getLevel()); //v83
         mplew.writeMapleAsciiString(chr.getName());
@@ -1723,6 +1724,7 @@ public class MaplePacketCreator {
                 mplew.write(buffvalue.byteValue());
             }
         }
+       
         mplew.writeInt((int) (buffmask & 0xffffffffL));
         int CHAR_MAGIC_SPAWN = Randomizer.nextInt();
         mplew.skip(6);
