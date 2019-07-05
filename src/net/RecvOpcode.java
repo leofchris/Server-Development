@@ -98,7 +98,7 @@ public enum RecvOpcode {
     DISTRIBUTE_AP(0x62), //(0x57) v83
     AUTO_DISTRIBUTE_AP(0x63), //(0x58) v83
     UserChangeStatRequest(0x64), //(0x59) v83
-    DISTRIBUTE_SP(0x5A),
+    DISTRIBUTE_SP(0x66), //(0x5A) V83
     SPECIAL_MOVE(0x5B),
     CANCEL_BUFF(0x5C),
     SKILL_EFFECT(0x5D),
@@ -109,7 +109,7 @@ public enum RecvOpcode {
     CANCEL_DEBUFF(0x633),
     CHANGE_MAP_SPECIAL(0x70), //(0x64) v83
     USE_INNER_PORTAL(0x65),
-    TROCK_ADD_MAP(0x66),
+    TROCK_ADD_MAP(0x6667),
     REPORT(0x6A),
     QUEST_ACTION(0x6B),
     //lolno
