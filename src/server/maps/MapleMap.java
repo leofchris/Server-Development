@@ -1231,14 +1231,14 @@ public class MapleMap {
             }
         }
 
-      if (chr.isHidden()) {
+      /* if (chr.isHidden()) {
             broadcastGMMessage(chr, MaplePacketCreator.spawnPlayerMapobject(chr), false);
             chr.announce(MaplePacketCreator.getGMEffect(0x10, (byte) 1));
         } else {
             broadcastMessage(chr, MaplePacketCreator.spawnPlayerMapobject(chr), false);
         }
 
-      /*   sendObjectPlacement(chr.getClient());
+        sendObjectPlacement(chr.getClient());
         if (isStartingEventMap() && !eventStarted()) {
             chr.getMap().getPortal("join00").setPortalStatus(false);
         }

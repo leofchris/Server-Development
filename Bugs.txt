@@ -1,3 +1,3 @@
-/*Bugs*/
+
 - Moon & Zakum Chair(known so far) on the 4th tick would crash the game. 
 - Summon Attack OpCode is sent to server as 0x00.
