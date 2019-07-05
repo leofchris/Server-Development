@@ -1187,24 +1187,24 @@ public class MapleMap {
     public void addPlayer(final MapleCharacter chr) {
         chrWLock.lock();
         try {
-            this.characters.add(chr);
+          this.characters.add(chr);
         } finally {
             chrWLock.unlock();
         }
-        chr.setMapId(mapid);
+         chr.setMapId(mapid);
     if (onFirstUserEnter.length() != 0 && !chr.hasEntered(onFirstUserEnter, mapid) && MapScriptManager.getInstance().scriptExists(onFirstUserEnter, true)) {
             if (getAllPlayer().size() <= 1) {
                 chr.enteredScript(onFirstUserEnter, mapid);
                MapScriptManager.getInstance().getMapScript(chr.getClient(), onFirstUserEnter, true);
             }
         }
-       if (onUserEnter.length() != 0) {
+   if (onUserEnter.length() != 0) {
             if (onUserEnter.equals("cygnusTest") && (mapid < 913040000 || mapid > 913040006)) {
                 chr.saveLocation("INTRO");
             }
            MapScriptManager.getInstance().getMapScript(chr.getClient(), onUserEnter, false);
         }
-          if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
+    /*          if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
             chr.cancelEffectFromBuffStat(MapleBuffStat.MONSTER_RIDING);
             chr.cancelBuffStats(MapleBuffStat.MONSTER_RIDING);
         }
@@ -1231,7 +1231,7 @@ public class MapleMap {
             }
         }
 
-      /* if (chr.isHidden()) {
+       if (chr.isHidden()) {
             broadcastGMMessage(chr, MaplePacketCreator.spawnPlayerMapobject(chr), false);
             chr.announce(MaplePacketCreator.getGMEffect(0x10, (byte) 1));
         } else {
@@ -1255,10 +1255,10 @@ public class MapleMap {
         } finally {
             objectWLock.unlock();
         }
-      if (chr.getPlayerShop() != null) {
+        if (chr.getPlayerShop() != null) {
             addMapObject(chr.getPlayerShop());
           }
-       /*  MapleStatEffect summonStat = chr.getStatForBuff(MapleBuffStat.SUMMON);
+        MapleStatEffect summonStat = chr.getStatForBuff(MapleBuffStat.SUMMON);
         if (summonStat != null) {
             MapleSummon summon = chr.getSummons().get(summonStat.getSourceId());
             summon.setPosition(chr.getPosition());

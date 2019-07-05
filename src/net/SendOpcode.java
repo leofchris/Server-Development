@@ -23,7 +23,7 @@ package net;
 
 public enum SendOpcode {
     
-    /*CLogin::OnPacket*/
+    /*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*/
     CheckPasswordResult(0x00),
     GuestIDLoginResult(0x01),
     AccountInfoResult(0x02),
@@ -158,6 +158,8 @@ public enum SendOpcode {
     SET_ITC(0x7E),
     SET_CASH_SHOP(0x7F),
     
+    
+    
     /*CField::OnPacket*/
     SET_BACK_EFFECT(0x80),
     SET_MAP_OBJECT_VISIBLE(0x81),//CMapLoadable::OnSetMapObjectVisible O_O
@@ -177,8 +179,8 @@ public enum SendOpcode {
     BLOW_WEATHER(0x8E),
     PLAY_JUKEBOX(0x8F),
 
-    ADMIN_RESULT(0xA0),
-    OX_QUIZ(0x91),//QUIZ
+    AdminResult(0xA0),
+    Quiz(0xA1),//QUIZ //(0x91)
     GMEVENT_INSTRUCTIONS(0x92),//DESC
     CLOCK(0x93),
     CONTI_MOVE(0x94),
@@ -193,7 +195,7 @@ public enum SendOpcode {
     PYRAMID_SCORE(0x9E),
     /*CUserPool::OnPacket*/
     UserEnterField(0xB3),
-    REMOVE_PLAYER_FROM_MAP(0xA1),
+    REMOVE_PLAYER_FROM_MAP(0xA11),
     UserChat(0xB5), //(0xA2) v83
     CHATTEXT1(0xA3), //1
     CHALKBOARD(0xA4),

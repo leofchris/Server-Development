@@ -108,8 +108,8 @@ public final class PlayerLoggedinHandler extends AbstractMaplePacketHandler {
         }
        player.sendKeymap();
      player.sendMacros();
-      player.getMap().addPlayer(player);
-     /*  World world = server.getWorld(c.getWorld());
+    player.getMap().addPlayer(player);
+    /*   World world = server.getWorld(c.getWorld());
         world.getPlayerStorage().addPlayer(player);
         
         int buddyIds[] = player.getBuddylist().getBuddyIds();

@@ -5262,7 +5262,7 @@ public class MaplePacketCreator {
 
     public static byte[] showOXQuiz(int questionSet, int questionId, boolean askQuestion) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(6);
-        mplew.writeShort(SendOpcode.OX_QUIZ.getValue());
+        mplew.writeShort(SendOpcode.Quiz.getValue());
         mplew.write(askQuestion ? 1 : 0);
         mplew.write(questionSet);
         mplew.writeShort(questionId);
@@ -5692,7 +5692,7 @@ public class MaplePacketCreator {
      */
     public static byte[] getGMEffect(int type, byte mode) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.ADMIN_RESULT.getValue());
+        mplew.writeShort(SendOpcode.AdminResult.getValue());
         mplew.write(type);
         mplew.write(mode);
         return mplew.getPacket();
@@ -5700,7 +5700,7 @@ public class MaplePacketCreator {
 
     public static byte[] findMerchantResponse(boolean map, int extra) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.ADMIN_RESULT.getValue());
+        mplew.writeShort(SendOpcode.AdminResult.getValue());
         mplew.write(0x13);
         mplew.write(map ? 0 : 1); //00 = mapid, 01 = ch
         if (map) {
@@ -5714,7 +5714,7 @@ public class MaplePacketCreator {
 
     public static byte[] disableMinimap() {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.ADMIN_RESULT.getValue());
+        mplew.writeShort(SendOpcode.AdminResult.getValue());
         mplew.writeShort(0x1C);
         return mplew.getPacket();
     }

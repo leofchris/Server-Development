@@ -95,8 +95,8 @@ public enum RecvOpcode {
     USE_TELEPORT_ROCK(0x54),
     USE_RETURN_SCROLL(0x55),
     USE_UPGRADE_SCROLL(0x56),
-    DISTRIBUTE_AP(0x57),
-    AUTO_DISTRIBUTE_AP(0x58),
+    DISTRIBUTE_AP(0x62), //(0x57) v83
+    AUTO_DISTRIBUTE_AP(0x63), //(0x58) v83
     UserChangeStatRequest(0x64), //(0x59) v83
     DISTRIBUTE_SP(0x5A),
     SPECIAL_MOVE(0x5B),
@@ -105,8 +105,8 @@ public enum RecvOpcode {
     MESO_DROP(0x5E),
     GIVE_FAME(0x5F),
     CHAR_INFO_REQUEST(0x61), //(0x61) V83
-    SPAWN_PET(0x62),
-    CANCEL_DEBUFF(0x63),
+    SPAWN_PET(0x622), //(0x62) v83
+    CANCEL_DEBUFF(0x633),
     CHANGE_MAP_SPECIAL(0x70), //(0x64) v83
     USE_INNER_PORTAL(0x65),
     TROCK_ADD_MAP(0x66),
@@ -119,7 +119,7 @@ public enum RecvOpcode {
     MAKER_SKILL(0x71),
     USE_REMOTE(0x74),
     ADMIN_CHAT(0x76),
-    PARTYCHAT(0x77),
+    PARTYCHAT(0x777), //(0x77);
     WHISPER(0x78),
     MESSENGER(0x7A),
     PLAYER_INTERACTION(0x7B),
