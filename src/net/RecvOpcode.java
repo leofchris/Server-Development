@@ -99,7 +99,7 @@ public enum RecvOpcode {
     AUTO_DISTRIBUTE_AP(0x63), //(0x58) v83
     UserChangeStatRequest(0x64), //(0x59) v83
     DISTRIBUTE_SP(0x66), //(0x5A) V83
-    SPECIAL_MOVE(0x5B),
+    SPECIAL_MOVE(0x67), //(0x5B);
     CANCEL_BUFF(0x5C),
     SKILL_EFFECT(0x5D),
     MESO_DROP(0x5E),

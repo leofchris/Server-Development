@@ -48,12 +48,12 @@ public final class DistributeSPHandler extends AbstractMaplePacketHandler {
         }
         Skill skill = SkillFactory.getSkill(skillid);
         int curLevel = player.getSkillLevel(skill);
-        if ((remainingSp > 0 && curLevel + 1 <= (skill.isFourthJob() ? player.getMasterLevel(skill) : skill.getMaxLevel()))) {
+        
             if (!isBeginnerSkill) {
                 player.setRemainingSp(player.getRemainingSp() - 1);
             }
             player.updateSingleStat(MapleStat.AVAILABLESP, player.getRemainingSp());
             player.changeSkillLevel(skill, (byte) (curLevel + 1), player.getMasterLevel(skill), player.getSkillExpiration(skill));
-        }
+        
     }
 }

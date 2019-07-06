@@ -65,8 +65,8 @@ public final class SpecialMoveHandler extends AbstractMaplePacketHandler {
         }
         if (skillLevel == 0 || skillLevel != __skillLevel) return;
         
-        MapleStatEffect effect = skill.getEffect(skillLevel);
-        if (effect.getCooldown() > 0) {
+        //MapleStatEffect effect = skill.getEffect(skillLevel);
+       /* if (effect.getCooldown() > 0) {
             if (chr.skillisCooling(skillid)) {
                 return;
             } else if (skillid != Corsair.BATTLE_SHIP) {
@@ -74,7 +74,7 @@ public final class SpecialMoveHandler extends AbstractMaplePacketHandler {
                 ScheduledFuture<?> timer = TimerManager.getInstance().schedule(new CancelCooldownAction(c.getPlayer(), skillid), effect.getCooldown() * 1000);
                 chr.addCooldown(skillid, System.currentTimeMillis(), effect.getCooldown() * 1000, timer);
             }
-        }
+        }*/
         if (skillid == Hero.MONSTER_MAGNET || skillid == Paladin.MONSTER_MAGNET || skillid == DarkKnight.MONSTER_MAGNET) { // Monster Magnet
             int num = slea.readInt();
             int mobId;
@@ -121,7 +121,7 @@ public final class SpecialMoveHandler extends AbstractMaplePacketHandler {
         }
         if (chr.isAlive()) {
             if (skill.getId() != Priest.MYSTIC_DOOR || chr.canDoor()) {
-                skill.getEffect(skillLevel).applyTo(c.getPlayer(), pos);
+             //   skill.getEffect(skillLevel).applyTo(c.getPlayer(), pos);
             } else {
                 chr.message("Please wait 5 seconds before casting Mystic Door again");
                 c.announce(MaplePacketCreator.enableActions());
@@ -129,5 +129,6 @@ public final class SpecialMoveHandler extends AbstractMaplePacketHandler {
         } else {
             c.announce(MaplePacketCreator.enableActions());
         }
+        c.announce(MaplePacketCreator.enableActions());
     }
 }

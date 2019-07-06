@@ -107,10 +107,6 @@ public class SkillFactory {
 			for (MapleData data2 : data) { // Loop thru each jobs
 			    if (data2 != null) {
 				skillid = Integer.parseInt(data2.getName());
-                                
-                                
-                                 
-                                    
 				skills.put(skillid, loadFromData(skillid, data2));
 			    }
 			}
@@ -120,6 +116,8 @@ public class SkillFactory {
 	}        
     }
     public static Skill loadFromData(int id, MapleData data) {
+        
+        
         Skill ret = new Skill(id);
         boolean isBuff = false;
         int skillType = MapleDataTool.getInt("skillType", data, -1);
@@ -159,6 +157,7 @@ public class SkillFactory {
             MapleData ball = data.getChildByPath("ball");
             isBuff = effect != null && hit == null && ball == null;
             isBuff |= action_ != null && MapleDataTool.getString("0", action_, "").equals("alert2");
+            
             switch (id) {
                 case Hero.RUSH:
                 case Paladin.RUSH:
