@@ -1,4 +1,4 @@
 
 - A shit ton
-- fix chair bug
 - Finish up SetField and UserEnterField
+- Buffs(Iron body, etc)
