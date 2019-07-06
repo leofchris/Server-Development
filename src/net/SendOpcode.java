@@ -23,7 +23,7 @@ package net;
 
 public enum SendOpcode {
     
-    /*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*/
+    /*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*/
     CheckPasswordResult(0x00),
     GuestIDLoginResult(0x01),
     AccountInfoResult(0x02),
@@ -63,7 +63,7 @@ public enum SendOpcode {
     CANCEL_BUFF(0x21),
     FORCED_STAT_SET(0x22),
     FORCED_STAT_RESET(0x233),
-    UPDATE_SKILLS(0x23), //(0x24)
+    ChangeSkillRecordResult(0x23), //(0x24)
     SKILL_USE_RESULT(0x25),
     FAME_RESPONSE(0x26),
     SHOW_STATUS_INFO(0x27),

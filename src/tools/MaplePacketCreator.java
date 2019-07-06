@@ -485,11 +485,25 @@ public class MaplePacketCreator {
     }
 
     private static void addSkillInfo(final MaplePacketLittleEndianWriter mplew, MapleCharacter chr) {
-        mplew.writeShort(0); // start of skills
-        mplew.writeShort(0);
-        
+         Map<Skill, MapleCharacter.SkillEntry> skills = chr.getSkills();
+        mplew.writeShort(skills.size());
+        for (Iterator<Entry<Skill, SkillEntry>> it = skills.entrySet().iterator(); it.hasNext();) {
+            Entry<Skill, MapleCharacter.SkillEntry> skill = it.next();
+            mplew.writeInt(skill.getKey().getId());
+            mplew.writeInt(skill.getValue().skillevel);
+            addExpirationTime(mplew, skill.getValue().expiration);
+            if (skill.getKey().isFourthJob()) {
+                mplew.writeInt(skill.getValue().masterlevel);
+            }
+        }
+        mplew.writeShort(chr.getAllCooldowns().size());
+        for (PlayerCoolDownValueHolder cooling : chr.getAllCooldowns()) {
+            mplew.writeInt(cooling.skillId);
+            int timeLeft = (int) (cooling.length + cooling.startTime - System.currentTimeMillis());
+            mplew.writeShort(timeLeft / 1000);
+        }
     }
-
+        
     private static void addMonsterBookInfo(final MaplePacketLittleEndianWriter mplew, MapleCharacter chr) {
        
     }
@@ -2905,7 +2919,7 @@ public class MaplePacketCreator {
 
     public static byte[] updateSkill(int skillid, int level, int masterlevel, long expiration) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.UPDATE_SKILLS.getValue());
+        mplew.writeShort(SendOpcode.ChangeSkillRecordResult.getValue());
         mplew.write(1);
         mplew.writeShort(1);
         mplew.writeInt(skillid);
