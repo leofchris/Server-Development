@@ -656,26 +656,30 @@ public class MaplePacketCreator {
     public static byte[] getAuthSuccess(MapleClient c) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.CheckPasswordResult.getValue());
+       
         
+       //Accoutn Id, Gender, gradeCode, nCount  
        mplew.write(0);
        mplew.write(0);
        mplew.writeInt(0);
-       mplew.writeInt(0);
-       mplew.write(0);
-       mplew.write(0);
-       mplew.writeShort(0);
-       mplew.write(0);
-       mplew.writeMapleAsciiString("");
-       mplew.write(0);
-       mplew.write(0);
-       mplew.writeLong(0);
-       mplew.writeLong(0);
-       mplew.writeInt(c.getCharacterSlots());
+       mplew.writeInt(c.getAccID()); //AccountID
+       mplew.write(c.getGender()); //Gender
+       mplew.write(0); //nGradeCode
+       mplew.writeShort(0); //TesterAccount
+       mplew.write(0); //CounteryID
+       mplew.writeMapleAsciiString(""); //NexonClubID
+       mplew.write(0); //PurchaseEXP
+       mplew.write(0); //ChatBlockReason
+       mplew.writeLong(0); //ChatUNblockDate
+       mplew.writeLong(0); //RegisterDate
+       mplew.writeInt(c.getCharacterSlots()); // numOfCharacter
        mplew.writeBool(constants.ServerConstants.DISABLE_PIN);
        mplew.write(0);
        mplew.writeLong(0);
        return mplew.getPacket();
     }
+    
+     
 
     /**
      * Gets a packet detailing a PIN operation.

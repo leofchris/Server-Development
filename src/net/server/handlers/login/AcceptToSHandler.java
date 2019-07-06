@@ -24,6 +24,7 @@ public final class AcceptToSHandler extends AbstractMaplePacketHandler {
         }
         if (c.finishLogin() == 0) {
             c.announce(MaplePacketCreator.getAuthSuccess(c));
+           
         } else {
             c.announce(MaplePacketCreator.getLoginFailed(9));//shouldn't happen XD
         }
