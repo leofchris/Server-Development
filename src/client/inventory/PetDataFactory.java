@@ -50,8 +50,8 @@ public class PetDataFactory {
                 int prob = 0;
                 int inc = 0;
                 if (skillData != null) {
-                    prob = MapleDataTool.getInt("interact/" + skillId + "/prob", skillData, 0);
-                    inc = MapleDataTool.getInt("interact/" + skillId + "/inc", skillData, 0);
+                    prob = MapleDataTool.getInt("interact/" + skillId + "/prob", skillData, 0, 0);
+                    inc = MapleDataTool.getInt("interact/" + skillId + "/inc", skillData, 0, 0);
                 }
                 ret = new PetCommand(petId, skillId, prob, inc);
                 petCommands.put(petId + "" + skillId, ret);
@@ -68,7 +68,7 @@ public class PetDataFactory {
         synchronized (petHunger) {
             ret = petHunger.get(Integer.valueOf(petId));
             if (ret == null) {
-                ret = Integer.valueOf(MapleDataTool.getInt(dataRoot.getData("Pet/" + petId + ".img").getChildByPath("info/hungry"), 1));
+                ret = Integer.valueOf(MapleDataTool.getInt(dataRoot.getData("Pet/" + petId + ".img").getChildByPath("info/hungry"), 1, 0));
             }
             return ret;
         }

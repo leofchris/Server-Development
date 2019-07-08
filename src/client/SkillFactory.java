@@ -80,6 +80,8 @@ import provider.MapleDataFileEntry;
 import provider.MapleDataProvider;
 import provider.MapleDataProviderFactory;
 import provider.MapleDataTool;
+import provider.wz.MapleDataType;
+
 import server.MapleStatEffect;
 import server.life.Element;
 
@@ -117,10 +119,14 @@ public class SkillFactory {
     }
     public static Skill loadFromData(int id, MapleData data) {
         
+        if (id == 1001003){
+            System.out.println("YO");
+        }
         
+        int maxLevel = 0;
         Skill ret = new Skill(id);
         boolean isBuff = false;
-        int skillType = MapleDataTool.getInt("skillType", data, -1);
+        int skillType = MapleDataTool.getInt("skillType", data, -1,  0);
         String elem = MapleDataTool.getString("elemAttr", data, null);
       
         if (elem != null) {
@@ -131,6 +137,13 @@ public class SkillFactory {
         MapleData effect = data.getChildByPath("effect");
         
         MapleData level = data.getChildByPath("level");
+      
+        MapleData common = data.getChildByPath("common");
+        
+        if (common != null){
+            maxLevel = getMaxLevel(common);
+        }
+
         if (skillType != -1) {
             if (skillType == 2) {
                 isBuff = true;
@@ -368,8 +381,18 @@ public class SkillFactory {
         ret.animationTime = 0;
         if (effect != null) {
             for (MapleData effectEntry : effect) {
-                ret.animationTime += MapleDataTool.getIntConvert("delay", effectEntry, 0);
+                ret.animationTime += MapleDataTool.getIntConvert("delay", effectEntry, 0, 0);
             }
+        }
+        
+        if(common != null){
+            for(int i = 0; i < maxLevel; i++){
+           for(MapleData commonEntry : common){
+               if (!(commonEntry.getName().equals("maxLevel"))){
+                   ret.effects.add(MapleStatEffect.loadSkillEffectFromData(commonEntry, id, isBuff,  i));
+               }
+           }
+        }
         }
         return ret;
     }
@@ -391,4 +414,14 @@ public class SkillFactory {
 
         return null;
     }
+    
+    public static int getMaxLevel(MapleData data){
+        int maxLevel = 0;
+        for (MapleData commonEntry : data){
+            if(commonEntry.getName().equals("maxLevel")){
+                 return ((Integer) commonEntry.getData()).intValue();   
+            }
+    }
+          return maxLevel;
 }
+    }

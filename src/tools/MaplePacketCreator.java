@@ -670,7 +670,7 @@ public class MaplePacketCreator {
        mplew.writeMapleAsciiString(""); //NexonClubID
        mplew.write(0); //PurchaseEXP
        mplew.write(0); //ChatBlockReason
-       mplew.writeLong(0); //ChatUNblockDate
+       mplew.writeLong(0); //ChatUnblockDate
        mplew.writeLong(0); //RegisterDate
        mplew.writeInt(c.getCharacterSlots()); // numOfCharacter
        mplew.writeBool(constants.ServerConstants.DISABLE_PIN);

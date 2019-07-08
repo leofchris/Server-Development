@@ -82,7 +82,7 @@ public class MapleDataTool {
         }
     }
 
-    public static int getInt(MapleData data, int def) {
+    public static int getInt(MapleData data, int def,  int curLvl) {
         if (data == null || data.getData() == null) {
             return  def;
         } else if (data.getType() == MapleDataType.STRING) {
@@ -92,14 +92,27 @@ public class MapleDataTool {
         }
     }
 
-    public static int getInt(String path, MapleData data, int def) {
-        return getInt(data.getChildByPath(path), def);
+    public static int getInt(String path, MapleData data, int def,  int curLvl) {
+        return getInt(data.getChildByPath(path), def,  curLvl);
     }
 
-    public static int getIntConvert(String path, MapleData data, int def) {
+    public static int getIntConvert(String path, MapleData data, int def,  int curLvl) {
         MapleData d = data.getChildByPath(path);
         if (d == null) {
-            return def;
+            if (data.getName().equals("time") || data.getName().equals("pdd") || data.getName().equals("mpCon")){
+                 if (data.getType() == MapleDataType.STRING) {
+                     //Equation paraser
+            try {
+                return Integer.parseInt(getString(data));
+            } catch (NumberFormatException nfe) {
+                return def;
+            }
+        } else {
+            return getInt(d, def, curLvl);
+        }
+            } else{
+              return def;
+            }
         }
         if (d.getType() == MapleDataType.STRING) {
             try {
@@ -108,7 +121,7 @@ public class MapleDataTool {
                 return def;
             }
         } else {
-            return getInt(d, def);
+            return getInt(d, def, curLvl);
         }
     }
 
@@ -141,4 +154,7 @@ public class MapleDataTool {
         }
         return path.substring(0, path.length() - 1);
     }
+    
+   
+    
 }

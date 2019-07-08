@@ -135,36 +135,43 @@ public class MapleStatEffect {
     private byte bulletCount, bulletConsume;
 
     public static MapleStatEffect loadSkillEffectFromData(MapleData source, int skillid, boolean overtime) {
-        return loadFromData(source, skillid, true, overtime);
+        return loadFromData(source, skillid, true, overtime,0);
     }
-
+    
+     public static MapleStatEffect loadSkillEffectFromData(MapleData source, int skillid, boolean overtime, int curLvl) {
+        return loadFromData(source, skillid, true, overtime,curLvl);
+    }
+   
     public static MapleStatEffect loadItemEffectFromData(MapleData source, int itemid) {
-        return loadFromData(source, itemid, false, false);
+        return loadFromData(source, itemid, false, false, 0);
     }
-
+    
     private static void addBuffStatPairToListIfNotZero(List<Pair<MapleBuffStat, Integer>> list, MapleBuffStat buffstat, Integer val) {
         if (val.intValue() != 0) {
             list.add(new Pair<>(buffstat, val));
         }
+        
+        
     }
 
-    private static MapleStatEffect loadFromData(MapleData source, int sourceid, boolean skill, boolean overTime) {
+    private static MapleStatEffect loadFromData(MapleData source, int sourceid, boolean skill, boolean overTime, int curLvl) {
         MapleStatEffect ret = new MapleStatEffect();
-        ret.duration = MapleDataTool.getIntConvert("time", source, -1);
-        ret.hp = (short) MapleDataTool.getInt("hp", source, 0);
-        ret.hpR = MapleDataTool.getInt("hpR", source, 0) / 100.0;
-        ret.mp = (short) MapleDataTool.getInt("mp", source, 0);
-        ret.mpR = MapleDataTool.getInt("mpR", source, 0) / 100.0;
-        ret.mpCon = (short) MapleDataTool.getInt("mpCon", source, 0);
-        ret.hpCon = (short) MapleDataTool.getInt("hpCon", source, 0);
-        int iprop = MapleDataTool.getInt("prop", source, 100);
+       
+        ret.duration = MapleDataTool.getIntConvert("time", source, -1,curLvl);
+        ret.hp = (short) MapleDataTool.getInt("hp", source, 0,  curLvl);
+        ret.hpR = MapleDataTool.getInt("hpR", source, 0,  curLvl) / 100.0;
+        ret.mp = (short) MapleDataTool.getInt("mp", source, 0,  curLvl);
+        ret.mpR = MapleDataTool.getInt("mpR", source, 0,  curLvl) / 100.0;
+        ret.mpCon = (short) MapleDataTool.getInt("mpCon", source, 0, curLvl);
+        ret.hpCon = (short) MapleDataTool.getInt("hpCon", source, 0,  curLvl);
+        int iprop = MapleDataTool.getInt("prop", source, 100,  curLvl);
         ret.prop = iprop / 100.0;
-        ret.mobCount = MapleDataTool.getInt("mobCount", source, 1);
-        ret.cooldown = MapleDataTool.getInt("cooltime", source, 0);
-        ret.morphId = MapleDataTool.getInt("morph", source, 0);
-        ret.ghost = MapleDataTool.getInt("ghost", source, 0);
-        ret.fatigue = MapleDataTool.getInt("incFatigue", source, 0);
-        ret.repeatEffect = MapleDataTool.getInt("repeatEffect", source, 0) > 0;
+        ret.mobCount = MapleDataTool.getInt("mobCount", source, 1,  curLvl);
+        ret.cooldown = MapleDataTool.getInt("cooltime", source, 0,  curLvl);
+        ret.morphId = MapleDataTool.getInt("morph", source, 0, curLvl);
+        ret.ghost = MapleDataTool.getInt("ghost", source, 0,  curLvl);
+        ret.fatigue = MapleDataTool.getInt("incFatigue", source, 0, curLvl);
+        ret.repeatEffect = MapleDataTool.getInt("repeatEffect", source, 0,  curLvl) > 0;
 
         ret.sourceid = sourceid;
         ret.skill = skill;
@@ -175,16 +182,16 @@ public class MapleStatEffect {
             ret.overTime = overTime;
         }
         ArrayList<Pair<MapleBuffStat, Integer>> statups = new ArrayList<>();
-        ret.watk = (short) MapleDataTool.getInt("pad", source, 0);
-        ret.wdef = (short) MapleDataTool.getInt("pdd", source, 0);
-        ret.matk = (short) MapleDataTool.getInt("mad", source, 0);
-        ret.mdef = (short) MapleDataTool.getInt("mdd", source, 0);
-        ret.acc = (short) MapleDataTool.getIntConvert("acc", source, 0);
-        ret.avoid = (short) MapleDataTool.getInt("eva", source, 0);
-        ret.speed = (short) MapleDataTool.getInt("speed", source, 0);
-        ret.jump = (short) MapleDataTool.getInt("jump", source, 0);
-        ret.berserk = MapleDataTool.getInt("berserk", source, 0);
-        ret.booster = MapleDataTool.getInt("booster", source, 0);
+        ret.watk = (short) MapleDataTool.getInt("pad", source, 0, curLvl);
+        ret.wdef = (short) MapleDataTool.getInt("pdd", source, 0, curLvl);
+        ret.matk = (short) MapleDataTool.getInt("mad", source, 0,  curLvl);
+        ret.mdef = (short) MapleDataTool.getInt("mdd", source, 0, curLvl);
+        ret.acc = (short) MapleDataTool.getIntConvert("acc", source, 0,  curLvl);
+        ret.avoid = (short) MapleDataTool.getInt("eva", source, 0, curLvl);
+        ret.speed = (short) MapleDataTool.getInt("speed", source, 0,  curLvl);
+        ret.jump = (short) MapleDataTool.getInt("jump", source, 0,  curLvl);
+        ret.berserk = MapleDataTool.getInt("berserk", source, 0,  curLvl);
+        ret.booster = MapleDataTool.getInt("booster", source, 0,  curLvl);
         if (ret.overTime && ret.getSummonMovementType() == null) {
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.WATK, Integer.valueOf(ret.watk));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.WDEF, Integer.valueOf(ret.wdef));
@@ -202,18 +209,18 @@ public class MapleStatEffect {
             ret.lt = (Point) ltd.getData();
             ret.rb = (Point) source.getChildByPath("rb").getData();
         }
-        int x = MapleDataTool.getInt("x", source, 0);
+        int x = MapleDataTool.getInt("x", source, 0,  curLvl);
         ret.x = x;
-        ret.y = MapleDataTool.getInt("y", source, 0);
-        ret.damage = MapleDataTool.getIntConvert("damage", source, 100);
-        ret.fixdamage = MapleDataTool.getIntConvert("fixdamage", source, -1);
-        ret.attackCount = MapleDataTool.getIntConvert("attackCount", source, 1);
-        ret.bulletCount = (byte) MapleDataTool.getIntConvert("bulletCount", source, 1);
-        ret.bulletConsume = (byte) MapleDataTool.getIntConvert("bulletConsume", source, 0);
-        ret.moneyCon = MapleDataTool.getIntConvert("moneyCon", source, 0);
-        ret.itemCon = MapleDataTool.getInt("itemCon", source, 0);
-        ret.itemConNo = MapleDataTool.getInt("itemConNo", source, 0);
-        ret.moveTo = MapleDataTool.getInt("moveTo", source, -1);
+        ret.y = MapleDataTool.getInt("y", source, 0, curLvl);
+        ret.damage = MapleDataTool.getIntConvert("damage", source, 100,  curLvl);
+        ret.fixdamage = MapleDataTool.getIntConvert("fixdamage", source, -1,  curLvl);
+        ret.attackCount = MapleDataTool.getIntConvert("attackCount", source, 1,  curLvl);
+        ret.bulletCount = (byte) MapleDataTool.getIntConvert("bulletCount", source, 1, curLvl);
+        ret.bulletConsume = (byte) MapleDataTool.getIntConvert("bulletConsume", source, 0,  curLvl);
+        ret.moneyCon = MapleDataTool.getIntConvert("moneyCon", source, 0,  curLvl);
+        ret.itemCon = MapleDataTool.getInt("itemCon", source, 0,  curLvl);
+        ret.itemConNo = MapleDataTool.getInt("itemConNo", source, 0, curLvl);
+        ret.moveTo = MapleDataTool.getInt("moveTo", source, -1,  curLvl);
         Map<MonsterStatus, Integer> monsterStatus = new ArrayMap<>();
         if (skill) {
             switch (sourceid) {
@@ -568,6 +575,10 @@ public class MapleStatEffect {
         ret.statups = statups;
         return ret;
     }
+    
+    
+    
+    
 
     /**
      * @param applyto
