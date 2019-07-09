@@ -2487,8 +2487,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         statup.add(new Pair<>(MapleStat.STR, str));
         statup.add(new Pair<>(MapleStat.DEX, dex));
         if (job.getId() % 1000 > 0) {
-            remainingSp += 3;
-            statup.add(new Pair<>(MapleStat.AVAILABLESP, remainingSp));
+            if(job.getId() != 2001){
+                remainingSp += 3;
+                statup.add(new Pair<>(MapleStat.AVAILABLESP, remainingSp));
+            }
+            
         }
         client.announce(MaplePacketCreator.updatePlayerStats(statup, job));
         getMap().broadcastMessage(this, MaplePacketCreator.showForeignEffect(getId(), 0), false);
