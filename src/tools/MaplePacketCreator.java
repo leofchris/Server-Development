@@ -983,7 +983,7 @@ public class MaplePacketCreator {
         mplew.writeShort(SendOpcode.StatChanged.getValue());
         mplew.write(itemReaction ? 1 : 0);
         int updateMask = 0;
-        int job = 0;
+       
         for (Pair<MapleStat, Integer> statupdate : stats) {
             updateMask |= statupdate.getLeft().getValue();
         }
@@ -1006,7 +1006,7 @@ public class MaplePacketCreator {
                   mplew.write(statupdate.getRight().shortValue());
                 } else if ((statupdate.getLeft().getValue() & 0x20) == 0x20) {
                   mplew.writeShort(statupdate.getRight().shortValue());
-                  job = statupdate.getRight();
+                
                 } else if ((statupdate.getLeft().getValue() & 0x40) == 0x40) {
                   mplew.writeShort(statupdate.getRight().shortValue());
                 } else if ((statupdate.getLeft().getValue() & 0x80) == 0x80) {
@@ -1018,11 +1018,9 @@ public class MaplePacketCreator {
                 } else if ((statupdate.getLeft().getValue() & 0x4000) == 0x4000) {
                   mplew.writeShort(statupdate.getRight().shortValue());
                 } else if ((statupdate.getLeft().getValue() & 0x8000) == 0x8000) {
-                    if (job/1000 != 3 && job/100 != 22 && job != 2001){
+                   
                         mplew.writeShort(statupdate.getRight().shortValue());
-                    } else{
-                        mplew.write(0);
-                    }
+                   
                 } else if ((statupdate.getLeft().getValue() & 0x20000) == 0x20000) {
                   mplew.writeShort(statupdate.getRight().shortValue());
                 } else if ((statupdate.getLeft().getValue() & 0x02) == 0x02) {

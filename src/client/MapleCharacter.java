@@ -855,7 +855,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         statup.add(new Pair<>(MapleStat.AVAILABLESP, remainingSp));
         statup.add(new Pair<>(MapleStat.JOB, Integer.valueOf(job.getId())));
         recalcLocalStats();
-        client.announce(MaplePacketCreator.updatePlayerStats(statup));
+        client.announce(MaplePacketCreator.updatePlayerStats(statup, job));
         silentPartyUpdate();
         if (this.guildid > 0) {
             getGuild().broadcast(MaplePacketCreator.jobMessage(0, job.getId(), name), this.getId());
@@ -3286,7 +3286,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         statup.add(new Pair<>(MapleStat.DEX, tdex));
         statup.add(new Pair<>(MapleStat.INT, tint));
         statup.add(new Pair<>(MapleStat.LUK, tluk));
-        announce(MaplePacketCreator.updatePlayerStats(statup));
+        announce(MaplePacketCreator.updatePlayerStats(statup, job));
     }
 
     public void resetBattleshipHp() {
@@ -4441,7 +4441,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
 
     private void updateSingleStat(MapleStat stat, int newval, boolean itemReaction) {
-        announce(MaplePacketCreator.updatePlayerStats(Collections.singletonList(new Pair<>(stat, Integer.valueOf(newval))), itemReaction));
+        announce(MaplePacketCreator.updatePlayerStats(Collections.singletonList(new Pair<>(stat, Integer.valueOf(newval))), itemReaction, job));
     }
 
     public void announce(final byte[] packet) {
