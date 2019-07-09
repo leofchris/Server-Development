@@ -2405,7 +2405,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
         if (isBeginnerJob()) {
             remainingAp = 0;
-            if (getLevel() < 6) {
+            if (getLevel() < 8) {
                 str += 5;
             } else {
                 str += 4;

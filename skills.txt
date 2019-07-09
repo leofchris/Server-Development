@@ -1,0 +1,12 @@
+----------Skills Buffs-----------
+/*Beginner*/
+- Recovery: Workings offer is conflicting with the passive 10hp/10
+- Nimble Feet: working
+
+/*Warrior 1st job*/
+- Iron Body: working
+- HP boost: working
+
+/*Warrior 2st job*/
+- Iron Body: working
+- HP boost: working

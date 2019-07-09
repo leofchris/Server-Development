@@ -994,20 +994,47 @@ public class MaplePacketCreator {
         }
         mplew.writeInt(updateMask);
         for (Pair<MapleStat, Integer> statupdate : mystats) {
-            if (statupdate.getLeft().getValue() >= 1) {
-                if (statupdate.getLeft().getValue() == 0x1) {
-                    mplew.writeShort(statupdate.getRight().shortValue());
-                } else if (statupdate.getLeft().getValue() <= 0x4) {
-                    mplew.writeInt(statupdate.getRight());
-                } else if (statupdate.getLeft().getValue() < 0x20) {
-                    mplew.write(statupdate.getRight().shortValue());
-                } else if (statupdate.getLeft().getValue() < 0xFFFF) {
-                    mplew.writeInt(statupdate.getRight().shortValue());
-                } else {
-                    mplew.writeInt(statupdate.getRight().intValue());
+            if ((statupdate.getLeft().getValue() & 0x01) == 0x01) {
+                 mplew.write(statupdate.getRight().shortValue());
+            } else if ((statupdate.getLeft().getValue() & 0x10) == 0x10) {
+                  mplew.write(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x20) == 0x20) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x40) == 0x40) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x80) == 0x80) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x100) == 0x100) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x200) == 0x200) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x4000) == 0x4000) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x8000) == 0x8000) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x20000) == 0x20000) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x02) == 0x02) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x04) == 0x04) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x400) == 0x400) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x800) == 0x800) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x1000) == 0x1000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x2000) == 0x2000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x10000) == 0x10000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x40000) == 0x40000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x200000) == 0x200000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
                 }
-            }
-        }
+             }
+        
         mplew.write(0);
     
         mplew.write(0);
