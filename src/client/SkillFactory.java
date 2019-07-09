@@ -130,6 +130,7 @@ public class SkillFactory {
         } else {
             ret.element = Element.NEUTRAL;
         }
+     
         MapleData effect = data.getChildByPath("effect");
         
         MapleData level = data.getChildByPath("level");

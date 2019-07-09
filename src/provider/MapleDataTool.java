@@ -89,26 +89,24 @@ public class MapleDataTool {
         if (data == null || data.getData() == null) {
                 return def;
         } else if (data.getType() == MapleDataType.STRING) {
-            if (getString(data).indexOf('u') > 0 || getString(data).indexOf('d') > 0 || getString(data).indexOf('x') > 0){
-                return 0;
-            }
+                 return Integer.parseInt(getString(data));
         } else {
             return ((Integer) data.getData()).intValue();
         }
-        return def;
+      
     }
     
     public static int getInt(MapleData data, int def, int curLvl) {
         if (data == null || data.getData() == null) {
                 return def;
         } else if (data.getType() == MapleDataType.STRING) {
-            if (getString(data).indexOf('u') > 0 || getString(data).indexOf('d') > 0 || getString(data).indexOf('x') > 0){
+           
                  return (int)getEquation(data, curLvl);
-            }
+            
         } else {
             return ((Integer) data.getData()).intValue();
         }
-        return def;
+       
     }
     
      public static int getIntCommon(MapleData data, int def, int curLvl) {
@@ -119,20 +117,14 @@ public class MapleDataTool {
     }
 
     public static int getInt(String path, MapleData data, int def, int curLvl) {
-        if (data.getChildByPath(path) == null){
-            if(!(data.getName().equals(path))){
-                return def;
-            } else{
-                return (int)getEquation(data, curLvl);
-            }
-        }
+        if (data.getChildByPath(path) == null)
+          return def;
+        
         return getInt(data.getChildByPath(path), def, curLvl);
     }
     
     public static int getIntCommon(String path, MapleData data, int def, int curLvl){
-        if(!(data.getName().equals(path))){
-            return def;
-        } 
+      
         return getIntCommon(data, def, curLvl);
     }   
 
@@ -198,9 +190,9 @@ public class MapleDataTool {
      if (String.class.isInstance(data.getData())){
          equation = new StringBuilder(getString(data));
          
-         if(equation.indexOf("x") > 0){
+         if(equation.indexOf("x") >= 0){
          
-            if(equation.indexOf("u") > 0){
+            if(equation.indexOf("u") >= 0){
                 
             int uPos = equation.indexOf("u");
             int xPos = equation.indexOf("x");
@@ -215,7 +207,7 @@ public class MapleDataTool {
             } catch(Exception e){    
            }
 
-         } else if (equation.indexOf("d") > 0){
+         } else if (equation.indexOf("d") >= 0){
             int dPos = equation.indexOf("d");
             int xPos = equation.indexOf("x");
             
