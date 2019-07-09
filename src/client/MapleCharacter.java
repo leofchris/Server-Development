@@ -2402,7 +2402,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         Skill improvingMaxMP = null;
         int improvingMaxHPLevel = 0;
         int improvingMaxMPLevel = 0;
-
+        
         if (isBeginnerJob()) {
             remainingAp = 0;
             if (getLevel() < 8) {
@@ -2490,7 +2490,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             remainingSp += 3;
             statup.add(new Pair<>(MapleStat.AVAILABLESP, remainingSp));
         }
-        client.announce(MaplePacketCreator.updatePlayerStats(statup));
+        client.announce(MaplePacketCreator.updatePlayerStats(statup, job));
         getMap().broadcastMessage(this, MaplePacketCreator.showForeignEffect(getId(), 0), false);
         recalcLocalStats();
         setMPC(new MaplePartyCharacter(this));

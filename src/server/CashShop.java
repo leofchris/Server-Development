@@ -234,8 +234,10 @@ public class CashShop {
         } else if (jobType == 1) {
             factory = ItemFactory.CASH_CYGNUS;
         } else if (jobType == 2) {
-            factory = ItemFactory.CASH_ARAN;
-        }
+            factory = ItemFactory.CASH_LEGEND;
+        } else if (jobType == 3) {
+            factory = ItemFactory.CASH_CITIZEN;
+        } 
 
         Connection con = DatabaseConnection.getConnection();
         PreparedStatement ps = null;

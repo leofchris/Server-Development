@@ -27,6 +27,7 @@ import client.MapleCharacter.SkillEntry;
 import client.MapleClient;
 import client.MapleDisease;
 import client.MapleFamilyEntry;
+import client.MapleJob;
 import client.MapleKeyBinding;
 import client.MapleMount;
 import client.MapleQuestStatus;
@@ -965,6 +966,10 @@ public class MaplePacketCreator {
     public static byte[] updatePlayerStats(List<Pair<MapleStat, Integer>> stats) {
         return updatePlayerStats(stats, false);
     }
+    
+    public static byte[] updatePlayerStats(List<Pair<MapleStat, Integer>> stats, MapleJob job) {
+        return updatePlayerStats(stats, false, job);
+    }
 
     /**
      * Gets an update for specified stats.
@@ -974,6 +979,79 @@ public class MaplePacketCreator {
      * @return The stat update packet.
      */
     public static byte[] updatePlayerStats(List<Pair<MapleStat, Integer>> stats, boolean itemReaction) {
+        final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
+        mplew.writeShort(SendOpcode.StatChanged.getValue());
+        mplew.write(itemReaction ? 1 : 0);
+        int updateMask = 0;
+        int job = 0;
+        for (Pair<MapleStat, Integer> statupdate : stats) {
+            updateMask |= statupdate.getLeft().getValue();
+        }
+        List<Pair<MapleStat, Integer>> mystats = stats;
+        if (mystats.size() > 1) {
+            Collections.sort(mystats, new Comparator<Pair<MapleStat, Integer>>() {
+                @Override
+                public int compare(Pair<MapleStat, Integer> o1, Pair<MapleStat, Integer> o2) {
+                    int val1 = o1.getLeft().getValue();
+                    int val2 = o2.getLeft().getValue();
+                    return (val1 < val2 ? -1 : (val1 == val2 ? 0 : 1));
+                }
+            });
+        }
+        mplew.writeInt(updateMask);
+        for (Pair<MapleStat, Integer> statupdate : mystats) {
+            if ((statupdate.getLeft().getValue() & 0x01) == 0x01) {
+                 mplew.write(statupdate.getRight().shortValue());
+            } else if ((statupdate.getLeft().getValue() & 0x10) == 0x10) {
+                  mplew.write(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x20) == 0x20) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                  job = statupdate.getRight();
+                } else if ((statupdate.getLeft().getValue() & 0x40) == 0x40) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x80) == 0x80) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x100) == 0x100) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x200) == 0x200) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x4000) == 0x4000) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x8000) == 0x8000) {
+                    if (job/1000 != 3 && job/100 != 22 && job != 2001){
+                        mplew.writeShort(statupdate.getRight().shortValue());
+                    } else{
+                        mplew.write(0);
+                    }
+                } else if ((statupdate.getLeft().getValue() & 0x20000) == 0x20000) {
+                  mplew.writeShort(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x02) == 0x02) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x04) == 0x04) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x400) == 0x400) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x800) == 0x800) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x1000) == 0x1000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x2000) == 0x2000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x10000) == 0x10000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x40000) == 0x40000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                } else if ((statupdate.getLeft().getValue() & 0x200000) == 0x200000) {
+                  mplew.writeInt(statupdate.getRight().shortValue());
+                }
+             }
+        
+        mplew.write(0);
+        mplew.write(0);
+        return mplew.getPacket();
+    }
+    
+    public static byte[] updatePlayerStats(List<Pair<MapleStat, Integer>> stats, boolean itemReaction, MapleJob job) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.StatChanged.getValue());
         mplew.write(itemReaction ? 1 : 0);
@@ -1011,7 +1089,12 @@ public class MaplePacketCreator {
                 } else if ((statupdate.getLeft().getValue() & 0x4000) == 0x4000) {
                   mplew.writeShort(statupdate.getRight().shortValue());
                 } else if ((statupdate.getLeft().getValue() & 0x8000) == 0x8000) {
-                  mplew.writeShort(statupdate.getRight().shortValue());
+                    if (job.getId()/1000 != 3 && job.getId()/100 != 22 && job.getId() != 2001){
+                        mplew.writeShort(statupdate.getRight().shortValue());
+                    } else{
+                        mplew.write(0);
+                    }
+                  
                 } else if ((statupdate.getLeft().getValue() & 0x20000) == 0x20000) {
                   mplew.writeShort(statupdate.getRight().shortValue());
                 } else if ((statupdate.getLeft().getValue() & 0x02) == 0x02) {
@@ -1036,10 +1119,11 @@ public class MaplePacketCreator {
              }
         
         mplew.write(0);
-    
         mplew.write(0);
         return mplew.getPacket();
     }
+    
+    
 
     /**
      * Gets a packet telling the client to change maps.
