@@ -174,7 +174,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int omokwins, omokties, omoklosses, matchcardwins, matchcardties, matchcardlosses;
     private int married;
     private long dojoFinish, lastfametime, lastUsedCashItem, lastHealed;
-    private transient int localmaxhp, localmaxmp, localstr, localdex, localluk, localint_, magic, watk;
+    public transient int localmaxhp, localmaxmp, localstr, localdex, localluk, localint_, magic, watk;
     private boolean hidden, canDoor = true, Berserk, hasMerchant;
     private int linkedLevel = 0;
     private String linkedName = null;
@@ -2405,7 +2405,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         
         if (isBeginnerJob()) {
             remainingAp = 0;
-            if (getLevel() < 8) {
+            if (getLevel() < 6) {
                 str += 5;
             } else {
                 str += 4;

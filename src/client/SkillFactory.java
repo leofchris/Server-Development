@@ -88,7 +88,7 @@ import server.life.Element;
 public class SkillFactory {
     private static Map<Integer, Skill> skills = new HashMap<>();
     private static MapleDataProvider datasource = MapleDataProviderFactory.getDataProvider(MapleDataProviderFactory.fileInWZPath("Skill.wz"));
-
+    
     public static Skill getSkill(int id) {
 	if (!skills.isEmpty()) {
         
@@ -122,6 +122,7 @@ public class SkillFactory {
 
         int maxLevel = 0;
         Skill ret = new Skill(id);
+       
         boolean isBuff = false;
         int skillType = MapleDataTool.getInt("skillType", data, -1, 0);
         String elem = MapleDataTool.getString("elemAttr", data, null);

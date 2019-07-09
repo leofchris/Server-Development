@@ -150,8 +150,6 @@ public class MapleStatEffect {
         if (val.intValue() != 0) {
             list.add(new Pair<>(buffstat, val));
         }
-        
-        
     }
 
     private static MapleStatEffect loadFromData(MapleData source, int sourceid, boolean skill, boolean overTime, int curLvl) {
@@ -172,7 +170,6 @@ public class MapleStatEffect {
         ret.ghost = MapleDataTool.getInt("ghost", source, 0, curLvl);
         ret.fatigue = MapleDataTool.getInt("incFatigue", source, 0, curLvl);
         ret.repeatEffect = MapleDataTool.getInt("repeatEffect", source, 0, curLvl) > 0;
-
         ret.sourceid = sourceid;
         ret.skill = skill;
         if (!ret.skill && ret.duration > -1) {
@@ -183,10 +180,7 @@ public class MapleStatEffect {
         }
         ArrayList<Pair<MapleBuffStat, Integer>> statups = new ArrayList<>();
         ret.watk = (short) MapleDataTool.getInt("pad", source, 0, curLvl);
-      
-      
         ret.wdef = (short) MapleDataTool.getInt("pdd", source, 0, curLvl);    
-        
         ret.matk = (short) MapleDataTool.getInt("mad", source, 0, curLvl);
         ret.mdef = (short) MapleDataTool.getInt("mdd", source, 0, curLvl);
         ret.acc = (short) MapleDataTool.getIntConvert("acc", source, 0, curLvl);
