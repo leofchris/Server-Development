@@ -66,7 +66,7 @@ public enum RecvOpcode {
     TAKE_DAMAGE(0x30),
     GENERAL_CHAT(0x36), //(0x31) v83
     CLOSE_CHALKBOARD(0x32),
-    FACE_EXPRESSION(0x33),
+    FACE_EXPRESSION(0x38), //(0x33)
     UserActivateEffectItem(0x39), //(0x34) v83
     USE_DEATHITEM(0x35),
     MONSTER_BOOK_COVER(0x309),

@@ -1616,7 +1616,7 @@ public class MaplePacketCreator {
     public static byte[] getShowItemGain(int itemId, short quantity, boolean inChat) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         if (inChat) {
-            mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+            mplew.writeShort(SendOpcode.Effect_Local.getValue());
             mplew.write(3);
             mplew.write(1);
             mplew.writeInt(itemId);
@@ -1894,7 +1894,7 @@ public class MaplePacketCreator {
 
     public static byte[] facialExpression(MapleCharacter from, int expression) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(10);
-        mplew.writeShort(SendOpcode.FACIAL_EXPRESSION.getValue());
+        mplew.writeShort(SendOpcode.Emotion.getValue());
         mplew.writeInt(from.getId());
         mplew.writeInt(expression);
         return mplew.getPacket();
@@ -2879,7 +2879,7 @@ public class MaplePacketCreator {
 
     public static byte[] showBuffeffect(int cid, int skillid, int effectid, byte direction) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(12);
-        mplew.writeShort(SendOpcode.SHOW_FOREIGN_EFFECT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Remote.getValue());
         mplew.writeInt(cid);
         mplew.write(effectid); //buff level
         mplew.writeInt(skillid);
@@ -2890,7 +2890,7 @@ public class MaplePacketCreator {
 
     public static byte[] showOwnBuffEffect(int skillid, int effectid) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Local.getValue());
         mplew.write(effectid);
         mplew.writeInt(skillid);
         mplew.write(0xA9);
@@ -2900,7 +2900,7 @@ public class MaplePacketCreator {
 
     public static byte[] showOwnBerserk(int skilllevel, boolean Berserk) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Local.getValue());
         mplew.write(1);
         mplew.writeInt(1320006);
         mplew.write(0xA9);
@@ -2911,7 +2911,7 @@ public class MaplePacketCreator {
 
     public static byte[] showBerserk(int cid, int skilllevel, boolean Berserk) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_FOREIGN_EFFECT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Remote.getValue());
         mplew.writeInt(cid);
         mplew.write(1);
         mplew.writeInt(1320006);
@@ -4114,7 +4114,7 @@ public class MaplePacketCreator {
 
     public static byte[] showOwnPetLevelUp(byte index) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Local.getValue());
         mplew.write(4);
         mplew.write(0);
         mplew.write(index); // Pet Index
@@ -4123,7 +4123,7 @@ public class MaplePacketCreator {
 
     public static byte[] showPetLevelUp(MapleCharacter chr, byte index) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_FOREIGN_EFFECT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Remote.getValue());
         mplew.writeInt(chr.getId());
         mplew.write(4);
         mplew.write(0);
@@ -4181,7 +4181,7 @@ public class MaplePacketCreator {
 
     public static byte[] skillCooldown(int sid, int time) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.COOLDOWN.getValue());
+        mplew.writeShort(SendOpcode.SkillCooltimeSet.getValue());
         mplew.writeInt(sid);
         mplew.writeShort(time);//Int in v97
         return mplew.getPacket();
@@ -5426,14 +5426,14 @@ public class MaplePacketCreator {
 
     public static byte[] showGainCard() {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(3);
-        mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Local.getValue());
         mplew.write(0x0D);
         return mplew.getPacket();
     }
 
     public static byte[] showForeginCardEffect(int id) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(7);
-        mplew.writeShort(SendOpcode.SHOW_FOREIGN_EFFECT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Remote.getValue());
         mplew.writeInt(id);
         mplew.write(0x0D);
         return mplew.getPacket();
@@ -5455,7 +5455,7 @@ public class MaplePacketCreator {
 
     public static byte[] showIntro(String path) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Local.getValue());
         mplew.write(0x12);
         mplew.writeMapleAsciiString(path);
         return mplew.getPacket();
@@ -5463,7 +5463,7 @@ public class MaplePacketCreator {
 
     public static byte[] showInfo(String path) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Local.getValue());
         mplew.write(0x17);
         mplew.writeMapleAsciiString(path);
         mplew.writeInt(1);
@@ -5592,14 +5592,14 @@ public class MaplePacketCreator {
      */
     public static byte[] showSpecialEffect(int effect) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Local.getValue());
         mplew.write(effect);
         return mplew.getPacket();
     }
 
     public static byte[] showForeignEffect(int cid, int effect) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_FOREIGN_EFFECT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Remote.getValue());
         mplew.writeInt(cid);
         mplew.write(effect);
         return mplew.getPacket();
@@ -5607,24 +5607,25 @@ public class MaplePacketCreator {
 
     public static byte[] showOwnRecovery(byte heal) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
-        mplew.write(0x0A);
+        mplew.writeShort(SendOpcode.Effect_Local.getValue());
+        mplew.write(0xC);
         mplew.write(heal);
         return mplew.getPacket();
     }
 
     public static byte[] showRecovery(int cid, byte amount) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_FOREIGN_EFFECT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Remote.getValue());
         mplew.writeInt(cid);
-        mplew.write(0x0A);
+        mplew.write(0xC);
         mplew.write(amount);
+        
         return mplew.getPacket();
     }
 
     public static byte[] showWheelsLeft(int left) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SHOW_ITEM_GAIN_INCHAT.getValue());
+        mplew.writeShort(SendOpcode.Effect_Local.getValue());
         mplew.write(0x15);
         mplew.write(left);
         return mplew.getPacket();

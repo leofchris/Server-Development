@@ -202,6 +202,7 @@ public enum SendOpcode {
     UPDATE_CHAR_BOX(0xA5),
     SHOW_CONSUME_EFFECT(0xA6),
     SHOW_SCROLL_EFFECT(0xA7),
+    SkillCooltimeSet(0x114), //(0xEA)
     
     SPAWN_PET(0xA8),
     MOVE_PET(0xAA),
@@ -225,16 +226,16 @@ public enum SendOpcode {
     SKILL_EFFECT(0xBE),
     CANCEL_SKILL_EFFECT(0xBF),
     DAMAGE_PLAYER(0xC0),
-    FACIAL_EXPRESSION(0xC1),
+    Emotion(0xE8),//(0xC1)
     SHOW_ITEM_EFFECT(0xC2),
     SHOW_CHAIR(0xC4),
     UPDATE_CHAR_LOOK(0xC5),
-    SHOW_FOREIGN_EFFECT(0xC6),
+    Effect_Remote(0xE0), //(0xC6)
     GIVE_FOREIGN_BUFF(0xC7),
     CANCEL_FOREIGN_BUFF(0xC8),
     UPDATE_PARTYMEMBER_HP(0xC9),
     SitResult(0xE7), //(0XCD) v83
-    SHOW_ITEM_GAIN_INCHAT(0xCE),
+    Effect_Local(0xE9), //(0xCE)
     DOJO_WARP_UP(0xCF),
     LUCKSACK_PASS(0xD0),
     LUCKSACK_FAIL(0xD1),
@@ -246,9 +247,9 @@ public enum SendOpcode {
     SetDirectionMode(0xFD), //(0xDD) v83
     SetStandAloneMode(0xFE), //(0xDE) v83
     SPAWN_GUIDE(0xDF),
-    TALK_GUIDE(0xE0),
+    TALK_GUIDE(0xE00),
     SHOW_COMBO(0xE1),
-    COOLDOWN(0x114), //(0xEA)
+    
     SPAWN_MONSTER(0xEC),
     KILL_MONSTER(0xED),
     SPAWN_MONSTER_CONTROL(0xEE),
