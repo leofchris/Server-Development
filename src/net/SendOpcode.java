@@ -248,7 +248,7 @@ public enum SendOpcode {
     SPAWN_GUIDE(0xDF),
     TALK_GUIDE(0xE0),
     SHOW_COMBO(0xE1),
-    COOLDOWN(0xEA),
+    COOLDOWN(0x114), //(0xEA)
     SPAWN_MONSTER(0xEC),
     KILL_MONSTER(0xED),
     SPAWN_MONSTER_CONTROL(0xEE),
@@ -278,7 +278,7 @@ public enum SendOpcode {
     SPAWN_MIST(0x111),
     REMOVE_MIST(0x112),
     SPAWN_DOOR(0x113),
-    REMOVE_DOOR(0x114),
+    REMOVE_DOOR(0x1144),
     REACTOR_HIT(0x115),
     REACTOR_SPAWN(0x117),
     REACTOR_DESTROY(0x118),
