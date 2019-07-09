@@ -23,6 +23,9 @@ package provider;
 
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+import java.math.BigDecimal;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 import provider.wz.MapleDataType;
 
 public class MapleDataTool {
@@ -82,47 +85,78 @@ public class MapleDataTool {
         }
     }
 
-    public static int getInt(MapleData data, int def,  int curLvl) {
+    public static int getInt(MapleData data, int def) {
         if (data == null || data.getData() == null) {
-            return  def;
+                return def;
         } else if (data.getType() == MapleDataType.STRING) {
-            return Integer.parseInt(getString(data));
+            if (getString(data).indexOf('u') > 0 || getString(data).indexOf('d') > 0 || getString(data).indexOf('x') > 0){
+                return 0;
+            }
         } else {
             return ((Integer) data.getData()).intValue();
         }
+        return def;
     }
-
-    public static int getInt(String path, MapleData data, int def,  int curLvl) {
-        return getInt(data.getChildByPath(path), def,  curLvl);
-    }
-
-    public static int getIntConvert(String path, MapleData data, int def,  int curLvl) {
-        MapleData d = data.getChildByPath(path);
-        if (d == null) {
-            if (data.getName().equals("time") || data.getName().equals("pdd") || data.getName().equals("mpCon")){
-                 if (data.getType() == MapleDataType.STRING) {
-                     //Equation paraser
-            try {
-                return Integer.parseInt(getString(data));
-            } catch (NumberFormatException nfe) {
+    
+    public static int getInt(MapleData data, int def, int curLvl) {
+        if (data == null || data.getData() == null) {
                 return def;
+        } else if (data.getType() == MapleDataType.STRING) {
+            if (getString(data).indexOf('u') > 0 || getString(data).indexOf('d') > 0 || getString(data).indexOf('x') > 0){
+                 return (int)getEquation(data, curLvl);
             }
         } else {
-            return getInt(d, def, curLvl);
+            return ((Integer) data.getData()).intValue();
         }
+        return def;
+    }
+    
+     public static int getIntCommon(MapleData data, int def, int curLvl) {
+        if (data == null || data.getData() == null) {
+            return  def;
+        }
+        return (int)getEquation(data, curLvl);
+    }
+
+    public static int getInt(String path, MapleData data, int def, int curLvl) {
+        if (data.getChildByPath(path) == null){
+            if(!(data.getName().equals(path))){
+                return def;
             } else{
-              return def;
+                return (int)getEquation(data, curLvl);
             }
+        }
+        return getInt(data.getChildByPath(path), def, curLvl);
+    }
+    
+    public static int getIntCommon(String path, MapleData data, int def, int curLvl){
+        if(!(data.getName().equals(path))){
+            return def;
+        } 
+        return getIntCommon(data, def, curLvl);
+    }   
+
+    public static int getIntConvert(String path, MapleData data, int def, int curLvl) {
+        MapleData d = data.getChildByPath(path);
+        if (d == null) {
+            return def;
         }
         if (d.getType() == MapleDataType.STRING) {
             try {
-                return Integer.parseInt(getString(d));
+                return (int)getEquation(d, curLvl);
             } catch (NumberFormatException nfe) {
                 return def;
             }
         } else {
-            return getInt(d, def, curLvl);
+            return getInt(d, def);
         }
+    }
+    
+    public static int getIntConvertCommon(String path, MapleData data, int def, int curLvl){
+        if(!(data.getName().equals(path))){
+            return def;
+        } 
+        return (int)getEquation(data, curLvl);
     }
 
     public static BufferedImage getImage(MapleData data) {
@@ -155,6 +189,75 @@ public class MapleDataTool {
         return path.substring(0, path.length() - 1);
     }
     
+    public static double getEquation(MapleData data, int curLvl){
+     
+     StringBuilder equation = null;
+     ScriptEngineManager man = new ScriptEngineManager();
+     ScriptEngine engine = man.getEngineByName("javascript");
+     double value = 0;
+     if (String.class.isInstance(data.getData())){
+         equation = new StringBuilder(getString(data));
+         
+         if(equation.indexOf("x") > 0){
+         
+            if(equation.indexOf("u") > 0){
+                
+            int uPos = equation.indexOf("u");
+            int xPos = equation.indexOf("x");
+            
+            equation.deleteCharAt(xPos);
+            equation.insert(xPos, curLvl);
+            equation.deleteCharAt(uPos);
+            equation.insert(uPos, "Math.ceil");
+           
+           try{
+              value = ((Double)engine.eval(equation.toString())).doubleValue();
+            } catch(Exception e){    
+           }
+
+         } else if (equation.indexOf("d") > 0){
+            int dPos = equation.indexOf("d");
+            int xPos = equation.indexOf("x");
+            
+            equation.deleteCharAt(xPos);
+            equation.insert(xPos, curLvl);
+            equation.deleteCharAt(dPos);
+            equation.insert(dPos, "Math.floor");
+           
+           try{
+           value = ((Double)engine.eval(equation.toString())).doubleValue();
+           } catch(Exception e){   
+          } 
+        } else {
+          int xPos = equation.indexOf("x");
+          equation.deleteCharAt(xPos);
+          equation.insert(xPos, curLvl);
+         try{ 
+         value = ((Double)engine.eval(equation.toString())).doubleValue();
+         } catch(Exception e){   
+        }
+       }
+    } else{
+          if(!(equation.toString().matches(".*\\d.*"))){
+                 return 0;
+             }else{
+                 try{
+                   return ((Double)engine.eval(equation.toString())).doubleValue();
+         }
+            catch(Exception e){
+                
+            }
+             }     
+            
+         }
    
+     } else if (Integer.class.isInstance(data.getData())){
+       return (int)data.getData();
+     }
+     
+     
+     
     
+    return value;
+}
 }

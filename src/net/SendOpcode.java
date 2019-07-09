@@ -23,7 +23,7 @@ package net;
 
 public enum SendOpcode {
     
-    /*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*/
+    /*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*/
     CheckPasswordResult(0x00),
     GuestIDLoginResult(0x01),
     AccountInfoResult(0x02),
@@ -59,8 +59,8 @@ public enum SendOpcode {
     InventoryOperation(0x1C), //(0x1D) V83
     InventoryGrow(0x1D), //(0x1E) v83
     StatChanged(0x1E), //(0x1F) v83
-    GIVE_BUFF(0x20),
-    CANCEL_BUFF(0x21),
+    TemporaryStatSet(0x1F), //(0x20) v83
+    TemporaryStatReset(0x20), // (0x21) v83
     FORCED_STAT_SET(0x22),
     FORCED_STAT_RESET(0x233),
     ChangeSkillRecordResult(0x23), //(0x24)

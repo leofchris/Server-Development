@@ -120,10 +120,10 @@ public class MapleQuest {
         }
         MapleData questInfo = info.getChildByPath(String.valueOf(id));
 
-        timeLimit = MapleDataTool.getInt("timeLimit", questInfo, 0);
-        timeLimit2 = MapleDataTool.getInt("timeLimit2", questInfo, 0);
-        autoStart = MapleDataTool.getInt("autoStart", questInfo, 0) == 1;
-        autoPreComplete = MapleDataTool.getInt("autoPreComplete", questInfo, 0) == 1;
+        timeLimit = MapleDataTool.getInt("timeLimit", questInfo, 0, 0);
+        timeLimit2 = MapleDataTool.getInt("timeLimit2", questInfo, 0, 0);
+        autoStart = MapleDataTool.getInt("autoStart", questInfo, 0, 0) == 1;
+        autoPreComplete = MapleDataTool.getInt("autoPreComplete", questInfo, 0, 0) == 1;
     }
 
     public static MapleQuest getInstance(int id) {

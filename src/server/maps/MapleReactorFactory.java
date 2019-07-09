@@ -51,7 +51,7 @@ public class MapleReactorFactory {
             MapleData activateOnTouch = reactorData.getChildByPath("info/activateByTouch");
             boolean loadArea = false;
             if (activateOnTouch != null) {
-                loadArea = MapleDataTool.getInt("info/activateByTouch", reactorData, 0) != 0;
+                loadArea = MapleDataTool.getInt("info/activateByTouch", reactorData, 0, 0) != 0;
             }
             if (stats == null) {
                 reactorData = data.getData(StringUtil.getLeftPaddedStr(Integer.toString(infoId) + ".img", '0', 11));

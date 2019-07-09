@@ -2367,7 +2367,7 @@ public class MaplePacketCreator {
     //1F 00 00 00 00 00 03 00 00 40 00 00 00 E0 00 00 00 00 00 00 00 00 E0 01 8E AA 4F 00 00 C2 EB 0B E0 01 8E AA 4F 00 00 C2 EB 0B 0C 00 8E AA 4F 00 00 C2 EB 0B 44 02 8E AA 4F 00 00 C2 EB 0B 44 02 8E AA 4F 00 00 C2 EB 0B 00 00 E0 7A 1D 00 8E AA 4F 00 00 00 00 00 00 00 00 03
     public static byte[] giveBuff(int buffid, int bufflength, List<Pair<MapleBuffStat, Integer>> statups) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.GIVE_BUFF.getValue());
+        mplew.writeShort(SendOpcode.TemporaryStatSet.getValue());
         boolean special = false;
         writeLongMask(mplew, statups);
         for (Pair<MapleBuffStat, Integer> statup : statups) {
@@ -2510,7 +2510,7 @@ public class MaplePacketCreator {
 
     public static byte[] giveDebuff(List<Pair<MapleDisease, Integer>> statups, MobSkill skill) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.GIVE_BUFF.getValue());
+        mplew.writeShort(SendOpcode.TemporaryStatSet.getValue());
         long mask = getLongMaskD(statups);
         mplew.writeLong(0);
         mplew.writeLong(mask);
@@ -2574,7 +2574,7 @@ public class MaplePacketCreator {
 
     public static byte[] cancelBuff(List<MapleBuffStat> statups) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.CANCEL_BUFF.getValue());
+        mplew.writeShort(SendOpcode.TemporaryStatReset.getValue());
         writeLongMaskFromList(mplew, statups);
         mplew.write(1);//?
         return mplew.getPacket();
@@ -2610,7 +2610,7 @@ public class MaplePacketCreator {
 
     public static byte[] cancelDebuff(long mask) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(19);
-        mplew.writeShort(SendOpcode.CANCEL_BUFF.getValue());
+        mplew.writeShort(SendOpcode.TemporaryStatReset.getValue());
         mplew.writeLong(0);
         mplew.writeLong(mask);
         mplew.write(0);
@@ -4957,7 +4957,7 @@ public class MaplePacketCreator {
 
     public static byte[] giveInfusion(int buffid, int bufflength, int speed) {//This ain't correct
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.GIVE_BUFF.getValue());
+        mplew.writeShort(SendOpcode.TemporaryStatSet.getValue());
         mplew.writeLong(MapleBuffStat.SPEED_INFUSION.getValue());
         mplew.writeLong(0);
         mplew.writeShort(speed);
@@ -4972,7 +4972,7 @@ public class MaplePacketCreator {
 
     public static byte[] givePirateBuff(List<Pair<MapleBuffStat, Integer>> statups, int buffid, int duration) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.GIVE_BUFF.getValue());
+        mplew.writeShort(SendOpcode.TemporaryStatSet.getValue());
         writeLongMask(mplew, statups);
         mplew.writeShort(0);
         for (Pair<MapleBuffStat, Integer> stat : statups) {
@@ -5303,7 +5303,7 @@ public class MaplePacketCreator {
 
     public static byte[] giveFinalAttack(int skillid, int time) {//packets found by lailainoob
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.GIVE_BUFF.getValue());
+        mplew.writeShort(SendOpcode.TemporaryStatSet.getValue());
         mplew.writeLong(0);
         mplew.writeShort(0);
         mplew.write(0);//some 80 and 0 bs DIRECTION

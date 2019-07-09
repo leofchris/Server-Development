@@ -151,8 +151,8 @@ public class MapleMapFactory {
                     AbstractLoadedMapleLife myLife = loadLife(life, id, type);
                     if (myLife instanceof MapleMonster) {
                         MapleMonster monster = (MapleMonster) myLife;
-                        int mobTime = MapleDataTool.getInt("mobTime", life, 0);
-                        int team = MapleDataTool.getInt("team", life, -1);
+                        int mobTime = MapleDataTool.getInt("mobTime", life, 0, 0);
+                        int team = MapleDataTool.getInt("team", life, -1, 0);
                         if (mobTime == -1) { //does not respawn, force spawn once
                             map.spawnMonster(monster);
                         } else {
@@ -182,13 +182,13 @@ public class MapleMapFactory {
                 map.setClock(mapData.getChildByPath("clock") != null);
                 map.setEverlast(mapData.getChildByPath("everlast") != null);
                 map.setTown(mapData.getChildByPath("town") != null);
-                map.setHPDec(MapleDataTool.getIntConvert("decHP", mapData, 0));
-                map.setHPDecProtect(MapleDataTool.getIntConvert("protectItem", mapData, 0));
+                map.setHPDec(MapleDataTool.getIntConvert("decHP", mapData, 0, 0));
+                map.setHPDecProtect(MapleDataTool.getIntConvert("protectItem", mapData, 0, 0));
                 map.setForcedReturnMap(MapleDataTool.getInt(mapData.getChildByPath("info/forcedReturn"), 999999999));
                 map.setBoat(mapData.getChildByPath("shipObj") != null);
-                map.setTimeLimit(MapleDataTool.getIntConvert("timeLimit", mapData.getChildByPath("info"), -1));
-                map.setFieldType(MapleDataTool.getIntConvert("info/fieldType", mapData, 0));
-                map.setMobCapacity(MapleDataTool.getIntConvert("fixedMobCapacity", mapData.getChildByPath("info"), 500));//Is there a map that contains more than 500 mobs?
+                map.setTimeLimit(MapleDataTool.getIntConvert("timeLimit", mapData.getChildByPath("info"), -1, 0));
+                map.setFieldType(MapleDataTool.getIntConvert("info/fieldType", mapData, 0, 0));
+                map.setMobCapacity(MapleDataTool.getIntConvert("fixedMobCapacity", mapData.getChildByPath("info"), 500, 0));//Is there a map that contains more than 500 mobs?
                 maps.put(omapid, map);
             }
         }
@@ -212,7 +212,7 @@ public class MapleMapFactory {
         int x = MapleDataTool.getInt(life.getChildByPath("x"));
         int y = MapleDataTool.getInt(life.getChildByPath("y"));
         myLife.setPosition(new Point(x, y));
-        int hide = MapleDataTool.getInt("hide", life, 0);
+        int hide = MapleDataTool.getInt("hide", life, 0, 0);
         if (hide == 1) {
             myLife.setHide(true);
         }

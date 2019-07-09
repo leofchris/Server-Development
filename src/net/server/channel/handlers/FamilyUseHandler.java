@@ -89,7 +89,7 @@ public final class FamilyUseHandler extends AbstractMaplePacketHandler {
     //40 0D 03 00 00 00 00 00 02
     private static byte[] giveBuff() {
         MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.GIVE_BUFF.getValue());
+        mplew.writeShort(SendOpcode.TemporaryStatSet.getValue());
         mplew.writeInt(0);
         mplew.writeLong(0);
 

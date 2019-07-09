@@ -885,7 +885,7 @@ public class MonsterDropCreator {
 
 	    try {
 		monsterData = mobData.getData(StringUtil.getLeftPaddedStr(Integer.toString(id) + ".img", '0', 11));
-		final int boss = id == 8810018 ? 1 : MapleDataTool.getIntConvert("boss", monsterData.getChildByPath("info"), 0);
+		final int boss = id == 8810018 ? 1 : MapleDataTool.getIntConvert("boss", monsterData.getChildByPath("info"), 0, 0);
 
 		if (boss > 0) {
 		    bossCache.put(id, true);
@@ -893,7 +893,7 @@ public class MonsterDropCreator {
 
 		MobInfo mobInfo = new MobInfo(
 			boss, // fix for HT
-			MapleDataTool.getIntConvert("rareItemDropLevel", monsterData.getChildByPath("info"), 0), 
+			MapleDataTool.getIntConvert("rareItemDropLevel", monsterData.getChildByPath("info"), 0, 0), 
 			MapleDataTool.getString("name", itemFolder, "NO-NAME"));
 
 		itemPairs.add(new Pair<Integer, MobInfo>(id, mobInfo));

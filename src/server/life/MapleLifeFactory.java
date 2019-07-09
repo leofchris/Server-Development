@@ -91,7 +91,7 @@ public class MapleLifeFactory {
             }
             special = monsterInfoData.getChildByPath("selfDestruction");
             if (special != null) {
-                stats.setSelfDestruction(new selfDestruction((byte) MapleDataTool.getInt(special.getChildByPath("action")), MapleDataTool.getIntConvert("removeAfter", special, -1), MapleDataTool.getIntConvert("hp", special, -1)));
+                stats.setSelfDestruction(new selfDestruction((byte) MapleDataTool.getInt(special.getChildByPath("action")), MapleDataTool.getIntConvert("removeAfter", special, -1, 0), MapleDataTool.getIntConvert("hp", special, -1, 0)));
             }
             MapleData firstAttackData = monsterInfoData.getChildByPath("firstAttack");
             int firstAttack = 0;
@@ -103,16 +103,16 @@ public class MapleLifeFactory {
                 }
             }
             stats.setFirstAttack(firstAttack > 0);
-            stats.setDropPeriod(MapleDataTool.getIntConvert("dropItemPeriod", monsterInfoData, 0) * 10000);
+            stats.setDropPeriod(MapleDataTool.getIntConvert("dropItemPeriod", monsterInfoData, 0, 0) * 10000);
             
-            stats.setTagColor(MapleDataTool.getIntConvert("hpTagColor", monsterInfoData, 0));
-            stats.setTagBgColor(MapleDataTool.getIntConvert("hpTagBgcolor", monsterInfoData, 0));
+            stats.setTagColor(MapleDataTool.getIntConvert("hpTagColor", monsterInfoData, 0, 0));
+            stats.setTagBgColor(MapleDataTool.getIntConvert("hpTagBgcolor", monsterInfoData, 0, 0));
 
             for (MapleData idata : monsterData) {
                 if (!idata.getName().equals("info")) {
                     int delay = 0;
                     for (MapleData pic : idata.getChildren()) {
-                        delay += MapleDataTool.getIntConvert("delay", pic, 0);
+                        delay += MapleDataTool.getIntConvert("delay", pic, 0, 0);
                     }
                     stats.setAnimationTime(idata.getName(), delay);
                 }
@@ -131,14 +131,14 @@ public class MapleLifeFactory {
                 int i = 0;
                 List<Pair<Integer, Integer>> skills = new ArrayList<>();
                 while (monsterSkillData.getChildByPath(Integer.toString(i)) != null) {
-                    skills.add(new Pair<>(Integer.valueOf(MapleDataTool.getInt(i + "/skill", monsterSkillData, 0)), Integer.valueOf(MapleDataTool.getInt(i + "/level", monsterSkillData, 0))));
+                    skills.add(new Pair<>(Integer.valueOf(MapleDataTool.getInt(i + "/skill", monsterSkillData, 0, 0)), Integer.valueOf(MapleDataTool.getInt(i + "/level", monsterSkillData, 0, 0))));
                     i++;
                 }
                 stats.setSkills(skills);
             }
             MapleData banishData = monsterInfoData.getChildByPath("ban");
             if (banishData != null) {
-                stats.setBanishInfo(new BanishInfo(MapleDataTool.getString("banMsg", banishData), MapleDataTool.getInt("banMap/0/field", banishData, -1), MapleDataTool.getString("banMap/0/portal", banishData, "sp")));
+                stats.setBanishInfo(new BanishInfo(MapleDataTool.getString("banMsg", banishData), MapleDataTool.getInt("banMap/0/field", banishData, -1, 0), MapleDataTool.getString("banMap/0/portal", banishData, "sp")));
             }
             monsterStats.put(Integer.valueOf(mid), stats);
         }

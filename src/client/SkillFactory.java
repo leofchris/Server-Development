@@ -109,7 +109,7 @@ public class SkillFactory {
 			for (MapleData data2 : data) { // Loop thru each jobs
 			    if (data2 != null) {
 				skillid = Integer.parseInt(data2.getName());
-				skills.put(skillid, loadFromData(skillid, data2));
+				skills.put(skillid, loadFromData(skillid, data2));  
 			    }
 			}
 		    }
@@ -118,15 +118,11 @@ public class SkillFactory {
 	}        
     }
     public static Skill loadFromData(int id, MapleData data) {
-        
-        if (id == 1001003){
-            System.out.println("YO");
-        }
-        
+
         int maxLevel = 0;
         Skill ret = new Skill(id);
         boolean isBuff = false;
-        int skillType = MapleDataTool.getInt("skillType", data, -1,  0);
+        int skillType = MapleDataTool.getInt("skillType", data, -1, 0);
         String elem = MapleDataTool.getString("elemAttr", data, null);
       
         if (elem != null) {
@@ -371,7 +367,9 @@ public class SkillFactory {
                     break;
             }
         }
-      
+        if(id == 1001003){
+            int x = 0;
+        }
         if (level != null) {
         for (MapleData levelEntry : level) {
             ret.effects.add(MapleStatEffect.loadSkillEffectFromData(levelEntry, id, isBuff));
@@ -384,15 +382,11 @@ public class SkillFactory {
                 ret.animationTime += MapleDataTool.getIntConvert("delay", effectEntry, 0, 0);
             }
         }
-        
+      
         if(common != null){
             for(int i = 0; i < maxLevel; i++){
-           for(MapleData commonEntry : common){
-               if (!(commonEntry.getName().equals("maxLevel"))){
-                   ret.effects.add(MapleStatEffect.loadSkillEffectFromData(commonEntry, id, isBuff,  i));
-               }
-           }
-        }
+                 ret.effects.add(MapleStatEffect.loadSkillEffectFromData(common, id, isBuff,i+1));
+            }
         }
         return ret;
     }
@@ -419,9 +413,15 @@ public class SkillFactory {
         int maxLevel = 0;
         for (MapleData commonEntry : data){
             if(commonEntry.getName().equals("maxLevel")){
-                 return ((Integer) commonEntry.getData()).intValue();   
-            }
-    }
-          return maxLevel;
+                 if(Integer.class.isInstance(commonEntry.getData())){
+                     return (int)commonEntry.getData();
+                 }
+                 else if(String.class.isInstance(commonEntry.getData())){
+                     return Integer.parseInt(String.valueOf(commonEntry.getData()));
+                 }
 }
     }
+        return maxLevel;
+   }
+}
+    

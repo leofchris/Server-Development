@@ -68,7 +68,7 @@ public class PetDataFactory {
         synchronized (petHunger) {
             ret = petHunger.get(Integer.valueOf(petId));
             if (ret == null) {
-                ret = Integer.valueOf(MapleDataTool.getInt(dataRoot.getData("Pet/" + petId + ".img").getChildByPath("info/hungry"), 1, 0));
+                ret = Integer.valueOf(MapleDataTool.getInt(dataRoot.getData("Pet/" + petId + ".img").getChildByPath("info/hungry"), 1));
             }
             return ret;
         }

@@ -56,10 +56,10 @@ public class MobAttackInfoFactory {
                     MapleData attackData = mobData.getChildByPath("attack" + (attack + 1) + "/info");
                     if (attackData != null) {
                         MapleData deadlyAttack = attackData.getChildByPath("deadlyAttack");
-                        int mpBurn = MapleDataTool.getInt("mpBurn", attackData, 0);
-                        int disease = MapleDataTool.getInt("disease", attackData, 0);
-                        int level = MapleDataTool.getInt("level", attackData, 0);
-                        int mpCon = MapleDataTool.getInt("conMP", attackData, 0);
+                        int mpBurn = MapleDataTool.getInt("mpBurn", attackData, 0, 0);
+                        int disease = MapleDataTool.getInt("disease", attackData, 0, 0);
+                        int level = MapleDataTool.getInt("level", attackData, 0, 0);
+                        int mpCon = MapleDataTool.getInt("conMP", attackData, 0, 0);
                         ret = new MobAttackInfo(mob.getId(), attack);
                         ret.setDeadlyAttack(deadlyAttack != null);
                         ret.setMpBurn(mpBurn);

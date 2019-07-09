@@ -100,7 +100,7 @@ public enum RecvOpcode {
     UserChangeStatRequest(0x64), //(0x59) v83
     DISTRIBUTE_SP(0x66), //(0x5A) V83
     SPECIAL_MOVE(0x67), //(0x5B);
-    CANCEL_BUFF(0x5C),
+    CANCEL_BUFF(0x68), //(0x5C)
     SKILL_EFFECT(0x5D),
     MESO_DROP(0x5E),
     GIVE_FAME(0x5F),
