@@ -1268,7 +1268,7 @@ public class MaplePacketCreator {
      * @return The server message packet.
      */
     public static byte[] serverMessage(String message) {
-        return serverMessage(4, (byte) 0, message, true, false);
+        return serverMessage(4, (byte) 1, message, true, false);
     }
 
     /**
@@ -1326,9 +1326,10 @@ public class MaplePacketCreator {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.BroadcastMsg.getValue());
         
-        mplew.write(0);
-        //Needs to be worked on
-        mplew.writeMapleAsciiString("Hi");
+        mplew.write(type);
+        mplew.write(channel);
+      
+        mplew.writeMapleAsciiString(message);
 
         return mplew.getPacket();
     }
