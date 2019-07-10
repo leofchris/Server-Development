@@ -832,8 +832,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                             extendedSP[4] = remainingSp;
                            
                         }
-                    }
-                } else if (job.getId()/100 == 22 || job.getId() == 2001){
+                    } else if (job.getId()/100 == 22 || job.getId() == 2001){
                     remainingSp = 3;
                  
                          if (job.getId() == 2200 ){
@@ -867,6 +866,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                             extendedSP[10] = remainingSp;
                            
                         }
+                    }
         }else{
           this.remainingSp++;
         }
