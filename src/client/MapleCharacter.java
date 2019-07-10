@@ -148,6 +148,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int face;
     private int remainingAp, remainingSp;
     private int fame;
+    private int[] extendedSP = new int[11];
+   
     private short subJob;
     private int initialSpawnPoint;
     private int mapid;
@@ -174,7 +176,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     private int omokwins, omokties, omoklosses, matchcardwins, matchcardties, matchcardlosses;
     private int married;
     private long dojoFinish, lastfametime, lastUsedCashItem, lastHealed;
-    public transient int localmaxhp, localmaxmp, localstr, localdex, localluk, localint_, magic, watk;
+    private transient int localmaxhp, localmaxmp, localstr, localdex, localluk, localint_, magic, watk;
     private boolean hidden, canDoor = true, Berserk, hasMerchant;
     private int linkedLevel = 0;
     private String linkedName = null;
@@ -813,7 +815,62 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             return;//the fuck you doing idiot!
         }
         this.job = newJob;
-        this.remainingSp++;
+        if(job.getId()/1000 == 3 || job.getId()/100 == 22 || job.getId() == 2001){
+             if (job.getId()/1000 == 3){
+                    remainingSp = 3;
+                   
+                        if (job.getId() == 3500 || job.getId() == 3300 || job.getId() == 3200){
+                            extendedSP[1] = remainingSp;
+                           
+                        } else if (job.getId() == 3510 || job.getId() == 3310|| job.getId() == 3210){
+                            extendedSP[2] = remainingSp;
+                           
+                        } else if (job.getId() == 3511 || job.getId() == 3311 || job.getId() == 3211){
+                            extendedSP[3] = remainingSp;
+                            
+                        } else if (job.getId() == 3512 || job.getId() == 3312 || job.getId() == 3212){
+                            extendedSP[4] = remainingSp;
+                           
+                        }
+                    }
+                } else if (job.getId()/100 == 22 || job.getId() == 2001){
+                    remainingSp = 3;
+                 
+                         if (job.getId() == 2200 ){
+                            extendedSP[1] = remainingSp;
+                           
+                        } else if (job.getId() == 2210){
+                            extendedSP[2] = remainingSp;
+                            
+                        } else if (job.getId() == 2211){
+                            extendedSP[3] = remainingSp;
+                            
+                        }  else if (job.getId() == 2212){
+                            extendedSP[4] = remainingSp;
+                           
+                        }  else if (job.getId() == 2213){
+                            extendedSP[5] = remainingSp;
+                           
+                        }   else if (job.getId() == 2214){
+                            extendedSP[6] = remainingSp;
+                            
+                        }   else if (job.getId() == 2215){
+                            extendedSP[7] = remainingSp;
+                            
+                        }  else if (job.getId() == 2216){
+                            extendedSP[8] = remainingSp;
+                            
+                        }  else if (job.getId() == 2217){
+                            extendedSP[9] = remainingSp;
+                           
+                        }  else if (job.getId() == 2218){
+                            extendedSP[10] = remainingSp;
+                           
+                        }
+        }else{
+          this.remainingSp++;
+        }
+        
         if (newJob.getId() % 10 == 2) {
             this.remainingSp += 2;
         }
@@ -855,7 +912,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         statup.add(new Pair<>(MapleStat.AVAILABLESP, remainingSp));
         statup.add(new Pair<>(MapleStat.JOB, Integer.valueOf(job.getId())));
         recalcLocalStats();
-        client.announce(MaplePacketCreator.updatePlayerStats(statup, job));
+        client.announce(MaplePacketCreator.updatePlayerStats(statup, job, extendedSP));
         silentPartyUpdate();
         if (this.guildid > 0) {
             getGuild().broadcast(MaplePacketCreator.jobMessage(0, job.getId(), name), this.getId());
@@ -2069,6 +2126,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public int getRemainingSp() {
         return remainingSp;
     }
+    
+    public int[] getExtendedSp(){
+        return extendedSP;
+    }
 
     public int getSavedLocation(String type) {
         SavedLocation sl = savedLocations[SavedLocationType.fromString(type).ordinal()];
@@ -2486,14 +2547,88 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         statup.add(new Pair<>(MapleStat.MAXMP, maxmp));
         statup.add(new Pair<>(MapleStat.STR, str));
         statup.add(new Pair<>(MapleStat.DEX, dex));
-        if (job.getId() % 1000 > 0) {
-            if(job.getId() != 2001){
+        if (job.getId() % 1000 > 1) {
+            
+            if (job.getId()/1000 != 3 && job.getId()/100 != 22 && job.getId() != 2001){
                 remainingSp += 3;
                 statup.add(new Pair<>(MapleStat.AVAILABLESP, remainingSp));
-            }
-            
+            } else{
+                if (job.getId()/1000 == 3){
+                    remainingSp += 3;
+                   
+                    for (int i = 0; i < 4; i++){
+                        if (job.getId() == 3500 || job.getId() == 3300 || job.getId() == 3200){
+                            extendedSP[1] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[1]));
+                            break;
+                        } else if (job.getId() == 3510 || job.getId() == 3310|| job.getId() == 3210){
+                            extendedSP[2] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[2]));
+                            break;
+                        } else if (job.getId() == 3511 || job.getId() == 3311 || job.getId() == 3211){
+                            extendedSP[3] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[3]));
+                            break;
+                        } else if (job.getId() == 3512 || job.getId() == 3312 || job.getId() == 3212){
+                            extendedSP[4] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[4]));
+                            break;
+                        }
+                    }
+                } else if (job.getId()/100 == 22 || job.getId() == 2001){
+                    remainingSp += 3;
+                    for (int i = 0; i < 10; i++){
+                         if (job.getId() == 2200 ){
+                            extendedSP[1] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[1]));
+                            break;
+                        } else if (job.getId() == 2210){
+                            extendedSP[2] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[2]));
+                            break;
+                        } else if (job.getId() == 2211){
+                            extendedSP[3] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[3]));
+                            break;
+                        }  else if (job.getId() == 2212){
+                            extendedSP[4] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[4]));
+                            break;
+                        }  else if (job.getId() == 2213){
+                            extendedSP[5] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[5]));
+                            break;
+                        }   else if (job.getId() == 2214){
+                            extendedSP[6] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[6]));
+                            break;
+                        }   else if (job.getId() == 2215){
+                            extendedSP[7] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[7]));
+                            break;
+                        }  else if (job.getId() == 2216){
+                            extendedSP[8] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[8]));
+                            break;
+                        }  else if (job.getId() == 2217){
+                            extendedSP[9] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[9]));
+                            break;
+                        }  else if (job.getId() == 2218){
+                            extendedSP[10] = remainingSp;
+                            statup.add(new Pair<>(MapleStat.AVAILABLESP, extendedSP[10]));
+                            break;
+                        }
+                    }
+                }
+            }    
         }
-        client.announce(MaplePacketCreator.updatePlayerStats(statup, job));
+        if (!(job.getId() % 1000 > 1)){
+           
+        extendedSP[0]++;
+        }
+          
+        client.announce(MaplePacketCreator.updatePlayerStats(statup, job, extendedSP));
         getMap().broadcastMessage(this, MaplePacketCreator.showForeignEffect(getId(), 0), false);
         recalcLocalStats();
         setMPC(new MaplePartyCharacter(this));
@@ -2564,6 +2699,17 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ret.face = rs.getInt("face");
             ret.accountid = rs.getInt("accountid");
             ret.mapid = rs.getInt("map");
+            ret.extendedSP[0] = rs.getInt("beginnerJob");
+            ret.extendedSP[1] = rs.getInt("firstJob");
+            ret.extendedSP[2] = rs.getInt("secondJob");
+            ret.extendedSP[3] = rs.getInt("thirdJob");
+            ret.extendedSP[4] = rs.getInt("fourJob");
+            ret.extendedSP[5] = rs.getInt("fiveJob");
+            ret.extendedSP[6] = rs.getInt("sixJob");
+            ret.extendedSP[7] = rs.getInt("sevenJob");
+            ret.extendedSP[8] = rs.getInt("eightJob");
+            ret.extendedSP[9] = rs.getInt("nineJob");
+            ret.extendedSP[10] = rs.getInt("tenJob");
             ret.initialSpawnPoint = rs.getInt("spawnpoint");
             ret.world = rs.getByte("world");
             ret.rank = rs.getInt("rank");
@@ -3289,7 +3435,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         statup.add(new Pair<>(MapleStat.DEX, tdex));
         statup.add(new Pair<>(MapleStat.INT, tint));
         statup.add(new Pair<>(MapleStat.LUK, tluk));
-        announce(MaplePacketCreator.updatePlayerStats(statup, job));
+        //announce(MaplePacketCreator.updatePlayerStats(statup, job));
     }
 
     public void resetBattleshipHp() {
@@ -3486,7 +3632,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             con.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
             con.setAutoCommit(false);
             PreparedStatement ps;
-            ps = con.prepareStatement("UPDATE characters SET level = ?, fame = ?, str = ?, dex = ?, luk = ?, `int` = ?, exp = ?, gachaexp = ?, hp = ?, mp = ?, maxhp = ?, maxmp = ?, sp = ?, ap = ?, gm = ?, skincolor = ?, gender = ?, job = ?, hair = ?, face = ?, map = ?, meso = ?, hpMpUsed = ?, spawnpoint = ?, party = ?, buddyCapacity = ?, messengerid = ?, messengerposition = ?, mountlevel = ?, mountexp = ?, mounttiredness= ?, equipslots = ?, useslots = ?, setupslots = ?, etcslots = ?,  monsterbookcover = ?, vanquisherStage = ?, dojoPoints = ?, lastDojoStage = ?, finishedDojoTutorial = ?, vanquisherKills = ?, matchcardwins = ?, matchcardlosses = ?, matchcardties = ?, omokwins = ?, omoklosses = ?, omokties = ? WHERE id = ?", Statement.RETURN_GENERATED_KEYS);
+            ps = con.prepareStatement("UPDATE characters SET level = ?, fame = ?, str = ?, dex = ?, luk = ?, `int` = ?, exp = ?, gachaexp = ?, hp = ?, mp = ?, maxhp = ?, maxmp = ?, sp = ?, ap = ?, gm = ?, skincolor = ?, gender = ?, job = ?, hair = ?, face = ?, map = ?, meso = ?, hpMpUsed = ?, spawnpoint = ?, party = ?, buddyCapacity = ?, messengerid = ?, messengerposition = ?, mountlevel = ?, mountexp = ?, mounttiredness= ?, equipslots = ?, useslots = ?, setupslots = ?, etcslots = ?,  monsterbookcover = ?, vanquisherStage = ?, dojoPoints = ?, lastDojoStage = ?, finishedDojoTutorial = ?, vanquisherKills = ?, matchcardwins = ?, matchcardlosses = ?, matchcardties = ?, omokwins = ?, omoklosses = ?, omokties = ?, beginnerJob = ?, firstJob = ?, secondJob = ?, thirdJob = ?, fourJob = ?, fiveJob = ?, sixJob = ?, sevenJob = ?, eightJob = ?, nineJob = ?, tenJob = ? WHERE id = ?", Statement.RETURN_GENERATED_KEYS);
             if (gmLevel < 1 && level > 199) {
                 ps.setInt(1, isCygnus() ? 120 : 200);
             } else {
@@ -3572,8 +3718,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             ps.setInt(45, omokwins);
             ps.setInt(46, omoklosses);
             ps.setInt(47, omokties);
-            ps.setInt(48, id);
-
+            for (int i = 48; i < 59; i++){
+             ps.setInt(i, extendedSP[Math.abs(48-i)]);
+            }
+            ps.setInt(59, id);
+           
             int updateRows = ps.executeUpdate();
             if (updateRows < 1) {
                 throw new RuntimeException("Character not in database (" + id + ")");
@@ -3724,6 +3873,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             }
             ps.close();
             con.commit();
+            
+          
+            
+            
+            
         } catch (SQLException | RuntimeException t) {
             FilePrinter.printError(FilePrinter.SAVE_CHAR, t, "Error saving " + name + " Level: " + level + " Job: " + job.getId());
             try {
@@ -4176,6 +4330,10 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void setRemainingSp(int remainingSp) {
         this.remainingSp = remainingSp;
     }
+    
+    public void setExtendedSp(int[] x){
+        this.extendedSP = x;
+    }
 
     public void setSearch(String find) {
         search = find;
@@ -4442,9 +4600,17 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void updateSingleStat(MapleStat stat, int newval) {
         updateSingleStat(stat, newval, false);
     }
+    
+    public void updateSingleStat(MapleStat stat, int newval, int[] newval2) {
+        updateSingleStat(stat, newval, false, newval2);
+    }
+    
+    private void updateSingleStat(MapleStat stat, int newval, boolean itemReaction, int[] newval2) {
+        announce(MaplePacketCreator.updatePlayerStats(Collections.singletonList(new Pair<>(stat, Integer.valueOf(newval))), itemReaction, job, newval2));
+    }
 
     private void updateSingleStat(MapleStat stat, int newval, boolean itemReaction) {
-        announce(MaplePacketCreator.updatePlayerStats(Collections.singletonList(new Pair<>(stat, Integer.valueOf(newval))), itemReaction, job));
+        announce(MaplePacketCreator.updatePlayerStats(Collections.singletonList(new Pair<>(stat, Integer.valueOf(newval))), itemReaction, job, extendedSP));
     }
 
     public void announce(final byte[] packet) {

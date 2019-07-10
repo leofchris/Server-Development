@@ -155,105 +155,12 @@ public class MaplePacketCreator {
         if(chr.getJob().getId()/1000 != 3 && chr.getJob().getId()/100 != 22 && chr.getJob().getId() != 2001){
             mplew.writeShort(chr.getRemainingSp()); // remaining sp
                 }else {
-                         if (chr.getJob().getId() == 3000){
-                             mplew.write(1);
-                             mplew.write(0);
-                             mplew.write(chr.getRemainingSp());
-                           } else if (chr.getJob().getId() == 3500){
-                             mplew.write(1);
-                             mplew.write(1);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3510){
-                             mplew.write(1);
-                             mplew.write(2);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3511){
-                            mplew.write(1);
-                            mplew.write(3);
-                            mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3512){
-                            mplew.write(1);
-                            mplew.write(4);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3300){
-                             mplew.write(1);
-                             mplew.write(1);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3310){
-                            mplew.write(1);
-                            mplew.write(2);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3311){
-                            mplew.write(1);
-                            mplew.write(3);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3312){
-                             mplew.write(1);
-                             mplew.write(4);
-                              mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3200){
-                             mplew.write(1);
-                             mplew.write(1);
-                             mplew.write(chr.getRemainingSp());
-                        }  else if (chr.getJob().getId() == 3210){
-                            mplew.write(1);
-                            mplew.write(2);
-                            mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3211){
-                            mplew.write(1);
-                            mplew.write(3);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 3212){
-                             mplew.write(1);
-                             mplew.write(4);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2001){
-                            mplew.write(1);
-                            mplew.write(0);
-                            mplew.write(chr.getRemainingSp()); 
-                        } else if (chr.getJob().getId() == 2200){
-                            mplew.write(1);
-                            mplew.write(1);
-                            mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2210){
-                            mplew.write(1);
-                            mplew.write(2);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2211){
-                             mplew.write(1);
-                             mplew.write(3);
-                              mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2212){
-                             mplew.write(1);
-                             mplew.write(4);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2213){
-                            mplew.write(1);
-                            mplew.write(5);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2214){
-                            mplew.write(1);
-                            mplew.write(6);
-                            mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2215){
-                             mplew.write(1);
-                             mplew.write(7);
-                              mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2216){
-                             mplew.write(1);
-                             mplew.write(8);
-                              mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2217){
-                            mplew.write(1);
-                            mplew.write(9);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  else if (chr.getJob().getId() == 2218){
-                            mplew.write(1);
-                            mplew.write(10);
-                             mplew.write(chr.getRemainingSp()); 
-                        }  
+                         mplew.write(chr.getExtendedSp().length);
+                        for (int i = 0; i < chr.getExtendedSp().length; i++){
+                           mplew.write(i);
+                           mplew.write(chr.getExtendedSp()[i]);
+                        }           
         }
-        
         mplew.writeInt(chr.getExp()); // current exp
         mplew.writeShort(chr.getFame()); // fame
         mplew.writeInt(chr.getGachaExp()); //Gacha Exp
@@ -1063,8 +970,8 @@ public class MaplePacketCreator {
         return updatePlayerStats(stats, false);
     }
     
-    public static byte[] updatePlayerStats(List<Pair<MapleStat, Integer>> stats, MapleJob job) {
-        return updatePlayerStats(stats, false, job);
+    public static byte[] updatePlayerStats(List<Pair<MapleStat, Integer>> stats, MapleJob job, int[] extendedSP) {
+        return updatePlayerStats(stats, false, job, extendedSP);
     }
 
     /**
@@ -1145,7 +1052,7 @@ public class MaplePacketCreator {
         return mplew.getPacket();
     }
     
-    public static byte[] updatePlayerStats(List<Pair<MapleStat, Integer>> stats, boolean itemReaction, MapleJob job) {
+    public static byte[] updatePlayerStats(List<Pair<MapleStat, Integer>> stats, boolean itemReaction, MapleJob job, int[] extendedSP) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.StatChanged.getValue());
         mplew.write(itemReaction ? 1 : 0);
@@ -1185,96 +1092,12 @@ public class MaplePacketCreator {
                 } else if ((statupdate.getLeft().getValue() & 0x8000) == 0x8000) {
                     if (job.getId()/1000 != 3 && job.getId()/100 != 22 && job.getId() != 2001){
                         mplew.writeShort(statupdate.getRight().shortValue());
-                    } else{
-                        if (job.getId() == 3500){
-                             mplew.write(1);
-                             mplew.write(1);
-                             mplew.write(statupdate.getRight().shortValue()); 
-                        }  else if (job.getId() == 3510){
-                             mplew.write(1);
-                             mplew.write(2);
-                             mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3511){
-                            mplew.write(1);
-                            mplew.write(3);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3512){
-                            mplew.write(1);
-                            mplew.write(4);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3300){
-                             mplew.write(1);
-                             mplew.write(1);
-                             mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3310){
-                            mplew.write(1);
-                            mplew.write(2);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3311){
-                            mplew.write(1);
-                            mplew.write(3);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3312){
-                             mplew.write(1);
-                             mplew.write(4);
-                             mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3200){
-                             mplew.write(1);
-                             mplew.write(1);
-                             mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3210){
-                            mplew.write(1);
-                            mplew.write(2);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3211){
-                            mplew.write(1);
-                            mplew.write(3);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 3212){
-                             mplew.write(1);
-                             mplew.write(4);
-                             mplew.write(statupdate.getRight().shortValue());
-                        }   else if (job.getId() == 2200){
-                            mplew.write(1);
-                            mplew.write(1);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 2210){
-                            mplew.write(1);
-                            mplew.write(2);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 2211){
-                             mplew.write(1);
-                             mplew.write(3);
-                             mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 2212){
-                             mplew.write(1);
-                             mplew.write(4);
-                             mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 2213){
-                            mplew.write(1);
-                            mplew.write(5);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 2214){
-                            mplew.write(1);
-                            mplew.write(6);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 2215){
-                             mplew.write(1);
-                             mplew.write(7);
-                             mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 2216){
-                             mplew.write(1);
-                             mplew.write(8);
-                             mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 2217){
-                            mplew.write(1);
-                            mplew.write(9);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  else if (job.getId() == 2218){
-                            mplew.write(1);
-                            mplew.write(10);
-                            mplew.write(statupdate.getRight().shortValue());
-                        }  
+                    } else{ 
+                        mplew.write(extendedSP.length);
+                        for (int i = 0; i < extendedSP.length; i++){
+                            mplew.write(i);
+                            mplew.write(extendedSP[i]);
+                        }
                      }
                     
                 } else if ((statupdate.getLeft().getValue() & 0x20000) == 0x20000) {
