@@ -1204,7 +1204,7 @@ public class MapleMap {
             }
            MapScriptManager.getInstance().getMapScript(chr.getClient(), onUserEnter, false);
         }
-    /*          if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
+          if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
             chr.cancelEffectFromBuffStat(MapleBuffStat.MONSTER_RIDING);
             chr.cancelBuffStats(MapleBuffStat.MONSTER_RIDING);
         }
@@ -1231,13 +1231,13 @@ public class MapleMap {
             }
         }
 
-       if (chr.isHidden()) {
+      if (chr.isHidden()) {
             broadcastGMMessage(chr, MaplePacketCreator.spawnPlayerMapobject(chr), false);
             chr.announce(MaplePacketCreator.getGMEffect(0x10, (byte) 1));
         } else {
             broadcastMessage(chr, MaplePacketCreator.spawnPlayerMapobject(chr), false);
-        }
-
+     }
+  /* 
         sendObjectPlacement(chr.getClient());
         if (isStartingEventMap() && !eventStarted()) {
             chr.getMap().getPortal("join00").setPortalStatus(false);

@@ -1820,6 +1820,7 @@ public class MaplePacketCreator {
                 mplew.write(new byte[6]);
             }
         }
+        //Flags of Skills
         mplew.writeInt(0);
         mplew.writeShort(0); //v83
         mplew.write(0xFC);

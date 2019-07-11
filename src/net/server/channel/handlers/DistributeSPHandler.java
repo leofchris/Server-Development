@@ -58,7 +58,7 @@ public final class DistributeSPHandler extends AbstractMaplePacketHandler {
                             extendedSP[1]--;
                         } else if (player.getJob().getId() == 3510 || player.getJob().getId() == 3310|| player.getJob().getId() == 3210 || ((skillid % 100000000 >= 35100000) && (skillid % 100000000 <= 35101010)) || ((skillid % 100000000 >= 32100006) && (skillid % 100000000 <= 32101005)) || ((skillid % 100000000 >= 33100000) && (skillid % 100000000 <= 33101008))){
                             extendedSP[2]--;
-                        } else if (player.getJob().getId() == 3511 || player.getJob().getId() == 3311 || player.getJob().getId() == 3211 || ((skillid % 100000000 >= 35111001) && (skillid % 100000000 <= 35111015)) || ((skillid % 100000000 >= 32110000) && (skillid % 100000000 <= 32111011)) || ((skillid % 100000000 >= 33110000) && (skillid % 100000000 <= 33111006))){
+                        } else if (player.getJob().getId() == 3511 || player.getJob().getId() == 3311 || player.getJob().getId() == 3211 || ((skillid % 100000000 >= 35110014) && (skillid % 100000000 <= 35111015)) || ((skillid % 100000000 >= 32110000) && (skillid % 100000000 <= 32111011)) || ((skillid % 100000000 >= 33110000) && (skillid % 100000000 <= 33111006))){
                             extendedSP[3]--;
                         } else if (player.getJob().getId() == 3512 || player.getJob().getId() == 3312 || player.getJob().getId() == 3212){
                            extendedSP[4]--;
