@@ -154,14 +154,17 @@ public class MapleStatEffect {
 
     private static MapleStatEffect loadFromData(MapleData source, int sourceid, boolean skill, boolean overTime, int curLvl) {
         MapleStatEffect ret = new MapleStatEffect();
-       
+        
         ret.duration = MapleDataTool.getIntConvert("time", source, -1, curLvl);    
         ret.hp = (short) MapleDataTool.getInt("hp", source, 0, curLvl);
+        ret.hp += (short) MapleDataTool.getInt("emhp", source, 0, curLvl);
         ret.hpR = MapleDataTool.getInt("hpR", source, 0, curLvl) / 100.0;
         ret.mp = (short) MapleDataTool.getInt("mp", source, 0, curLvl);
+        ret.mp += (short) MapleDataTool.getInt("emmp", source, 0, curLvl);
         ret.mpR = MapleDataTool.getInt("mpR", source, 0, curLvl) / 100.0;
-        ret.mpCon = (short) MapleDataTool.getInt("mpCon", source, 0, curLvl);   
+        ret.mpCon = (short) MapleDataTool.getInt("mpCon", source, 0, curLvl);  
         ret.hpCon = (short) MapleDataTool.getInt("hpCon", source, 0, curLvl);
+        
         int iprop = MapleDataTool.getInt("prop", source, 100, curLvl);
         ret.prop = iprop / 100.0;
         ret.mobCount = MapleDataTool.getInt("mobCount", source, 1, curLvl);
@@ -179,8 +182,10 @@ public class MapleStatEffect {
             ret.overTime = overTime;
         }
         ArrayList<Pair<MapleBuffStat, Integer>> statups = new ArrayList<>();
+       
+        
         ret.watk = (short) MapleDataTool.getInt("pad", source, 0, curLvl);
-        ret.wdef = (short) MapleDataTool.getInt("pdd", source, 0, curLvl);    
+        ret.wdef = (short) MapleDataTool.getInt("pdd", source, 0, curLvl);   
         ret.matk = (short) MapleDataTool.getInt("mad", source, 0, curLvl);
         ret.mdef = (short) MapleDataTool.getInt("mdd", source, 0, curLvl);
         ret.acc = (short) MapleDataTool.getIntConvert("acc", source, 0, curLvl);
@@ -189,6 +194,14 @@ public class MapleStatEffect {
         ret.jump = (short) MapleDataTool.getInt("jump", source, 0, curLvl);
         ret.berserk = MapleDataTool.getInt("berserk", source, 0, curLvl);
         ret.booster = MapleDataTool.getInt("booster", source, 0, curLvl);
+        ret.watk += (short) MapleDataTool.getInt("epad", source, 0, curLvl);
+        ret.wdef += (short) MapleDataTool.getInt("epdd", source, 0, curLvl);
+        ret.matk += (short) MapleDataTool.getInt("emad", source, 0, curLvl);
+        ret.mdef += (short) MapleDataTool.getInt("emdd", source, 0, curLvl);
+        
+      
+        
+        
         if (ret.overTime && ret.getSummonMovementType() == null) {
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.WATK, Integer.valueOf(ret.watk));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.WDEF, Integer.valueOf(ret.wdef));

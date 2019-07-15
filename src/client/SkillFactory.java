@@ -122,7 +122,7 @@ public class SkillFactory {
 
         int maxLevel = 0;
         Skill ret = new Skill(id);
-       
+ 
         boolean isBuff = false;
         int skillType = MapleDataTool.getInt("skillType", data, -1, 0);
         String elem = MapleDataTool.getString("elemAttr", data, null);
@@ -370,9 +370,7 @@ public class SkillFactory {
                     break;
             }
         }
-        if(id == 1001003){
-            int x = 0;
-        }
+      
         if (level != null) {
         for (MapleData levelEntry : level) {
             ret.effects.add(MapleStatEffect.loadSkillEffectFromData(levelEntry, id, isBuff));
@@ -385,7 +383,7 @@ public class SkillFactory {
                 ret.animationTime += MapleDataTool.getIntConvert("delay", effectEntry, 0, 0);
             }
         }
-      
+   
         if(common != null){
             for(int i = 0; i < maxLevel; i++){
                  ret.effects.add(MapleStatEffect.loadSkillEffectFromData(common, id, isBuff,i+1));
