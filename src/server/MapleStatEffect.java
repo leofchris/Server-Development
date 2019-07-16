@@ -116,7 +116,7 @@ import tools.Pair;
  */
 public class MapleStatEffect {
 
-    private short watk, matk, wdef, mdef, acc, avoid, speed, jump;
+    private short PAD, MAD, PDD, MDD, acc, EVA, speed, jump, EPAD, EMAD, EPDD, EMDD;
     private short hp, mp;
     private double hpR, mpR;
     private short mpCon, hpCon;
@@ -154,13 +154,11 @@ public class MapleStatEffect {
 
     private static MapleStatEffect loadFromData(MapleData source, int sourceid, boolean skill, boolean overTime, int curLvl) {
         MapleStatEffect ret = new MapleStatEffect();
-        
+      
         ret.duration = MapleDataTool.getIntConvert("time", source, -1, curLvl);    
         ret.hp = (short) MapleDataTool.getInt("hp", source, 0, curLvl);
-        ret.hp += (short) MapleDataTool.getInt("emhp", source, 0, curLvl);
         ret.hpR = MapleDataTool.getInt("hpR", source, 0, curLvl) / 100.0;
         ret.mp = (short) MapleDataTool.getInt("mp", source, 0, curLvl);
-        ret.mp += (short) MapleDataTool.getInt("emmp", source, 0, curLvl);
         ret.mpR = MapleDataTool.getInt("mpR", source, 0, curLvl) / 100.0;
         ret.mpCon = (short) MapleDataTool.getInt("mpCon", source, 0, curLvl);  
         ret.hpCon = (short) MapleDataTool.getInt("hpCon", source, 0, curLvl);
@@ -184,31 +182,31 @@ public class MapleStatEffect {
         ArrayList<Pair<MapleBuffStat, Integer>> statups = new ArrayList<>();
        
         
-        ret.watk = (short) MapleDataTool.getInt("pad", source, 0, curLvl);
-        ret.wdef = (short) MapleDataTool.getInt("pdd", source, 0, curLvl);   
-        ret.matk = (short) MapleDataTool.getInt("mad", source, 0, curLvl);
-        ret.mdef = (short) MapleDataTool.getInt("mdd", source, 0, curLvl);
+        ret.PAD = (short) MapleDataTool.getInt("pad", source, 0, curLvl);
+        ret.PDD = (short) MapleDataTool.getInt("pdd", source, 0, curLvl);   
+        ret.MAD = (short) MapleDataTool.getInt("mad", source, 0, curLvl);
+        ret.MDD = (short) MapleDataTool.getInt("mdd", source, 0, curLvl);
         ret.acc = (short) MapleDataTool.getIntConvert("acc", source, 0, curLvl);
-        ret.avoid = (short) MapleDataTool.getInt("eva", source, 0, curLvl);
+        ret.EVA = (short) MapleDataTool.getInt("eva", source, 0, curLvl);
         ret.speed = (short) MapleDataTool.getInt("speed", source, 0, curLvl);
         ret.jump = (short) MapleDataTool.getInt("jump", source, 0, curLvl);
         ret.berserk = MapleDataTool.getInt("berserk", source, 0, curLvl);
         ret.booster = MapleDataTool.getInt("booster", source, 0, curLvl);
-        ret.watk += (short) MapleDataTool.getInt("epad", source, 0, curLvl);
-        ret.wdef += (short) MapleDataTool.getInt("epdd", source, 0, curLvl);
-        ret.matk += (short) MapleDataTool.getInt("emad", source, 0, curLvl);
-        ret.mdef += (short) MapleDataTool.getInt("emdd", source, 0, curLvl);
+        ret.EPAD = (short) MapleDataTool.getInt("epad", source, 0, curLvl);
+        ret.EPDD = (short) MapleDataTool.getInt("epdd", source, 0, curLvl);
+        ret.EMDD = (short) MapleDataTool.getInt("emdd", source, 0, curLvl);
         
-      
-        
-        
+
         if (ret.overTime && ret.getSummonMovementType() == null) {
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.WATK, Integer.valueOf(ret.watk));
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.WDEF, Integer.valueOf(ret.wdef));
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.MATK, Integer.valueOf(ret.matk));
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.MDEF, Integer.valueOf(ret.mdef));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.PAD, Integer.valueOf(ret.PAD));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.PDD, Integer.valueOf(ret.PDD));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.MAD, Integer.valueOf(ret.MAD));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.MDD, Integer.valueOf(ret.MDD));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EPAD, Integer.valueOf(ret.EPAD));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EPDD, Integer.valueOf(ret.EPDD));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EMDD, Integer.valueOf(ret.EMDD));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.ACC, Integer.valueOf(ret.acc));
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.AVOID, Integer.valueOf(ret.avoid));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EVA, Integer.valueOf(ret.EVA));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.SPEED, Integer.valueOf(ret.speed));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.JUMP, Integer.valueOf(ret.jump));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.PYRAMID_PQ, Integer.valueOf(ret.berserk));
@@ -575,7 +573,7 @@ public class MapleStatEffect {
             }
         }
         if (ret.isMorph()) {
-            statups.add(new Pair<>(MapleBuffStat.MORPH, Integer.valueOf(ret.getMorph())));
+            statups.add(new Pair<>(MapleBuffStat.Morph, Integer.valueOf(ret.getMorph())));
         }
         if (ret.ghost > 0 && !skill) {
             statups.add(new Pair<>(MapleBuffStat.GHOST_MORPH, Integer.valueOf(ret.ghost)));
@@ -902,7 +900,7 @@ public class MapleStatEffect {
             localsourceid = ridingLevel;
             localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.MONSTER_RIDING, 0));
         } else if (isSkillMorph()) {
-            localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.MORPH, getMorph(applyto)));
+            localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.Morph, getMorph(applyto)));
         }
         if (primary) {
             localDuration = alchemistModifyVal(applyfrom, localDuration, false);
@@ -943,7 +941,7 @@ public class MapleStatEffect {
             } else if (isEnrage()) {
                 applyto.handleOrbconsume();
             } else if (isMorph()) {
-                List<Pair<MapleBuffStat, Integer>> stat = Collections.singletonList(new Pair<>(MapleBuffStat.MORPH, Integer.valueOf(getMorph(applyto))));
+                List<Pair<MapleBuffStat, Integer>> stat = Collections.singletonList(new Pair<>(MapleBuffStat.Morph, Integer.valueOf(getMorph(applyto))));
                 mbuff = MaplePacketCreator.giveForeignBuff(applyto.getId(), stat);
             } else if (isTimeLeap()) {
                 for (PlayerCoolDownValueHolder i : applyto.getAllCooldowns()) {
@@ -1335,7 +1333,7 @@ public class MapleStatEffect {
     }
 
     public short getMatk() {
-        return matk;
+        return MAD;
     }
 
     public int getDuration() {

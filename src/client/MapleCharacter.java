@@ -3162,8 +3162,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 gainExp(-getExp(), false, false);
             }
         }
-        if (getBuffedValue(MapleBuffStat.MORPH) != null) {
-            cancelEffectFromBuffStat(MapleBuffStat.MORPH);
+        if (getBuffedValue(MapleBuffStat.Morph) != null) {
+            cancelEffectFromBuffStat(MapleBuffStat.Morph);
         }
 
         if (getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
@@ -3228,7 +3228,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         }
         localmaxhp = Math.min(30000, localmaxhp);
         localmaxmp = Math.min(30000, localmaxmp);
-        Integer watkbuff = getBuffedValue(MapleBuffStat.WATK);
+        Integer watkbuff = getBuffedValue(MapleBuffStat.PAD);
         if (watkbuff != null) {
             watk += watkbuff.intValue();
         }
@@ -3246,7 +3246,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 }
             }
         }
-        Integer matkbuff = getBuffedValue(MapleBuffStat.MATK);
+        Integer matkbuff = getBuffedValue(MapleBuffStat.MAD);
         if (matkbuff != null) {
             magic += matkbuff.intValue();
         }

@@ -386,7 +386,7 @@ public class SkillFactory {
    
         if(common != null){
             for(int i = 0; i < maxLevel; i++){
-                 ret.effects.add(MapleStatEffect.loadSkillEffectFromData(common, id, isBuff,i+1));
+                 ret.effects.add(MapleStatEffect.loadSkillEffectFromData(common, id, isBuff, i+1));
             }
         }
         return ret;

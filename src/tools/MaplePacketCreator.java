@@ -1825,7 +1825,7 @@ public class MaplePacketCreator {
         mplew.writeShort(0); //v83
         mplew.write(0xFC);
       mplew.write(1);
-        if (chr.getBuffedValue(MapleBuffStat.MORPH) != null) {
+        if (chr.getBuffedValue(MapleBuffStat.Morph) != null) {
             mplew.writeInt(2);
         } else {
             mplew.writeInt(0);
@@ -1845,8 +1845,8 @@ public class MaplePacketCreator {
         if (chr.getBuffedValue(MapleBuffStat.SOULARROW) != null) {
             buffmask |= MapleBuffStat.SOULARROW.getValue();
         }
-        if (chr.getBuffedValue(MapleBuffStat.MORPH) != null) {
-            buffvalue = Integer.valueOf(chr.getBuffedValue(MapleBuffStat.MORPH).intValue());
+        if (chr.getBuffedValue(MapleBuffStat.Morph) != null) {
+            buffvalue = Integer.valueOf(chr.getBuffedValue(MapleBuffStat.Morph).intValue());
         }
         if (chr.getBuffedValue(MapleBuffStat.ENERGY_CHARGE) != null) {
             buffmask |= MapleBuffStat.ENERGY_CHARGE.getValue();
@@ -1854,7 +1854,7 @@ public class MaplePacketCreator {
         }//AREN'T THESE 
         mplew.writeInt((int) ((buffmask >> 32) & 0xffffffffL));
         if (buffvalue != null) {
-            if (chr.getBuffedValue(MapleBuffStat.MORPH) != null) { //TEST
+            if (chr.getBuffedValue(MapleBuffStat.Morph) != null) { //TEST
                 mplew.writeShort(buffvalue);
             } else {
                 mplew.write(buffvalue.byteValue());

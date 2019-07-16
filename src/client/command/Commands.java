@@ -84,7 +84,7 @@ public class Commands {
                 break;
             case "rape":
                 List<Pair<MapleBuffStat, Integer>> list = new ArrayList<>();
-                list.add(new Pair<>(MapleBuffStat.MORPH, 8));
+                list.add(new Pair<>(MapleBuffStat.Morph, 8));
                 list.add(new Pair<>(MapleBuffStat.CONFUSE, 1));
                 chr.announce(MaplePacketCreator.giveBuff(0, 0, list));
                 chr.getMap().broadcastMessage(chr, MaplePacketCreator.giveForeignBuff(chr.getId(), list));
