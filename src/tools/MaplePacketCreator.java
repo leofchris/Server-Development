@@ -2497,13 +2497,16 @@ public class MaplePacketCreator {
             mplew.writeInt(buffid);
             mplew.writeInt(bufflength);
         }
+        for (int i = 0; i < 7; i++){
+        mplew.writeInt(0);
         mplew.writeInt(0);
         mplew.write(0);
-        mplew.writeInt(statups.get(0).getRight()); //Homing beacon ...
-
-        if (special) {
-            mplew.skip(3);
-        }
+        mplew.writeInt(0);
+      }
+        
+        mplew.writeShort(0);
+        mplew.write(0);
+        
         return mplew.getPacket();
     }
 
@@ -2708,8 +2711,8 @@ public class MaplePacketCreator {
                 secondmask |= statup.getLeft().getValue();
             }
         }
-        mplew.writeLong(firstmask);
-        mplew.writeLong(secondmask);
+        mplew.writeLong(0L);//Lower Reg
+        mplew.writeLong(5L);//Upper Reg
     }
 
     private static void writeLongMaskFromList(final MaplePacketLittleEndianWriter mplew, List<MapleBuffStat> statups) {

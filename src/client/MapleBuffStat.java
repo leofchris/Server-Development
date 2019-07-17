@@ -90,6 +90,7 @@ public enum MapleBuffStat {
     MONSTER_RIDING(0x20000000000000L, true),
     HOMING_BEACON(0x80000000000000L, true),
     SPEED_INFUSION(0x100000000000000L, true),
+    
     PAD(0),
     PDD(1),
     MAD(2),
@@ -98,7 +99,7 @@ public enum MapleBuffStat {
     EPAD(95),
     EPDD(96),
     EMDD(97),
-    Morph(33),
+    Morph(0x0000000200000000L),
     MDD(3);
    
     /*ACC(4),
