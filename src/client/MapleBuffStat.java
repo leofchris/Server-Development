@@ -99,7 +99,7 @@ public enum MapleBuffStat {
     EPAD(95),
     EPDD(96),
     EMDD(97),
-    Morph(0x0000000200000000L),
+    Morph(33),
     MDD(3);
    
     /*ACC(4),

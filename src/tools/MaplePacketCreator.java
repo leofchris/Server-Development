@@ -2702,19 +2702,17 @@ public class MaplePacketCreator {
     }
 
     private static void writeLongMask(final MaplePacketLittleEndianWriter mplew, List<Pair<MapleBuffStat, Integer>> statups) {
-        long firstmask = 0;
-        long secondmask = 0;
+        int value = 0;
+        int[] buffMask = new int[4];
         for (Pair<MapleBuffStat, Integer> statup : statups) {
-            if (statup.getLeft().isFirst()) {
-                firstmask |= statup.getLeft().getValue();
-            } else {
-                secondmask |= statup.getLeft().getValue();
-            }
-        }
-        mplew.writeLong(0L);//Lower Reg
-        mplew.writeLong(5L);//Upper Reg
-    }
-
+            
+          buffMask[(int)(statup.getLeft().getValue()/8)/4] |=  1<<statup.getLeft().getValue();
+     }
+        
+       for(int i = buffMask.length; i > 0; i--){
+           mplew.writeInt(buffMask[i-1]);
+       }
+ }
     private static void writeLongMaskFromList(final MaplePacketLittleEndianWriter mplew, List<MapleBuffStat> statups) {
         long firstmask = 0;
         long secondmask = 0;
