@@ -585,7 +585,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public void setCombo(short count) {
         if (count < combocounter) {
-            cancelEffectFromBuffStat(MapleBuffStat.ARAN_COMBO);
+            cancelEffectFromBuffStat(MapleBuffStat.ComboAbilityBuff);
         }
         combocounter = (short) Math.min(30000, count);
         if (count > 0) {
@@ -1088,7 +1088,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             announce(MaplePacketCreator.skillCooldown(Corsair.BATTLE_SHIP, cooldown));
             addCooldown(Corsair.BATTLE_SHIP, System.currentTimeMillis(), cooldown, TimerManager.getInstance().schedule(new CancelCooldownAction(this, Corsair.BATTLE_SHIP), cooldown * 1000));
             removeCooldown(5221999);
-            cancelEffectFromBuffStat(MapleBuffStat.MONSTER_RIDING);
+            cancelEffectFromBuffStat(MapleBuffStat.RideVehicle);
         } else {
             announce(MaplePacketCreator.skillCooldown(5221999, battleshipHp / 10));   //:D
             addCooldown(5221999, 0, battleshipHp, null);
@@ -1145,7 +1145,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                     if (addMbsvh) {
                         effectsToCancel.add(mbsvh);
                     }
-                    if (stat == MapleBuffStat.RECOVERY) {
+                    if (stat == MapleBuffStat.Regen) {
                         if (recoveryTask != null) {
                             recoveryTask.cancel(false);
                             recoveryTask = null;
@@ -1169,7 +1169,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                                 beholderBuffSchedule = null;
                             }
                         }
-                    } else if (stat == MapleBuffStat.DRAGONBLOOD) {
+                    } else if (stat == MapleBuffStat.DragonBlood) {
                         dragonBloodSchedule.cancel(false);
                         dragonBloodSchedule = null;
                     }
@@ -2343,9 +2343,9 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     public void handleOrbconsume() {
         int skillid = isCygnus() ? DawnWarrior.COMBO : Crusader.COMBO;
         Skill combo = SkillFactory.getSkill(skillid);
-        List<Pair<MapleBuffStat, Integer>> stat = Collections.singletonList(new Pair<>(MapleBuffStat.COMBO, 1));
-        setBuffedValue(MapleBuffStat.COMBO, 1);
-        client.announce(MaplePacketCreator.giveBuff(skillid, combo.getEffect(getSkillLevel(combo)).getDuration() + (int) ((getBuffedStarttime(MapleBuffStat.COMBO) - System.currentTimeMillis())), stat));
+        List<Pair<MapleBuffStat, Integer>> stat = Collections.singletonList(new Pair<>(MapleBuffStat.ComboCounter, 1));
+        setBuffedValue(MapleBuffStat.ComboCounter, 1);
+        client.announce(MaplePacketCreator.giveBuff(skillid, combo.getEffect(getSkillLevel(combo)).getDuration() + (int) ((getBuffedStarttime(MapleBuffStat.ComboCounter) - System.currentTimeMillis())), stat));
         getMap().broadcastMessage(this, MaplePacketCreator.giveForeignBuff(getId(), stat), false);
     }
 
@@ -3166,8 +3166,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             cancelEffectFromBuffStat(MapleBuffStat.Morph);
         }
 
-        if (getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
-            cancelEffectFromBuffStat(MapleBuffStat.MONSTER_RIDING);
+        if (getBuffedValue(MapleBuffStat.RideVehicle) != null) {
+            cancelEffectFromBuffStat(MapleBuffStat.RideVehicle);
         }
 
         if (getChair() == -1) {
@@ -3218,11 +3218,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             jump += equip.getJump();
         }
         magic = Math.min(magic, 2000);
-        Integer hbhp = getBuffedValue(MapleBuffStat.HYPERBODYHP);
+        Integer hbhp = getBuffedValue(MapleBuffStat.EMHP);
         if (hbhp != null) {
             localmaxhp += (hbhp.doubleValue() / 100) * localmaxhp;
         }
-        Integer hbmp = getBuffedValue(MapleBuffStat.HYPERBODYMP);
+        Integer hbmp = getBuffedValue(MapleBuffStat.EMMP);
         if (hbmp != null) {
             localmaxmp += (hbmp.doubleValue() / 100) * localmaxmp;
         }
@@ -3250,11 +3250,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         if (matkbuff != null) {
             magic += matkbuff.intValue();
         }
-        Integer speedbuff = getBuffedValue(MapleBuffStat.SPEED);
+        Integer speedbuff = getBuffedValue(MapleBuffStat.Speed);
         if (speedbuff != null) {
             speed += speedbuff.intValue();
         }
-        Integer jumpbuff = getBuffedValue(MapleBuffStat.JUMP);
+        Integer jumpbuff = getBuffedValue(MapleBuffStat.Jump);
         if (jumpbuff != null) {
             jump += jumpbuff.intValue();
         }

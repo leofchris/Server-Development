@@ -57,7 +57,7 @@ public final class CloseRangeDamageHandler extends AbstractDealDamageHandler {
         AttackInfo attack = parseDamage(slea, player, false);
         player.getMap().broadcastMessage(player, MaplePacketCreator.closeRangeAttack(player, attack.skill, attack.skilllevel, attack.stance, attack.numAttackedAndDamage, attack.allDamage, attack.speed, attack.direction, attack.display), false, true);
         int numFinisherOrbs = 0;
-        Integer comboBuff = player.getBuffedValue(MapleBuffStat.COMBO);
+        Integer comboBuff = player.getBuffedValue(MapleBuffStat.ComboCounter);
         if (isFinisher(attack.skill)) {
             if (comboBuff != null) {
                 numFinisherOrbs = comboBuff.intValue() - 1;
@@ -65,7 +65,7 @@ public final class CloseRangeDamageHandler extends AbstractDealDamageHandler {
             player.handleOrbconsume();
         } else if (attack.numAttacked > 0) {
             if (attack.skill != 1111008 && comboBuff != null) {
-                int orbcount = player.getBuffedValue(MapleBuffStat.COMBO);
+                int orbcount = player.getBuffedValue(MapleBuffStat.ComboCounter);
                 int oid = player.isCygnus() ? DawnWarrior.COMBO : Crusader.COMBO;
                 int advcomboid = player.isCygnus() ? DawnWarrior.ADVANCED_COMBO : Hero.ADVANCED_COMBO;
                 Skill combo = SkillFactory.getSkill(oid);
@@ -85,9 +85,9 @@ public final class CloseRangeDamageHandler extends AbstractDealDamageHandler {
                         }
                     }
                     int duration = combo.getEffect(player.getSkillLevel(oid)).getDuration();
-                    List<Pair<MapleBuffStat, Integer>> stat = Collections.singletonList(new Pair<>(MapleBuffStat.COMBO, neworbcount));
-                    player.setBuffedValue(MapleBuffStat.COMBO, neworbcount);                 
-                    duration -= (int) (System.currentTimeMillis() - player.getBuffedStarttime(MapleBuffStat.COMBO));
+                    List<Pair<MapleBuffStat, Integer>> stat = Collections.singletonList(new Pair<>(MapleBuffStat.ComboCounter, neworbcount));
+                    player.setBuffedValue(MapleBuffStat.ComboCounter, neworbcount);                 
+                    duration -= (int) (System.currentTimeMillis() - player.getBuffedStarttime(MapleBuffStat.ComboCounter));
                     c.announce(MaplePacketCreator.giveBuff(oid, duration, stat));
                     player.getMap().broadcastMessage(player, MaplePacketCreator.giveForeignBuff(player.getId(), stat), false);
                 }
@@ -119,7 +119,7 @@ public final class CloseRangeDamageHandler extends AbstractDealDamageHandler {
                 advcharge_prob = SkillFactory.getSkill(1220010).getEffect(advcharge_level).makeChanceResult();
             }
             if (!advcharge_prob) {
-                player.cancelEffectFromBuffStat(MapleBuffStat.WK_CHARGE);
+                player.cancelEffectFromBuffStat(MapleBuffStat.WeaponCharge);
             }
         }
         int attackCount = 1;
@@ -141,9 +141,9 @@ public final class CloseRangeDamageHandler extends AbstractDealDamageHandler {
                 }
             }
         }
-        if ((player.getSkillLevel(SkillFactory.getSkill(NightWalker.VANISH)) > 0 || player.getSkillLevel(SkillFactory.getSkill(WindArcher.WIND_WALK)) > 0 || player.getSkillLevel(SkillFactory.getSkill(Rogue.DARK_SIGHT)) > 0) && player.getBuffedValue(MapleBuffStat.DARKSIGHT) != null) {// && player.getBuffSource(MapleBuffStat.DARKSIGHT) != 9101004
-            player.cancelEffectFromBuffStat(MapleBuffStat.DARKSIGHT);
-            player.cancelBuffStats(MapleBuffStat.DARKSIGHT);
+        if ((player.getSkillLevel(SkillFactory.getSkill(NightWalker.VANISH)) > 0 || player.getSkillLevel(SkillFactory.getSkill(WindArcher.WIND_WALK)) > 0 || player.getSkillLevel(SkillFactory.getSkill(Rogue.DARK_SIGHT)) > 0) && player.getBuffedValue(MapleBuffStat.DarkSight) != null) {// && player.getBuffSource(MapleBuffStat.DARKSIGHT) != 9101004
+            player.cancelEffectFromBuffStat(MapleBuffStat.DarkSight);
+            player.cancelBuffStats(MapleBuffStat.DarkSight);
         }
         applyAttack(attack, player, attackCount);
     }

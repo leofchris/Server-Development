@@ -113,12 +113,12 @@ public final class TakeDamageHandler extends AbstractMaplePacketHandler {
             }
             if (attacker != null) {
                 attacker.setMp(attacker.getMp() - attackInfo.getMpCon());
-                if (player.getBuffedValue(MapleBuffStat.MANA_REFLECTION) != null && damage > 0 && !attacker.isBoss()) {
+                if (player.getBuffedValue(MapleBuffStat.ManaReflection) != null && damage > 0 && !attacker.isBoss()) {
                     int jobid = player.getJob().getId();
                     if (jobid == 212 || jobid == 222 || jobid == 232) {
                         int id = jobid * 10000 + 2;
                         Skill manaReflectSkill = SkillFactory.getSkill(id);
-                        if (player.isBuffFrom(MapleBuffStat.MANA_REFLECTION, manaReflectSkill) && player.getSkillLevel(manaReflectSkill) > 0 && manaReflectSkill.getEffect(player.getSkillLevel(manaReflectSkill)).makeChanceResult()) {
+                        if (player.isBuffFrom(MapleBuffStat.ManaReflection, manaReflectSkill) && player.getSkillLevel(manaReflectSkill) > 0 && manaReflectSkill.getEffect(player.getSkillLevel(manaReflectSkill)).makeChanceResult()) {
                             int bouncedamage = (damage * manaReflectSkill.getEffect(player.getSkillLevel(manaReflectSkill)).getX() / 100);
                             if (bouncedamage > attacker.getMaxHp() / 5) {
                                 bouncedamage = attacker.getMaxHp() / 5;
@@ -142,8 +142,8 @@ public final class TakeDamageHandler extends AbstractMaplePacketHandler {
         }
         if (damage > 0 && !player.isHidden()) {
             if (attacker != null && !attacker.isBoss()) {
-                if (damagefrom == -1 && player.getBuffedValue(MapleBuffStat.POWERGUARD) != null) {
-                    int bouncedamage = (int) (damage * (player.getBuffedValue(MapleBuffStat.POWERGUARD).doubleValue() / 100));
+                if (damagefrom == -1 && player.getBuffedValue(MapleBuffStat.PowerGuard) != null) {
+                    int bouncedamage = (int) (damage * (player.getBuffedValue(MapleBuffStat.PowerGuard).doubleValue() / 100));
                     bouncedamage = Math.min(bouncedamage, attacker.getMaxHp() / 10);
                     map.damageMonster(player, attacker, bouncedamage);
                     damage -= bouncedamage;
@@ -163,9 +163,9 @@ public final class TakeDamageHandler extends AbstractMaplePacketHandler {
                     damage *= (int) (achilles1.getEffect(achilles).getX() / 1000.0 * damage);
                 }
             }
-            Integer mesoguard = player.getBuffedValue(MapleBuffStat.MESOGUARD);
-            if (player.getBuffedValue(MapleBuffStat.MAGIC_GUARD) != null && mpattack == 0) {
-                int mploss = (int) (damage * (player.getBuffedValue(MapleBuffStat.MAGIC_GUARD).doubleValue() / 100.0));
+            Integer mesoguard = player.getBuffedValue(MapleBuffStat.MesoGuard);
+            if (player.getBuffedValue(MapleBuffStat.MagicGuard) != null && mpattack == 0) {
+                int mploss = (int) (damage * (player.getBuffedValue(MapleBuffStat.MagicGuard).doubleValue() / 100.0));
                 int hploss = damage - mploss;
                 if (mploss > player.getMp()) {
                     hploss += mploss - player.getMp();
@@ -177,14 +177,14 @@ public final class TakeDamageHandler extends AbstractMaplePacketHandler {
                 int mesoloss = (int) (damage * (mesoguard.doubleValue() / 100.0));
                 if (player.getMeso() < mesoloss) {
                     player.gainMeso(-player.getMeso(), false);
-                    player.cancelBuffStats(MapleBuffStat.MESOGUARD);
+                    player.cancelBuffStats(MapleBuffStat.MesoGuard);
                 } else {
                     player.gainMeso(-mesoloss, false);
                 }
                 player.addMPHP(-damage, -mpattack);
             } else {
-                if (player.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
-                    if (player.getBuffedValue(MapleBuffStat.MONSTER_RIDING).intValue() == Corsair.BATTLE_SHIP) {
+                if (player.getBuffedValue(MapleBuffStat.RideVehicle) != null) {
+                    if (player.getBuffedValue(MapleBuffStat.RideVehicle).intValue() == Corsair.BATTLE_SHIP) {
                         player.decreaseBattleshipHp(damage);
                     }
                 }

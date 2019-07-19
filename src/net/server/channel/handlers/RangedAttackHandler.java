@@ -82,7 +82,7 @@ public final class RangedAttackHandler extends AbstractDealDamageHandler {
                     c.announce(MaplePacketCreator.skillCooldown(attack.skill, effect.getCooldown()));
                 }
             }
-            boolean hasShadowPartner = player.getBuffedValue(MapleBuffStat.SHADOWPARTNER) != null;
+            boolean hasShadowPartner = player.getBuffedValue(MapleBuffStat.ShadowPartner) != null;
             if (hasShadowPartner) {
                 bulletCount *= 2;
             }
@@ -117,7 +117,7 @@ public final class RangedAttackHandler extends AbstractDealDamageHandler {
                     }
                 }
             }
-            boolean soulArrow = player.getBuffedValue(MapleBuffStat.SOULARROW) != null;
+            boolean soulArrow = player.getBuffedValue(MapleBuffStat.SoulArrow) != null;
             boolean shadowClaw = player.getBuffedValue(MapleBuffStat.SHADOW_CLAW) != null;
             if (!soulArrow && !shadowClaw && attack.skill != 11101004 && attack.skill != 15111007 && attack.skill != 14101006) {
                 byte bulletConsume = bulletCount;
@@ -180,9 +180,9 @@ public final class RangedAttackHandler extends AbstractDealDamageHandler {
                         }
                     }
                 }
-                if ((player.getSkillLevel(SkillFactory.getSkill(NightWalker.VANISH)) > 0 || player.getSkillLevel(SkillFactory.getSkill(WindArcher.WIND_WALK)) > 0) && player.getBuffedValue(MapleBuffStat.DARKSIGHT) != null && attack.numAttacked > 0 && player.getBuffSource(MapleBuffStat.DARKSIGHT) != 9101004) {
-                    player.cancelEffectFromBuffStat(MapleBuffStat.DARKSIGHT);
-                    player.cancelBuffStats(MapleBuffStat.DARKSIGHT);
+                if ((player.getSkillLevel(SkillFactory.getSkill(NightWalker.VANISH)) > 0 || player.getSkillLevel(SkillFactory.getSkill(WindArcher.WIND_WALK)) > 0) && player.getBuffedValue(MapleBuffStat.DarkSight) != null && attack.numAttacked > 0 && player.getBuffSource(MapleBuffStat.DarkSight) != 9101004) {
+                    player.cancelEffectFromBuffStat(MapleBuffStat.DarkSight);
+                    player.cancelBuffStats(MapleBuffStat.DarkSight);
                 }
                 applyAttack(attack, player, bulletCount);
             }

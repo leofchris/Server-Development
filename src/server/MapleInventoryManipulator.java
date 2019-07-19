@@ -401,8 +401,8 @@ public class MapleInventoryManipulator {
             target.setPosition(src);
             c.getPlayer().getInventory(MapleInventoryType.EQUIP).addFromDB(target);
         }
-        if (c.getPlayer().getBuffedValue(MapleBuffStat.BOOSTER) != null && isWeapon(source.getItemId())) {
-            c.getPlayer().cancelBuffStats(MapleBuffStat.BOOSTER);
+        if (c.getPlayer().getBuffedValue(MapleBuffStat.Booster) != null && isWeapon(source.getItemId())) {
+            c.getPlayer().cancelBuffStats(MapleBuffStat.Booster);
         }
         
         mods.add(new ModifyInventory(2, source, src));

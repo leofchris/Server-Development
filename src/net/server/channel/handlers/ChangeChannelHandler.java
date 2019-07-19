@@ -75,8 +75,8 @@ public final class ChangeChannelHandler extends AbstractMaplePacketHandler {
         if (chr.getBuffedValue(MapleBuffStat.PUPPET) != null) {
             chr.cancelEffectFromBuffStat(MapleBuffStat.PUPPET);
         }
-        if (chr.getBuffedValue(MapleBuffStat.COMBO) != null) {
-            chr.cancelEffectFromBuffStat(MapleBuffStat.COMBO);
+        if (chr.getBuffedValue(MapleBuffStat.ComboCounter) != null) {
+            chr.cancelEffectFromBuffStat(MapleBuffStat.ComboCounter);
         }
         chr.getInventory(MapleInventoryType.EQUIPPED).checked(false); //test
         chr.getMap().removePlayer(chr);

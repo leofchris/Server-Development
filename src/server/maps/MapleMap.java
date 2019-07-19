@@ -383,8 +383,8 @@ public class MapleMap {
                     int mesos = Randomizer.nextInt(de.Maximum - de.Minimum) + de.Minimum;
 
                     if (mesos > 0) {
-                        if (chr.getBuffedValue(MapleBuffStat.MESOUP) != null) {
-                            mesos = (int) (mesos * chr.getBuffedValue(MapleBuffStat.MESOUP).doubleValue() / 100.0);
+                        if (chr.getBuffedValue(MapleBuffStat.MesoUp) != null) {
+                            mesos = (int) (mesos * chr.getBuffedValue(MapleBuffStat.MesoUp).doubleValue() / 100.0);
                         }
                         spawnMesoDrop(mesos * chr.getMesoRate(), calcDropPos(pos, mob.getPosition()), mob, chr, false, droptype);
                     }
@@ -1204,9 +1204,9 @@ public class MapleMap {
             }
            MapScriptManager.getInstance().getMapScript(chr.getClient(), onUserEnter, false);
         }
-          if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.MONSTER_RIDING) != null) {
-            chr.cancelEffectFromBuffStat(MapleBuffStat.MONSTER_RIDING);
-            chr.cancelBuffStats(MapleBuffStat.MONSTER_RIDING);
+          if (FieldLimit.CANNOTUSEMOUNTS.check(fieldLimit) && chr.getBuffedValue(MapleBuffStat.RideVehicle) != null) {
+            chr.cancelEffectFromBuffStat(MapleBuffStat.RideVehicle);
+            chr.cancelBuffStats(MapleBuffStat.RideVehicle);
         }
           if (mapid == 923010000 && getMonsterById(9300102) == null) { // Kenta's Mount Quest
             spawnMonsterOnGroundBelow(MapleLifeFactory.getMonster(9300102), new Point(77, 426));
