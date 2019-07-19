@@ -204,15 +204,20 @@ public class MapleStatEffect {
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.PDD, Integer.valueOf(ret.PDD));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.MAD, Integer.valueOf(ret.MAD));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.MDD, Integer.valueOf(ret.MDD));
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EPAD, Integer.valueOf(ret.EPAD));
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EPDD, Integer.valueOf(ret.EPDD));
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EMDD, Integer.valueOf(ret.EMDD));
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EMHP, Integer.valueOf(ret.EMHP));
-            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EMMP, Integer.valueOf(ret.EMMP));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.ACC, Integer.valueOf(ret.acc));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EVA, Integer.valueOf(ret.EVA));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.Speed, Integer.valueOf(ret.speed));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.Jump, Integer.valueOf(ret.jump));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EMHP, Integer.valueOf(ret.EMHP));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EMMP, Integer.valueOf(ret.EMMP));         
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EPAD, Integer.valueOf(ret.EPAD));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EPDD, Integer.valueOf(ret.EPDD));
+            addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EMDD, Integer.valueOf(ret.EMDD));
+        
+           
+           
+           
+    
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.PYRAMID_PQ, Integer.valueOf(ret.berserk));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.Booster, Integer.valueOf(ret.booster));
         }
@@ -904,7 +909,8 @@ public class MapleStatEffect {
             localsourceid = ridingLevel;
             localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.RideVehicle, 0));
         } else if (isSkillMorph()) {
-            localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.Morph, getMorph(applyto)));
+           // localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.Morph, getMorph(applyto)));
+            
         }
         if (primary) {
             localDuration = alchemistModifyVal(applyfrom, localDuration, false);

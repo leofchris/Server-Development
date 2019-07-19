@@ -2492,8 +2492,9 @@ public class MaplePacketCreator {
             if (statup.getLeft().equals(MapleBuffStat.RideVehicle)
                     || statup.getLeft().equals(MapleBuffStat.HOMING_BEACON)) {
                 special = true;
-            }
-            mplew.writeShort(statup.getRight().shortValue());
+            
+     }
+            mplew.writeShort(statup.getRight());
             mplew.writeInt(buffid);
             mplew.writeInt(bufflength);
         }
@@ -2706,12 +2707,13 @@ public class MaplePacketCreator {
         int[] buffMask = new int[4];
         for (Pair<MapleBuffStat, Integer> statup : statups) {
             
-          buffMask[(int)(statup.getLeft().getValue()/8)/4] |=  1<<statup.getLeft().getValue();
+          buffMask[(int)(statup.getLeft().getValue()>>5)] |=  1<<statup.getLeft().getValue();
      }
         
-       for(int i = buffMask.length; i > 0; i--){
+      for(int i = buffMask.length; i > 0; i--){
            mplew.writeInt(buffMask[i-1]);
        }
+        
  }
     private static void writeLongMaskFromList(final MaplePacketLittleEndianWriter mplew, List<MapleBuffStat> statups) {
         long firstmask = 0;
