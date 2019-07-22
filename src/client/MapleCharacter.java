@@ -1181,7 +1181,9 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public void changeSkillLevel(Skill skill, byte newLevel, int newMasterlevel, long expiration) {
         if (newLevel > -1) {
+           
             skills.put(skill, new SkillEntry(newLevel, newMasterlevel, expiration));
+    
             this.client.announce(MaplePacketCreator.updateSkill(skill.getId(), newLevel, newMasterlevel, expiration));
         } else {
             skills.remove(skill);

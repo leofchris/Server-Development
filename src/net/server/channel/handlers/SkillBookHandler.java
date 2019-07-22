@@ -52,6 +52,7 @@ public final class SkillBookHandler extends AbstractMaplePacketHandler {
                 return;
             }
             Map<String, Integer> skilldata = MapleItemInformationProvider.getInstance().getSkillStats(toUse.getItemId(), c.getPlayer().getJob().getId());
+             Skill skill2 = SkillFactory.getSkill(skilldata.get("skillid"));
             boolean canuse;
             boolean success = false;
             int skill = 0;
@@ -61,11 +62,12 @@ public final class SkillBookHandler extends AbstractMaplePacketHandler {
             }
             if (skilldata.get("skillid") == 0) {
                 canuse = false;
-            } else if (player.getMasterLevel(SkillFactory.getSkill(skilldata.get("skillid"))) >= skilldata.get("reqSkillLevel") || skilldata.get("reqSkillLevel") == 0) {
+            } else if (player.getSkillLevel(SkillFactory.getSkill(skilldata.get("skillid"))) >= skilldata.get("reqSkillLevel") || skilldata.get("reqSkillLevel") == 0) {
                 canuse = true;
                 if (Randomizer.nextInt(101) < skilldata.get("success") && skilldata.get("success") != 0) {
                     success = true;
-                    Skill skill2 = SkillFactory.getSkill(skilldata.get("skillid"));
+                   
+                    
                     player.changeSkillLevel(skill2, player.getSkillLevel(skill2), Math.max(skilldata.get("masterLevel"), player.getMasterLevel(skill2)), -1);
                 } else {
                     success = false;
@@ -75,7 +77,8 @@ public final class SkillBookHandler extends AbstractMaplePacketHandler {
             } else {
                 canuse = false;
             }
-            player.getClient().announce(MaplePacketCreator.skillBookSuccess(player, skill, maxlevel, canuse, success));
+            
+            player.getClient().announce(MaplePacketCreator.skillBookSuccess(player, player.getSkillLevel(skill2), player.getMasterLevel(skill2), canuse, success));
         }
     }
 }
