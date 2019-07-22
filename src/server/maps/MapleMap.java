@@ -274,7 +274,7 @@ public class MapleMap {
     private void spawnAndAddRangedMapObject(MapleMapObject mapobject, DelayedPacketCreation packetbakery, SpawnCondition condition) {
         chrRLock.lock();
         try {
-            mapobject.setObjectId(runningOid);
+          //  mapobject.setObjectId(runningOid);
             for (MapleCharacter chr : characters) {
                 if (condition == null || condition.canSpawn(chr)) {
                     if (chr.getPosition().distanceSq(mapobject.getPosition()) <= 722500) {
@@ -1090,7 +1090,7 @@ public class MapleMap {
                      } else {
                          c.announce(MaplePacketCreator.removeSummon(summon, true));
                          
-                       // c.announce(MaplePacketCreator.spawnSummon(summon, true));
+                        c.announce(MaplePacketCreator.spawnSummon(summon, true));
                      }
                 }
             }

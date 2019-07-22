@@ -747,9 +747,14 @@ public class MapleStatEffect {
         }
             pos = new Point(0,0);
         if (summonMovementType != null && pos != null) {
-            final MapleSummon tosummon = new MapleSummon(applyfrom, sourceid, pos, summonMovementType);
+            
+            MapleSummon tosummon = applyfrom.getSummons().get(sourceid);
+            if (tosummon == null){
+                tosummon = new MapleSummon(applyfrom, sourceid, pos, summonMovementType);
+            } 
+            applyfrom.addSummon(sourceid, tosummon, applyfrom, pos, summonMovementType);
             applyfrom.getMap().spawnSummon(tosummon, applyfrom);
-            applyfrom.addSummon(sourceid, tosummon);
+            
             
             tosummon.addHP(x);
             if (isBeholder()) {
@@ -850,7 +855,7 @@ public class MapleStatEffect {
         if (summonMovementType != null) {
             final MapleSummon tosummon = new MapleSummon(chr, sourceid, chr.getPosition(), summonMovementType);
             if (!tosummon.isStationary()) {
-                chr.addSummon(sourceid, tosummon);
+                chr.addSummon(sourceid, tosummon, chr, chr.getPosition(), summonMovementType);
                 tosummon.addHP(x);
             }
         }

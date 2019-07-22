@@ -129,6 +129,7 @@ import server.maps.MapleSummon;
 import server.maps.PlayerNPCs;
 import server.maps.SavedLocation;
 import server.maps.SavedLocationType;
+import server.maps.SummonMovementType;
 import server.partyquest.MonsterCarnival;
 import server.partyquest.MonsterCarnivalParty;
 import server.partyquest.PartyQuest;
@@ -482,8 +483,13 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         return MaxMP;
     }
 
-    public void addSummon(int id, MapleSummon summon) {
+    public void addSummon(int id, MapleSummon summon, MapleCharacter owner, Point pos, SummonMovementType movementType) {
       
+        summon.setOwner(this);
+        summon.setPosition(pos);
+        summon.setSkill(id);
+       summon.setObjectId(id);
+        summon.setMovementType(movementType);
         summons.put(id, summon);
           
     }

@@ -63,7 +63,21 @@ public class MapleSummon extends AbstractAnimatedMapleMapObject {
     public int getSkill() {
         return skill;
     }
-
+    
+    public void setOwner(MapleCharacter x){
+        this.owner = x;
+    }
+    
+    public void setSkill(int x){
+        this.skill = x;
+    }
+    public void setPos(Point x){
+        setPosition(x);
+    }
+    
+    public void setMovementType(SummonMovementType x){
+        this.movementType = x;
+    }
     public int getHP() {
         return hp;
     }
