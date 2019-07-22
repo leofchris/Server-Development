@@ -315,6 +315,7 @@ public class MapleMap {
         objectWLock.lock();
         try {
             this.mapobjects.remove(Integer.valueOf(num));
+          
         } finally {
             objectWLock.unlock();
         }
@@ -1077,15 +1078,25 @@ public class MapleMap {
         }
     }
 
-    public void spawnSummon(final MapleSummon summon) {
+    public void spawnSummon(final MapleSummon summon, MapleCharacter x) {
+     
         spawnAndAddRangedMapObject(summon, new DelayedPacketCreation() {
             @Override
             public void sendPackets(MapleClient c) {
                 if (summon != null) {
+                  
+                     if (!(c.getPlayer().getSummons().containsKey(summon.getSkill()))){
                     c.announce(MaplePacketCreator.spawnSummon(summon, true));
+                     } else {
+                         c.announce(MaplePacketCreator.removeSummon(summon, true));
+                         
+                       // c.announce(MaplePacketCreator.spawnSummon(summon, true));
+                     }
                 }
             }
-        }, null);
+        }, null);    
+        
+        
     }
 
     public void spawnMist(final MapleMist mist, final int duration, boolean poison, boolean fake) {
@@ -1351,6 +1362,7 @@ public class MapleMap {
         }
         chr.leaveMap();
         chr.cancelMapTimeLimitTask();
+      
         for (MapleSummon summon : chr.getSummons().values()) {
             if (summon.isStationary()) {
                 chr.cancelBuffStats(MapleBuffStat.PUPPET);

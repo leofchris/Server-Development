@@ -748,8 +748,9 @@ public class MapleStatEffect {
             pos = new Point(0,0);
         if (summonMovementType != null && pos != null) {
             final MapleSummon tosummon = new MapleSummon(applyfrom, sourceid, pos, summonMovementType);
-            applyfrom.getMap().spawnSummon(tosummon);
+            applyfrom.getMap().spawnSummon(tosummon, applyfrom);
             applyfrom.addSummon(sourceid, tosummon);
+            
             tosummon.addHP(x);
             if (isBeholder()) {
                 tosummon.addHP(1);
@@ -778,6 +779,7 @@ public class MapleStatEffect {
                 }
             }
         }
+          
         return true;
     }
 

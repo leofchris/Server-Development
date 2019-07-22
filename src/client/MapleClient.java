@@ -570,6 +570,8 @@ public class MapleClient {
 
     private void removePlayer() {
         try {
+            
+            
             player.cancelAllBuffs(true);
             player.cancelAllDebuffs();
             final MaplePlayerShop mps = player.getPlayerShop();
@@ -708,6 +710,7 @@ public class MapleClient {
             session.removeAttribute(MapleClient.CLIENT_KEY); // prevents double dcing during login
             session.close();
         }
+         
         engines.clear();
     }
 

@@ -483,7 +483,9 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
 
     public void addSummon(int id, MapleSummon summon) {
+      
         summons.put(id, summon);
+          
     }
 
     public void addVisibleMapObject(MapleMapObject mo) {
@@ -2422,6 +2424,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
 
     public Map<Integer, MapleSummon> getSummons() {
         return summons;
+      
     }
 
     public int getTotalLuk() {
@@ -2651,7 +2654,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         Skill improvingMaxMP = null;
         int improvingMaxHPLevel = 0;
         int improvingMaxMPLevel = 0;
-        
+    
         if (isBeginnerJob()) {
             remainingAp = 0;
             if (getLevel() < 6) {
@@ -3493,6 +3496,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                     @Override
                     public void run() {
                         addHP(healEffect.getHp());
+                        
                         client.announce(MaplePacketCreator.showOwnBuffEffect(beholder, 2));
                         getMap().broadcastMessage(MapleCharacter.this, MaplePacketCreator.summonSkill(getId(), beholder, 5), true);
                         getMap().broadcastMessage(MapleCharacter.this, MaplePacketCreator.showOwnBuffEffect(beholder, 2), false);

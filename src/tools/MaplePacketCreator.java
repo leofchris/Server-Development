@@ -1219,7 +1219,7 @@ public class MaplePacketCreator {
      */
     public static byte[] spawnSummon(MapleSummon summon, boolean animated) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(25);
-        mplew.writeShort(SendOpcode.SPAWN_SPECIAL_MAPOBJECT.getValue());
+        mplew.writeShort(SendOpcode.Created.getValue());
         mplew.writeInt(summon.getOwner().getId());
         
         mplew.writeInt(summon.getObjectId());
@@ -1257,7 +1257,7 @@ public class MaplePacketCreator {
      */
     public static byte[] removeSummon(MapleSummon summon, boolean animated) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(11);
-        mplew.writeShort(SendOpcode.REMOVE_SPECIAL_MAPOBJECT.getValue());
+        mplew.writeShort(SendOpcode.Removed.getValue());
         mplew.writeInt(summon.getOwner().getId());
         mplew.writeInt(summon.getObjectId());
         mplew.write(animated ? 4 : 1); // ?
