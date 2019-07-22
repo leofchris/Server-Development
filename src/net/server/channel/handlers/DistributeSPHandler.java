@@ -61,7 +61,7 @@ public final class DistributeSPHandler extends AbstractMaplePacketHandler {
                         } else if (player.getJob().getId() == 3511 || player.getJob().getId() == 3311 || player.getJob().getId() == 3211 || ((skillid % 100000000 >= 35110014) && (skillid % 100000000 <= 35111015)) || ((skillid % 100000000 >= 32110000) && (skillid % 100000000 <= 32111011)) || ((skillid % 100000000 >= 33110000) && (skillid % 100000000 <= 33111006))){
                             extendedSP[3]--;
                         } else if (player.getJob().getId() == 3512 || player.getJob().getId() == 3312 || player.getJob().getId() == 3212){
-                           extendedSP[4]--;
+                            extendedSP[4]--;
                         }
                     }
                    else if (player.getJob().getId()/100 == 22 || player.getJob().getId() == 2001){

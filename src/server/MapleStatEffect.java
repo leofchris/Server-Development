@@ -141,7 +141,11 @@ public class MapleStatEffect {
      public static MapleStatEffect loadSkillEffectFromData(MapleData source, int skillid, boolean overtime, int curLvl) {
         return loadFromData(source, skillid, true, overtime, curLvl);
     }
-   
+     
+     public static int loadmasterLevelFromData(MapleData source) {
+        return loadFromData(source);
+    }
+     
     public static MapleStatEffect loadItemEffectFromData(MapleData source, int itemid) {
         return loadFromData(source, itemid, false, false, 0);
     }
@@ -301,7 +305,7 @@ public class MapleStatEffect {
                 case WhiteKnight.SWORD_FIRE_CHARGE:
                 case WhiteKnight.SWORD_ICE_CHARGE:
                 case WhiteKnight.SWORD_LIT_CHARGE:
-                case Paladin.BW_HOLY_CHARGE:
+                case Paladin.DIVINE_CHARGE:
                 case Paladin.SWORD_HOLY_CHARGE:
                 case DawnWarrior.SOUL_CHARGE:
                 case ThunderBreaker.LIGHTNING_CHARGE:
@@ -313,9 +317,9 @@ public class MapleStatEffect {
                 case DragonKnight.DRAGON_ROAR:
                     ret.hpR = -x / 100.0;
                     break;
-                case Hero.STANCE:
-                case Paladin.STANCE:
-                case DarkKnight.STANCE:
+                case Hero.POWER_STANCE:
+                case Paladin.POWER_STANCE:
+                case DarkKnight.POWER_STANCE:
                 case Aran.FREEZE_STANDING:
                     statups.add(new Pair<>(MapleBuffStat.Stance, Integer.valueOf(iprop)));
                     break;
@@ -470,7 +474,7 @@ public class MapleStatEffect {
                     break;
                 case Priest.SUMMON_DRAGON:
                 case Bowmaster.PHOENIX:
-                case ILArchMage.IFRIT:
+                case ILArchMage.ELQUINES:
                 case Bishop.BAHAMUT:
                 case DarkKnight.BEHOLDER:
                 case Outlaw.GAVIOTA:
@@ -591,6 +595,11 @@ public class MapleStatEffect {
         statups.trimToSize();
         ret.statups = statups;
         return ret;
+    }
+     private static int loadFromData(MapleData source) {
+        int masterLevel = 0;
+         masterLevel =  MapleDataTool.getIntConvert(source);
+         return masterLevel;
     }
 
     /**
@@ -1113,7 +1122,7 @@ public class MapleStatEffect {
         if (lt == null || rb == null) {
             return false;
         }
-        if ((sourceid >= 1211003 && sourceid <= 1211008) || sourceid == Paladin.SWORD_HOLY_CHARGE || sourceid == Paladin.BW_HOLY_CHARGE || sourceid == DawnWarrior.SOUL_CHARGE) {// wk charges have lt and rb set but are neither player nor monster buffs
+        if ((sourceid >= 1211003 && sourceid <= 1211008) || sourceid == Paladin.SWORD_HOLY_CHARGE || sourceid == Paladin.DIVINE_CHARGE || sourceid == DawnWarrior.SOUL_CHARGE) {// wk charges have lt and rb set but are neither player nor monster buffs
             return false;
         }
         return true;
@@ -1280,7 +1289,7 @@ public class MapleStatEffect {
                 return SummonMovementType.CIRCLE_FOLLOW;
             case DarkKnight.BEHOLDER:
             case FPArchMage.ELQUINES:
-            case ILArchMage.IFRIT:
+            case ILArchMage.ELQUINES:
             case Bishop.BAHAMUT:
             case DawnWarrior.SOUL:
             case BlazeWizard.FLAME:

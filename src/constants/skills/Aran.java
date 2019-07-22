@@ -45,6 +45,7 @@ public class Aran {
     public static final int OVER_SWING = 21120002;
     public static final int COMBO_TEMPEST = 21120006;
     public static final int COMBO_BARRIER = 21120007;
+    public static final int HIGH_MASTERY = 21120001;
     public static final int HIDDEN_OVER_DOUBLE = 21120009;
     public static final int HIDDEN_OVER_TRIPLE = 21120010;
 }

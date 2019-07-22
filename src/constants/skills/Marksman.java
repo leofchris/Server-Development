@@ -34,4 +34,5 @@ public class Marksman {
     public static final int BLIND = 3221006;
     public static final int SNIPE = 3221007;
     public static final int HEROS_WILL = 3221008;
+    public static final int DRAGON_BREATH = 3221003;
 }

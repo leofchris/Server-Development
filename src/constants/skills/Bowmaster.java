@@ -32,6 +32,8 @@ public class Bowmaster {
     public static final int BOW_EXPERT = 3120005;
     public static final int PHOENIX = 3121006;
     public static final int HAMSTRING = 3121007;
+    public static final int MARKSMANSHIP = 3120011;
     public static final int CONCENTRATE = 3121008;
+    public static final int DRAGON_BREATH = 3121003;
     public static final int HEROS_WILL = 3121009;
 }

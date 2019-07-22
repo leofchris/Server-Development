@@ -28,7 +28,7 @@ package constants.skills;
 public class DarkKnight {
     public static final int MAPLE_WARRIOR = 1321000;
     public static final int MONSTER_MAGNET = 1321001;
-    public static final int STANCE = 1321002;
+    public static final int POWER_STANCE = 1321002;
     public static final int RUSH = 1321003;
     public static final int ACHILLES = 1320005;
     public static final int BERSERK = 1320006;

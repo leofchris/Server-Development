@@ -496,8 +496,8 @@ public class MaplePacketCreator {
             mplew.writeInt(skill.getKey().getId());
             mplew.writeInt(skill.getValue().skillevel);
             addExpirationTime(mplew, skill.getValue().expiration);
-            if (skill.getKey().isFourthJob()) {
-                mplew.writeInt(skill.getValue().masterlevel);
+            if (skill.getValue().masterlevel > 0) {
+                mplew.writeInt(skill.getValue().skillevel);
             }
         }
         mplew.writeShort(chr.getAllCooldowns().size());
@@ -668,8 +668,8 @@ public class MaplePacketCreator {
        mplew.writeInt(0);
        mplew.writeInt(c.getAccID()); //AccountID
        mplew.write(c.getGender()); //Gender
-       mplew.write(0); //nGradeCode
-       mplew.writeShort(0); //TesterAccount
+       mplew.write(0x1); //nGradeCode
+       mplew.writeShort(0x4); //TesterAccount
        mplew.write(0); //CounteryID
        mplew.writeMapleAsciiString(""); //NexonClubID
        mplew.write(0); //PurchaseEXP
@@ -5569,7 +5569,7 @@ public class MaplePacketCreator {
 
     public static byte[] aranGodlyStats() {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.FORCED_STAT_SET.getValue());
+        mplew.writeShort(SendOpcode.ForcedStatSet.getValue());
         mplew.write(new byte[]{(byte) 0x1F, (byte) 0x0F, 0, 0, (byte) 0xE7, 3, (byte) 0xE7, 3, (byte) 0xE7, 3, (byte) 0xE7, 3, (byte) 0xFF, 0, (byte) 0xE7, 3, (byte) 0xE7, 3, (byte) 0x78, (byte) 0x8C});
         return mplew.getPacket();
     }
@@ -6805,7 +6805,7 @@ public class MaplePacketCreator {
 
     public static byte[] resetForcedStats() {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(2);
-        mplew.writeShort(SendOpcode.FORCED_STAT_RESET.getValue());
+        mplew.writeShort(SendOpcode.ForcedStatReset.getValue());
         return mplew.getPacket();
     }
 

@@ -139,6 +139,8 @@ public class SkillFactory {
       
         MapleData common = data.getChildByPath("common");
         
+        MapleData masterLevel = data.getChildByPath("masterLevel");
+        
         if (common != null){
             maxLevel = getMaxLevel(common);
         }
@@ -210,7 +212,7 @@ public class SkillFactory {
                 case Hero.ENRAGE:
                 case Hero.HEROS_WILL:
                 case Hero.MAPLE_WARRIOR:
-                case Hero.STANCE:
+                case Hero.POWER_STANCE:
                 case Page.BW_BOOSTER:
                 case Page.POWER_GUARD:
                 case Page.SWORD_BOOSTER:
@@ -222,10 +224,10 @@ public class SkillFactory {
                 case WhiteKnight.SWORD_FIRE_CHARGE:
                 case WhiteKnight.SWORD_ICE_CHARGE:
                 case WhiteKnight.SWORD_LIT_CHARGE:
-                case Paladin.BW_HOLY_CHARGE:
+                case Paladin.DIVINE_CHARGE:
                 case Paladin.HEROS_WILL:
                 case Paladin.MAPLE_WARRIOR:
-                case Paladin.STANCE:
+                case Paladin.POWER_STANCE:
                 case Paladin.SWORD_HOLY_CHARGE:
                 case Spearman.HYPER_BODY:
                 case Spearman.IRON_WILL:
@@ -238,7 +240,7 @@ public class SkillFactory {
                 case DarkKnight.HEROS_WILL:
                 case DarkKnight.HEX_OF_BEHOLDER:
                 case DarkKnight.MAPLE_WARRIOR:
-                case DarkKnight.STANCE:
+                case DarkKnight.POWER_STANCE:
                 case Magician.MAGIC_GUARD:
                 case Magician.MAGIC_ARMOR:
                 case FPWizard.MEDITATION:
@@ -388,6 +390,10 @@ public class SkillFactory {
             for(int i = 0; i < maxLevel; i++){
                  ret.effects.add(MapleStatEffect.loadSkillEffectFromData(common, id, isBuff, i+1));
             }
+        }
+        
+        if(masterLevel != null){
+                 ret.masterLevel = MapleStatEffect.loadmasterLevelFromData(masterLevel);
         }
         return ret;
     }

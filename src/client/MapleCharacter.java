@@ -21,6 +21,11 @@
  */
 package client;
 
+import constants.SkillMasterLevel.Buccaneers;
+import static client.MapleJob.DAWNWARRIOR1;
+import static client.MapleJob.GUNSLINGER;
+import constants.skills.*;
+import constants.SkillMasterLevel.*;
 import client.autoban.AutobanManager;
 import client.inventory.Equip;
 import client.inventory.Item;
@@ -60,6 +65,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.DateFormat.Field;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -130,6 +136,7 @@ import server.quest.MapleQuest;
 import tools.DatabaseConnection;
 import tools.FilePrinter;
 import tools.MaplePacketCreator;
+import static tools.MaplePacketCreator.updateSkill;
 import tools.Pair;
 import tools.Randomizer;
 
@@ -811,6 +818,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
     }
 
     public void changeJob(MapleJob newJob) {
+    
         if (newJob == null) {
             return;//the fuck you doing idiot!
         }
@@ -914,6 +922,183 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         recalcLocalStats();
         client.announce(MaplePacketCreator.updatePlayerStats(statup, job, extendedSP));
         silentPartyUpdate();
+
+               if (newJob == MapleJob.BUCCANEER){
+                   for(Buccaneers skillz: Buccaneers.values()){
+                    Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+
+               } else if (newJob == MapleJob.CORSAIR){
+                  for(Corsairs skillz: Corsairs.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+               } else if (newJob == MapleJob.ARAN4){
+                   for(Arans skillz: Arans.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+               } else if (newJob == MapleJob.HERO){
+                    for(Heros skillz: Heros.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+               } else if (newJob == MapleJob.DARKKNIGHT){
+                    for(Darknights skillz: Darknights.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+               } else if (newJob == MapleJob.PALADIN){
+                  for(Paladins skillz: Paladins.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+               } else if(newJob == MapleJob.IL_ARCHMAGE){
+                  for(IL_Archmages skillz: IL_Archmages.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+               } else if (newJob == MapleJob.FP_ARCHMAGE){
+                   for(FP_Archmages skillz: FP_Archmages.values()){
+                        Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+               } else if (newJob == MapleJob.BISHOP){
+                   for(Bishops skillz: Bishops.values()){
+                        Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if (newJob == MapleJob.BOWMASTER){
+                for(BowMasters skillz: BowMasters.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if (newJob == MapleJob.MARKSMAN){
+               for(Markmans skillz: Markmans.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if (newJob == MapleJob.NIGHTLORD){
+                for(NightLords skillz: NightLords.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if (newJob == MapleJob.SHADOWER){
+                for(Shadowers skillz: Shadowers.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if (newJob == MapleJob.EVAN3){
+               for(Evan3s skillz: Evan3s.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if (newJob == MapleJob.EVAN6){
+               for(Evan6s skillz: Evan6s.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if(newJob == MapleJob.EVAN9){
+               for(Evan9s skillz: Evan9s.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if(newJob == MapleJob.EVAN10){
+          for(Evan10s skillz: Evan10s.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if(newJob == MapleJob.BLADEACOLYTE){
+               for(BladeAcolytes skillz: BladeAcolytes.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if(newJob == MapleJob.BLADESPECIALIST){
+                for(BladeSpecialists skillz: BladeSpecialists.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if(newJob == MapleJob.BLADELORD){
+                for(BladeLords skillz: BladeLords.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if(newJob == MapleJob.BLADEMASTER){
+              for(BladeMasters skillz: BladeMasters.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if(newJob == MapleJob.MECHANIC4){
+               for(Mechanics skillz: Mechanics.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+           } else if(newJob == MapleJob.WILDHUNTER4){
+              for(WildHunters skillz: WildHunters.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+             
+           } else if(newJob == MapleJob.BATTLEMAGE4){
+               for(BattleMages skillz: BattleMages.values()){
+                       Skill skill = SkillFactory.getSkill(skillz.getSkillID());
+                      
+                       skills.put(SkillFactory.getSkill(skillz.getSkillID()), new SkillEntry((byte)0,  skill.masterLevel, (long)-1));
+                       client.announce(MaplePacketCreator.updateSkill(skillz.getSkillID(), 0, skill.masterLevel, -1));
+                   }
+          
+           }
+       
+        
+        
+       
         if (this.guildid > 0) {
             getGuild().broadcast(MaplePacketCreator.jobMessage(0, job.getId(), name), this.getId());
         }
@@ -1292,7 +1477,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         switch (skillid) {
             case DarkKnight.BEHOLDER:
             case FPArchMage.ELQUINES:
-            case ILArchMage.IFRIT:
+            case ILArchMage.ELQUINES:
             case Priest.SUMMON_DRAGON:
             case Bishop.BAHAMUT:
             case Ranger.PUPPET:
@@ -1920,6 +2105,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         if (skills.get(skill) == null) {
             return 0;
         }
+        
         return skills.get(skill).masterlevel;
     }
 
