@@ -71,14 +71,14 @@ public final class SkillBookHandler extends AbstractMaplePacketHandler {
                     player.changeSkillLevel(skill2, player.getSkillLevel(skill2), Math.max(skilldata.get("masterLevel"), player.getMasterLevel(skill2)), -1);
                 } else {
                     success = false;
-                    player.dropMessage("The skill book lights up, but the skill winds up as if nothing happened.");
+                   
                 }
                 MapleInventoryManipulator.removeFromSlot(c, MapleInventoryType.USE, slot, (short) 1, false);
             } else {
                 canuse = false;
             }
             
-            player.getClient().announce(MaplePacketCreator.skillBookSuccess(player, player.getSkillLevel(skill2), player.getMasterLevel(skill2), canuse, success));
+           player.getClient().announce(MaplePacketCreator.skillBookSuccess(player, player.getSkillLevel(skill2), player.getMasterLevel(skill2), canuse, success));
         }
     }
 }
