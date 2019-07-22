@@ -4310,13 +4310,16 @@ public class MaplePacketCreator {
 
     public static byte[] skillBookSuccess(MapleCharacter chr, int skillid, int maxlevel, boolean canuse, boolean success) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
-        mplew.writeShort(SendOpcode.SKILL_LEARN_ITEM_RESULT.getValue());
+        mplew.writeShort(SendOpcode.SkilLLearnItemResult.getValue());
+        mplew.write(1);
+    
         mplew.writeInt(chr.getId());
         mplew.write(1);
         mplew.writeInt(skillid);
         mplew.writeInt(maxlevel);
         mplew.write(canuse ? 1 : 0);
         mplew.write(success ? 1 : 0);
+      
         return mplew.getPacket();
     }
 

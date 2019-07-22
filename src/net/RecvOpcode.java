@@ -91,7 +91,7 @@ public enum RecvOpcode {
     USE_CASH_ITEM(0x4F),
 
     USE_CATCH_ITEM(0x51),
-    USE_SKILL_BOOK(0x52),
+    USE_SKILL_BOOK(0x58), //(0x52 vv83
     USE_TELEPORT_ROCK(0x54),
     USE_RETURN_SCROLL(0x55),
     USE_UPGRADE_SCROLL(0x56),

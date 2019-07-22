@@ -23,7 +23,7 @@ package net;
 
 public enum SendOpcode {
     
-    /*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*/
+    /*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*//*CLogin::OnPacket*/
     CheckPasswordResult(0x00),
     GuestIDLoginResult(0x01),
     AccountInfoResult(0x02),
@@ -76,8 +76,8 @@ public enum SendOpcode {
     CLAIM_STATUS_CHANGED(0x2F),
     SET_TAMING_MOB_INFO(0x30),
     QUEST_CLEAR(0x31),
-    ENTRUSTED_SHOP_CHECK_RESULT(0x32),
-    SKILL_LEARN_ITEM_RESULT(0x33),
+    ENTRUSTED_SHOP_CHECK_RESULT(0x322),
+    SkilLLearnItemResult(0x32), //(0x33) v83
     GATHER_ITEM_RESULT(0x34),
     SORT_ITEM_RESULT(0x35),
     SUE_CHARACTER_RESULT(0x37),
