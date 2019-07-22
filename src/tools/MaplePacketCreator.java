@@ -497,7 +497,7 @@ public class MaplePacketCreator {
             mplew.writeInt(skill.getValue().skillevel);
             addExpirationTime(mplew, skill.getValue().expiration);
             if (skill.getValue().masterlevel > 0) {
-                mplew.writeInt(skill.getValue().skillevel);
+                mplew.writeInt(skill.getValue().masterlevel);
             }
         }
         mplew.writeShort(chr.getAllCooldowns().size());
