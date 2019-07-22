@@ -477,6 +477,8 @@ public class MapleStatEffect {
                 case ILArchMage.ELQUINES:
                 case Bishop.BAHAMUT:
                 case DarkKnight.BEHOLDER:
+                    statups.add(new Pair<>(MapleBuffStat.Beholder, Integer.valueOf(1)));
+                    break;
                 case Outlaw.GAVIOTA:
                 case DawnWarrior.SOUL:
                 case BlazeWizard.FLAME:
@@ -743,7 +745,7 @@ public class MapleStatEffect {
         if (this.getFatigue() != 0) {
             applyto.getMount().setTiredness(applyto.getMount().getTiredness() + this.getFatigue());
         }
-
+            pos = new Point(0,0);
         if (summonMovementType != null && pos != null) {
             final MapleSummon tosummon = new MapleSummon(applyfrom, sourceid, pos, summonMovementType);
             applyfrom.getMap().spawnSummon(tosummon);
@@ -919,7 +921,6 @@ public class MapleStatEffect {
             localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.RideVehicle, 0));
         } else if (isSkillMorph()) {
            // localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.Morph, getMorph(applyto)));
-            
         }
         if (primary) {
             localDuration = alchemistModifyVal(applyfrom, localDuration, false);
@@ -928,7 +929,7 @@ public class MapleStatEffect {
         if (localstatups.size() > 0) {
             byte[] buff = null;
             byte[] mbuff = null;
-            if (getSummonMovementType() == null) {
+            if (getSummonMovementType() == null || isBeholder()) {
                 buff = MaplePacketCreator.giveBuff((skill ? sourceid : -sourceid), localDuration, localstatups);
             }
             if (isDash()) {

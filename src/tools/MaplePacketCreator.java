@@ -1221,15 +1221,30 @@ public class MaplePacketCreator {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter(25);
         mplew.writeShort(SendOpcode.SPAWN_SPECIAL_MAPOBJECT.getValue());
         mplew.writeInt(summon.getOwner().getId());
+        
         mplew.writeInt(summon.getObjectId());
         mplew.writeInt(summon.getSkill());
-        mplew.write(0x0A); //v83
+        mplew.write(summon.getOwner().getLevel());
         mplew.write(summon.getSkillLevel());
+        
         mplew.writePos(summon.getPosition());
-        mplew.skip(3);
+        mplew.write(0);
+        mplew.writeShort(summon.getOwner().getFh());
         mplew.write(summon.getMovementType().getValue()); // 0 = don't move, 1 = follow (4th mage summons?), 2/4 = only tele follow, 3 = bird follow
         mplew.write(summon.isPuppet() ? 0 : 1); // 0 and the summon can't attack - but puppets don't attack with 1 either ^.-
-        mplew.write(animated ? 0 : 1);
+        mplew.write(animated ? 1 : 0);
+        mplew.write(0); //Summons that change looks? - Beholder(0)
+       // addCharLook(mplew, summon.getOwner(), false);
+        
+        if (summon.getSkill() == 35111002){
+            int x = 0;
+            mplew.write(x);
+            
+            if(x == 1){
+                mplew.writeShort(0);
+                mplew.writeShort(0);
+            }
+        }
         return mplew.getPacket();
     }
 
