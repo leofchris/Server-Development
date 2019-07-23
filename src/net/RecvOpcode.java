@@ -153,7 +153,7 @@ public enum RecvOpcode {
     PET_LOOT(0xAA),
     PET_AUTO_POT(0xAB),
     PET_EXCLUDE_ITEMS(0xAC),
-    MOVE_SUMMON(0xAF),
+    MOVE_SUMMON(0xCF),//(0xAF) v83
     SUMMON_ATTACK(0xB0),
     DAMAGE_SUMMON(0xB1),
     BEHOLDER(0xB2), 
@@ -166,7 +166,7 @@ public enum RecvOpcode {
     ITEM_PICKUP(0xCA),
     DAMAGE_REACTOR(0xCD),
     TOUCHING_REACTOR(0xCE),
-    TEMP_SKILL(0xCF),
+    TEMP_SKILL(0xCFF),
     MAPLETV(0xFFFE),//Don't know
     SNOWBALL(0xD3),
     LEFT_KNOCKBACK(0xD4),

@@ -727,10 +727,9 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             }
         }
         
-        if (effect.getSourceId() == DarkKnight.BEHOLDER){
+        if (effect.isSummon()){
             if (this.getSummons().size() > 0){
              this.announce(MaplePacketCreator.removeSummon(this.getSummons().get(effect.getSourceId()), true));   
-             
             }
            
         }

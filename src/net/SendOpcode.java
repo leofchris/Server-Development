@@ -213,7 +213,7 @@ public enum SendOpcode {
     //CSummonedPool::Onpacket
     Created(0x116), //(0xAF) v83
     Removed(0x117), //(0xB0) v83
-    MOVE_SUMMON(0xB1),
+    MOVE_SUMMON(0x118), //(0xB1) v83
     SUMMON_ATTACK(0xB2),
     DAMAGE_SUMMON(0xB33),
     SUMMON_SKILL(0xB4),
@@ -283,7 +283,7 @@ public enum SendOpcode {
     REMOVE_DOOR(0x1144),
     REACTOR_HIT(0x115),
     REACTOR_SPAWN(0x1177),
-    REACTOR_DESTROY(0x118),
+    REACTOR_DESTROY(0x1188),
     SNOWBALL_STATE(0x119),
     HIT_SNOWBALL(0x11A),
     SNOWBALL_MESSAGE(0x11B),

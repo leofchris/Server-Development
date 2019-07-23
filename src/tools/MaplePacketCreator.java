@@ -2060,7 +2060,10 @@ public class MaplePacketCreator {
         mplew.writeShort(SendOpcode.MOVE_SUMMON.getValue());
         mplew.writeInt(cid);
         mplew.writeInt(oid);
-        mplew.writePos(startPos);
+        mplew.writeShort(((AbsoluteLifeMovement)moves.get(0)).getCurrentX());
+        mplew.writeShort(((AbsoluteLifeMovement)moves.get(0)).getCurrentY());
+        mplew.writeShort(((AbsoluteLifeMovement)moves.get(0)).getCurrentVX());
+        mplew.writeShort(((AbsoluteLifeMovement)moves.get(0)).getCurrentVY());
         serializeMovementList(mplew, moves);
         return mplew.getPacket();
     }

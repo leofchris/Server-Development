@@ -755,7 +755,7 @@ public class MapleStatEffect {
            
           
              applyfrom.addSummon(sourceid, tosummon, applyfrom, pos, summonMovementType);
-              applyfrom.getMap().spawnSummon(tosummon, applyfrom);
+             applyfrom.getMap().spawnSummon(tosummon);
             
             tosummon.addHP(x);
             if (isBeholder()) {
@@ -1198,6 +1198,10 @@ public class MapleStatEffect {
 
     public boolean isPoison() {
         return skill && (sourceid == FPMage.POISON_MIST || sourceid == FPWizard.POISON_BREATH || sourceid == FPMage.ELEMENT_COMPOSITION || sourceid == NightWalker.POISON_BOMB);
+    }
+    
+    public boolean isSummon(){
+        return skill && (sourceid == DarkKnight.BEHOLDER);
     }
 
     private boolean isMist() {
