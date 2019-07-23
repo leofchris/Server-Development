@@ -291,7 +291,7 @@ public class MapleMap {
         try {
           
             this.mapobjects.put(Integer.valueOf(mapobject.getObjectId()), mapobject);
-            System.out.println("Add into MapObjects: "+runningOid);
+           
         } finally {
             objectWLock.unlock();
         }
@@ -328,7 +328,7 @@ public class MapleMap {
 
     public void removeMapObject(final MapleMapObject obj) {
         removeMapObject(obj.getObjectId());
-        System.out.println("Going to remove: "+ obj.getObjectId());
+       
     }
 
     private Point calcPointBelow(Point initial) {
