@@ -1229,7 +1229,7 @@ public class MaplePacketCreator {
         
         mplew.writePos(summon.getPosition());
         
-        mplew.write(1);
+        mplew.write(0);
         mplew.writeShort(summon.getOwner().getFh());
         mplew.write(summon.getMovementType().getValue()); // 0 = don't move, 1 = follow (4th mage summons?), 2/4 = only tele follow, 3 = bird follow
         mplew.write(summon.isPuppet() ? 0 : 1); // 0 and the summon can't attack - but puppets don't attack with 1 either ^.-
