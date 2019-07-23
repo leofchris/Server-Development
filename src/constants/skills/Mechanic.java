@@ -19,4 +19,5 @@ public class Mechanic {
     public static final int AMPLIFIER_ROBOT = 35121010;
     public static final int ROBOT_MASTERY = 35120001;
     public static final int MAPLE_WARRIOR = 25121007;
+    public static final int Mech_Protoype = 35001002;
 }

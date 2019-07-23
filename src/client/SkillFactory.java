@@ -54,6 +54,7 @@ import constants.skills.Legend;
 import constants.skills.Magician;
 import constants.skills.Marauder;
 import constants.skills.Marksman;
+import constants.skills.Mechanic;
 import constants.skills.NightLord;
 import constants.skills.NightWalker;
 import constants.skills.Noblesse;
@@ -368,6 +369,7 @@ public class SkillFactory {
                 case Aran.SMART_KNOCKBACK:
                 case Aran.COMBO_BARRIER:
                 case Aran.COMBO_ABILITY:
+                case Mechanic.Mech_Protoype:
                     isBuff = true;
                     break;
             }

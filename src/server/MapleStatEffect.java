@@ -68,6 +68,7 @@ import constants.skills.Legend;
 import constants.skills.Magician;
 import constants.skills.Marauder;
 import constants.skills.Marksman;
+import constants.skills.Mechanic;
 import constants.skills.NightLord;
 import constants.skills.NightWalker;
 import constants.skills.Noblesse;
@@ -274,7 +275,9 @@ public class MapleStatEffect {
                 case Beginner.BALROG_MOUNT:
                 case Noblesse.BALROG_MOUNT:
                 case Legend.BALROG_MOUNT:
+                case Mechanic.Mech_Protoype:
                     statups.add(new Pair<>(MapleBuffStat.RideVehicle, Integer.valueOf(sourceid)));
+                    
                     break;
                 case Beginner.BERSERK_FURY:
                 case Noblesse.BERSERK_FURY:
@@ -903,7 +906,10 @@ public class MapleStatEffect {
                 ridingLevel = 1932005;
             } else if (sourceid == Beginner.BALROG_MOUNT || sourceid == Noblesse.BALROG_MOUNT || sourceid == Legend.BALROG_MOUNT) {
                 ridingLevel = 1932010;
-            } else {
+            } else if (sourceid == Mechanic.Mech_Protoype){
+                ridingLevel = 1932016;
+            } 
+            else {
                 if (applyto.getMount() == null) {
                     applyto.mount(ridingLevel, sourceid);
                 }
@@ -921,12 +927,15 @@ public class MapleStatEffect {
                 givemount = new MapleMount(applyto, 1932005, sourceid);
             } else if (sourceid == Beginner.BALROG_MOUNT || sourceid == Noblesse.BALROG_MOUNT || sourceid == Legend.BALROG_MOUNT) {
                 givemount = new MapleMount(applyto, 1932010, sourceid);
-            } else {
+            } else if (sourceid == Mechanic.Mech_Protoype){ 
+                givemount = new MapleMount(applyto, 1932016, sourceid);
+            }
+            else {
                 givemount = applyto.getMount();
             }
             localDuration = sourceid;
             localsourceid = ridingLevel;
-            localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.RideVehicle, 0));
+            //localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.RideVehicle, 0));
         } else if (isSkillMorph()) {
            // localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.Morph, getMorph(applyto)));
         }
@@ -938,7 +947,7 @@ public class MapleStatEffect {
             byte[] buff = null;
             byte[] mbuff = null;
             if (getSummonMovementType() == null || isBeholder()) {
-                buff = MaplePacketCreator.giveBuff((skill ? sourceid : -sourceid), localDuration, localstatups);
+              buff = MaplePacketCreator.giveBuff((skill ? sourceid : -sourceid), localDuration, localstatups);
             }
             if (isDash()) {
                 buff = MaplePacketCreator.givePirateBuff(statups, sourceid, seconds);
@@ -952,8 +961,8 @@ public class MapleStatEffect {
             } else if (isCombo()) {
                 mbuff = MaplePacketCreator.giveForeignBuff(applyto.getId(), statups);
             } else if (isMonsterRiding()) {
-                buff = MaplePacketCreator.giveBuff(localsourceid, localDuration, localstatups);
-                mbuff = MaplePacketCreator.showMonsterRiding(applyto.getId(), givemount);
+           // buff = MaplePacketCreator.giveBuff(localsourceid, localDuration, localstatups);
+               mbuff = MaplePacketCreator.showMonsterRiding(applyto.getId(), givemount);
                 localDuration = duration;
                 if (sourceid == Corsair.BATTLE_SHIP) {//hp
                     if (applyto.getBattleshipHp() == 0) {
@@ -1189,7 +1198,7 @@ public class MapleStatEffect {
         return skill && (sourceid % 10000000 == 1004 || sourceid == Corsair.BATTLE_SHIP || sourceid == Beginner.SPACESHIP || sourceid == Noblesse.SPACESHIP
                 || sourceid == Beginner.YETI_MOUNT1 || sourceid == Beginner.YETI_MOUNT2 || sourceid == Beginner.WITCH_BROOMSTICK || sourceid == Beginner.BALROG_MOUNT
                 || sourceid == Noblesse.YETI_MOUNT1 || sourceid == Noblesse.YETI_MOUNT2 || sourceid == Noblesse.WITCH_BROOMSTICK || sourceid == Noblesse.BALROG_MOUNT
-                || sourceid == Legend.YETI_MOUNT1 || sourceid == Legend.YETI_MOUNT2 || sourceid == Legend.WITCH_BROOMSTICK || sourceid == Legend.BALROG_MOUNT);
+                || sourceid == Legend.YETI_MOUNT1 || sourceid == Legend.YETI_MOUNT2 || sourceid == Legend.WITCH_BROOMSTICK || sourceid == Legend.BALROG_MOUNT || sourceid == Mechanic.Mech_Protoype);
     }
 
     public boolean isMagicDoor() {

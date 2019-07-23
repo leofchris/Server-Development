@@ -2508,22 +2508,23 @@ public class MaplePacketCreator {
         boolean special = false;
         writeLongMask(mplew, statups);
         for (Pair<MapleBuffStat, Integer> statup : statups) {
-            if (statup.getLeft().equals(MapleBuffStat.RideVehicle)
-                    || statup.getLeft().equals(MapleBuffStat.HOMING_BEACON)) {
+            if (statup.getLeft().equals(MapleBuffStat.RideVehicle) || statup.getLeft().equals(MapleBuffStat.HOMING_BEACON)) {
                 special = true;
+        }else{
             
-     }
             mplew.writeShort(statup.getRight());
             mplew.writeInt(buffid);
             mplew.writeInt(bufflength);
+            }
         }
+        if(special == true){
         for (int i = 0; i < 7; i++){
         mplew.writeInt(0);
-        mplew.writeInt(0);
+        mplew.writeInt(0x3);
         mplew.write(0);
         mplew.writeInt(0);
       }
-        
+   }
         mplew.writeShort(0);
         mplew.write(0);
         
