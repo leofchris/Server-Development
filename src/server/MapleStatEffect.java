@@ -752,9 +752,10 @@ public class MapleStatEffect {
             if (tosummon == null){
                 tosummon = new MapleSummon(applyfrom, sourceid, pos, summonMovementType);
             } 
-            applyfrom.addSummon(sourceid, tosummon, applyfrom, pos, summonMovementType);
-            applyfrom.getMap().spawnSummon(tosummon, applyfrom);
-            
+           
+          
+             applyfrom.addSummon(sourceid, tosummon, applyfrom, pos, summonMovementType);
+              applyfrom.getMap().spawnSummon(tosummon, applyfrom);
             
             tosummon.addHP(x);
             if (isBeholder()) {

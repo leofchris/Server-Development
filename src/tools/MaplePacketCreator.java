@@ -1228,7 +1228,8 @@ public class MaplePacketCreator {
         mplew.write(summon.getSkillLevel());
         
         mplew.writePos(summon.getPosition());
-        mplew.write(0);
+        
+        mplew.write(1);
         mplew.writeShort(summon.getOwner().getFh());
         mplew.write(summon.getMovementType().getValue()); // 0 = don't move, 1 = follow (4th mage summons?), 2/4 = only tele follow, 3 = bird follow
         mplew.write(summon.isPuppet() ? 0 : 1); // 0 and the summon can't attack - but puppets don't attack with 1 either ^.-
@@ -2731,17 +2732,15 @@ public class MaplePacketCreator {
         
  }
     private static void writeLongMaskFromList(final MaplePacketLittleEndianWriter mplew, List<MapleBuffStat> statups) {
-        long firstmask = 0;
-        long secondmask = 0;
+         int[] buffMask = new int[4];
         for (MapleBuffStat statup : statups) {
-            if (statup.isFirst()) {
-                firstmask |= statup.getValue();
-            } else {
-                secondmask |= statup.getValue();
-            }
+             buffMask[(int)(statup.getValue()>>5)] |=  1<<statup.getValue();
         }
-        mplew.writeLong(firstmask);
-        mplew.writeLong(secondmask);
+        
+         for(int i = buffMask.length; i > 0; i--){
+           mplew.writeInt(buffMask[i-1]);
+       }
+        
     }
 
     public static byte[] cancelDebuff(long mask) {

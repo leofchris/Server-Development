@@ -274,7 +274,8 @@ public class MapleMap {
     private void spawnAndAddRangedMapObject(MapleMapObject mapobject, DelayedPacketCreation packetbakery, SpawnCondition condition) {
         chrRLock.lock();
         try {
-          //  mapobject.setObjectId(runningOid);
+           // mapobject.setObjectId(runningOid);
+            
             for (MapleCharacter chr : characters) {
                 if (condition == null || condition.canSpawn(chr)) {
                     if (chr.getPosition().distanceSq(mapobject.getPosition()) <= 722500) {
@@ -288,7 +289,9 @@ public class MapleMap {
         }
         objectWLock.lock();
         try {
-            this.mapobjects.put(Integer.valueOf(runningOid), mapobject);
+          
+            this.mapobjects.put(Integer.valueOf(mapobject.getObjectId()), mapobject);
+            System.out.println("Add into MapObjects: "+runningOid);
         } finally {
             objectWLock.unlock();
         }
@@ -314,7 +317,9 @@ public class MapleMap {
     public void removeMapObject(int num) {
         objectWLock.lock();
         try {
+            
             this.mapobjects.remove(Integer.valueOf(num));
+            
           
         } finally {
             objectWLock.unlock();
@@ -323,6 +328,7 @@ public class MapleMap {
 
     public void removeMapObject(final MapleMapObject obj) {
         removeMapObject(obj.getObjectId());
+        System.out.println("Going to remove: "+ obj.getObjectId());
     }
 
     private Point calcPointBelow(Point initial) {
@@ -1085,13 +1091,9 @@ public class MapleMap {
             public void sendPackets(MapleClient c) {
                 if (summon != null) {
                   
-                     if (!(c.getPlayer().getSummons().containsKey(summon.getSkill()))){
+                    
                     c.announce(MaplePacketCreator.spawnSummon(summon, true));
-                     } else {
-                         c.announce(MaplePacketCreator.removeSummon(summon, true));
-                         
-                        c.announce(MaplePacketCreator.spawnSummon(summon, true));
-                     }
+                   
                 }
             }
         }, null);    
@@ -1362,12 +1364,12 @@ public class MapleMap {
         }
         chr.leaveMap();
         chr.cancelMapTimeLimitTask();
-      
+        
         for (MapleSummon summon : chr.getSummons().values()) {
             if (summon.isStationary()) {
                 chr.cancelBuffStats(MapleBuffStat.PUPPET);
             } else {
-                removeMapObject(summon);
+                removeMapObject(summon);         
             }
         }
     }
@@ -1651,7 +1653,7 @@ public class MapleMap {
         }
         for (MapleMapObject mo : getMapObjectsInRange(player.getPosition(), 722500, rangedMapobjectTypes)) {
             if (!player.isMapObjectVisible(mo)) {
-                mo.sendSpawnData(player.getClient());
+               mo.sendSpawnData(player.getClient());
                 player.addVisibleMapObject(mo);
             }
         }

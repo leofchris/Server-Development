@@ -157,9 +157,9 @@ public abstract class AbstractMovementPacketHandler extends AbstractMaplePacketH
 
     protected void updatePosition(List<LifeMovementFragment> movement, AnimatedMapleMapObject target, int yoffset) {
         for (LifeMovementFragment move : movement) {
-            
-                    Point position = ((AbsoluteLifeMovement) move).getPosition();
-     
+ 
+                   Point position = ((AbsoluteLifeMovement) move).getPosition();    
+                    
                     target.setPosition(position);
             }
         }

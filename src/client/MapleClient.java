@@ -616,6 +616,7 @@ public class MapleClient {
             }
             if (player.getMap() != null) {
                 player.getMap().removePlayer(player);
+                
             }
         } catch (final Throwable t) {
             FilePrinter.printError(FilePrinter.ACCOUNT_STUCK, t);

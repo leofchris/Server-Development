@@ -118,6 +118,7 @@ import server.events.gm.MapleOla;
 import server.life.MapleMonster;
 import server.life.MobSkill;
 import server.maps.AbstractAnimatedMapleMapObject;
+import server.maps.AbstractMapleMapObject;
 import server.maps.HiredMerchant;
 import server.maps.MapleDoor;
 import server.maps.MapleMap;
@@ -488,10 +489,11 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         summon.setOwner(this);
         summon.setPosition(pos);
         summon.setSkill(id);
-       summon.setObjectId(id);
+        summon.setObjectId(id);
         summon.setMovementType(movementType);
+     
         summons.put(id, summon);
-          
+        
     }
 
     public void addVisibleMapObject(MapleMapObject mo) {
@@ -724,6 +726,16 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                 this.getMount().setActive(false);
             }
         }
+        
+        if (effect.getSourceId() == DarkKnight.BEHOLDER){
+            if (this.getSummons().size() > 0){
+             this.announce(MaplePacketCreator.removeSummon(this.getSummons().get(effect.getSourceId()), true));   
+             
+            }
+           
+        }
+        
+        
         if (!overwrite) {
             cancelPlayerBuffs(buffstats);
         }
