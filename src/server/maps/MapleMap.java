@@ -274,7 +274,7 @@ public class MapleMap {
     private void spawnAndAddRangedMapObject(MapleMapObject mapobject, DelayedPacketCreation packetbakery, SpawnCondition condition) {
         chrRLock.lock();
         try {
-           //mapobject.setObjectId(runningOid);
+           mapobject.setObjectId(runningOid);
             
             for (MapleCharacter chr : characters) {
                 if (condition == null || condition.canSpawn(chr)) {
@@ -290,7 +290,7 @@ public class MapleMap {
         objectWLock.lock();
         try {
           
-            this.mapobjects.put(Integer.valueOf(mapobject.getObjectId()), mapobject);
+            this.mapobjects.put(Integer.valueOf(runningOid), mapobject);
            
         } finally {
             objectWLock.unlock();

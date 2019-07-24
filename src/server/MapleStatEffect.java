@@ -752,21 +752,16 @@ public class MapleStatEffect {
             applyto.getMount().setTiredness(applyto.getMount().getTiredness() + this.getFatigue());
         }
             pos = new Point(0,0);
-        if (summonMovementType != null && pos != null) {
-            
-            MapleSummon tosummon = applyfrom.getSummons().get(sourceid);
-            if (tosummon == null){
-                tosummon = new MapleSummon(applyfrom, sourceid, pos, summonMovementType);
-            } 
-           
-          
-             applyfrom.addSummon(sourceid, tosummon, applyfrom, pos, summonMovementType);
+        if (summonMovementType != null && pos != null) { 
+
+             MapleSummon tosummon = new MapleSummon(applyfrom, sourceid, pos, summonMovementType);
              applyfrom.getMap().spawnSummon(tosummon);
-            
-            tosummon.addHP(x);
-            if (isBeholder()) {
+             applyfrom.addSummon(sourceid, tosummon);
+           
+             tosummon.addHP(x);
+             if (isBeholder()) {
                 tosummon.addHP(1);
-            }
+             }
         }
         if (isMagicDoor() && !FieldLimit.DOOR.check(applyto.getMap().getFieldLimit())) { // Magic Door
             Point doorPosition = new Point(applyto.getPosition());
@@ -862,7 +857,7 @@ public class MapleStatEffect {
         if (summonMovementType != null) {
             final MapleSummon tosummon = new MapleSummon(chr, sourceid, chr.getPosition(), summonMovementType);
             if (!tosummon.isStationary()) {
-                chr.addSummon(sourceid, tosummon, chr, chr.getPosition(), summonMovementType);
+                chr.addSummon(sourceid, tosummon);
                 tosummon.addHP(x);
             }
         }

@@ -484,13 +484,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         return MaxMP;
     }
 
-    public void addSummon(int id, MapleSummon summon, MapleCharacter owner, Point pos, SummonMovementType movementType) {
+    public void addSummon(int id, MapleSummon summon) {
       
-        summon.setOwner(this);
-        summon.setPosition(pos);
-        summon.setSkill(id);
-        summon.setObjectId(id);
-        summon.setMovementType(movementType);
      
         summons.put(id, summon);
         
@@ -727,12 +722,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
             }
         }
         
-        if (effect.isSummon()){
-            if (this.getSummons().size() > 0){
-             this.announce(MaplePacketCreator.removeSummon(this.getSummons().get(effect.getSourceId()), true));   
-            }
-           
-        }
+      
         
         
         if (!overwrite) {
@@ -1356,7 +1346,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
                             recoveryTask.cancel(false);
                             recoveryTask = null;
                         }
-                    } else if (stat == MapleBuffStat.SUMMON || stat == MapleBuffStat.PUPPET) {
+                    } else if (stat == MapleBuffStat.Beholder || stat == MapleBuffStat.PUPPET) {
                         int summonId = mbsvh.effect.getSourceId();
                         MapleSummon summon = summons.get(summonId);
                         if (summon != null) {
