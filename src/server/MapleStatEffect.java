@@ -414,8 +414,8 @@ public class MapleStatEffect {
                 case ThunderBreaker.DASH:
                 case Beginner.SPACE_DASH:
                 case Noblesse.SPACE_DASH:
-                    statups.add(new Pair<>(MapleBuffStat.DASH2, Integer.valueOf(ret.x)));
-                    statups.add(new Pair<>(MapleBuffStat.DASH, Integer.valueOf(ret.y)));
+                    statups.add(new Pair<>(MapleBuffStat.Dash_Speed, Integer.valueOf(ret.x)));
+                    statups.add(new Pair<>(MapleBuffStat.Dash_Jump, Integer.valueOf(ret.y)));
                     break;
                 case Corsair.SPEED_INFUSION:
                 case Buccaneer.SPEED_INFUSION:
@@ -937,8 +937,17 @@ public class MapleStatEffect {
                 givemount = applyto.getMount();
             }
             localDuration = sourceid;
+            int i = 0;
             localsourceid = ridingLevel;
-            //localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.RideVehicle, 0));
+            for(Pair<MapleBuffStat, Integer> replaceStat: statups){
+                if(replaceStat.getLeft().equals(MapleBuffStat.RideVehicle)){
+                    break;
+                }
+                i++;
+            }
+            
+            statups.set(i, new Pair<>(MapleBuffStat.RideVehicle, givemount.getItemId()));
+            //localstatups = Collections.singletonList(Pair<MapleBuffStat, Integer>);
         } else if (isSkillMorph()) {
            // localstatups = Collections.singletonList(new Pair<>(MapleBuffStat.Morph, getMorph(applyto)));
         }
@@ -965,7 +974,7 @@ public class MapleStatEffect {
             } else if (isCombo()) {
                 mbuff = MaplePacketCreator.giveForeignBuff(applyto.getId(), statups);
             } else if (isMonsterRiding()) {
-           // buff = MaplePacketCreator.giveBuff(localsourceid, localDuration, localstatups);
+          //  buff = MaplePacketCreator.giveBuff(localsourceid, localDuration, localstatups);
                mbuff = MaplePacketCreator.showMonsterRiding(applyto.getId(), givemount);
                 localDuration = duration;
                 if (sourceid == Corsair.BATTLE_SHIP) {//hp
@@ -1000,7 +1009,7 @@ public class MapleStatEffect {
                 applyto.getClient().announce(buff);
             }
             if (mbuff != null) {
-                applyto.getMap().broadcastMessage(applyto, mbuff, false);
+              applyto.getMap().broadcastMessage(applyto, mbuff, false);
             }
             if (sourceid == Corsair.BATTLE_SHIP) {
                 applyto.announce(MaplePacketCreator.skillCooldown(5221999, applyto.getBattleshipHp() / 10));

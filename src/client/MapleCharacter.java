@@ -736,7 +736,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject {
         
         
         if (!overwrite) {
-            cancelPlayerBuffs(buffstats);
+         cancelPlayerBuffs(buffstats);
         }
     }
 

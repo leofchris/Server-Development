@@ -668,8 +668,8 @@ public class MaplePacketCreator {
        mplew.writeInt(0);
        mplew.writeInt(c.getAccID()); //AccountID
        mplew.write(c.getGender()); //Gender
-       mplew.write(0x1); //nGradeCode
-       mplew.writeShort(0x4); //TesterAccount
+       mplew.write(0x0); //nGradeCode
+       mplew.writeShort(0x0); //TesterAccount
        mplew.write(0); //CounteryID
        mplew.writeMapleAsciiString(""); //NexonClubID
        mplew.write(0); //PurchaseEXP
@@ -2501,28 +2501,104 @@ public class MaplePacketCreator {
      * @param statups
      * @return
      */
-
+   public static boolean isMovementAffectingStat(List<Pair<MapleBuffStat, Integer>> statups){
+      
+       for (Pair<MapleBuffStat, Integer> movementAffectingStat : statups){
+           if (movementAffectingStat.getLeft().equals(MapleBuffStat.Speed) || movementAffectingStat.getLeft().equals(MapleBuffStat.Jump) || movementAffectingStat.getLeft().equals(MapleBuffStat.Stun) || movementAffectingStat.getLeft().equals(MapleBuffStat.Weakness) || movementAffectingStat.getLeft().equals(MapleBuffStat.Slow) || movementAffectingStat.getLeft().equals(MapleBuffStat.Morph) || movementAffectingStat.getLeft().equals(MapleBuffStat.Ghost) || movementAffectingStat.getLeft().equals(MapleBuffStat.BasicStatUp) || movementAffectingStat.getLeft().equals(MapleBuffStat.Attract) || movementAffectingStat.getLeft().equals(MapleBuffStat.RideVehicle) || movementAffectingStat.getLeft().equals(MapleBuffStat.Dash_Speed) || movementAffectingStat.getLeft().equals(MapleBuffStat.Dash_Jump) || movementAffectingStat.getLeft().equals(MapleBuffStat.Flying) || movementAffectingStat.getLeft().equals(MapleBuffStat.Frozen) || movementAffectingStat.getLeft().equals(MapleBuffStat.YellowAura))
+               return true;
+       }
+       return false;
+   }
     //1F 00 00 00 00 00 03 00 00 40 00 00 00 E0 00 00 00 00 00 00 00 00 E0 01 8E AA 4F 00 00 C2 EB 0B E0 01 8E AA 4F 00 00 C2 EB 0B 0C 00 8E AA 4F 00 00 C2 EB 0B 44 02 8E AA 4F 00 00 C2 EB 0B 44 02 8E AA 4F 00 00 C2 EB 0B 00 00 E0 7A 1D 00 8E AA 4F 00 00 00 00 00 00 00 00 03
     public static byte[] giveBuff(int buffid, int bufflength, List<Pair<MapleBuffStat, Integer>> statups) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.TemporaryStatSet.getValue());
         writeLongMask(mplew, statups);
-           
+        int lock = 0;
+        //Temporary Buff
         for (Pair<MapleBuffStat, Integer> tempStat : statups) {   
            
-            if(!(tempStat.getLeft().isTwoState()))
+            if((tempStat.getLeft().getState() == 1))
                 {
                  mplew.writeShort(tempStat.getRight());
                  mplew.writeInt(buffid);
                  mplew.writeInt(bufflength); 
-               }
+               }else {
+            
+                if (lock == 0){
+                    mplew.write(0);
+                    mplew.write(0);
+                    lock++;
+                }
+                
+                if (tempStat.getLeft().getState() == 2) {
+                if(tempStat.getLeft().equals(MapleBuffStat.SwallowAttackDamage) || tempStat.getLeft().equals(MapleBuffStat.SwallowCritical) || tempStat.getLeft().equals(MapleBuffStat.SwallowDefence) || tempStat.getLeft().equals(MapleBuffStat.SwallowEvasion) || tempStat.getLeft().equals(MapleBuffStat.SwallowMaxMP))
+                mplew.write(0);
+                else if(tempStat.getLeft().equals(MapleBuffStat.Dice)){
+                for(int i = 0 ; i < 22; i++){
+                    mplew.writeInt(0);
+                }
+                }else if (tempStat.getLeft().equals(MapleBuffStat.BlessingArmor)){
+                mplew.writeInt(0);
+                }
+              } else if(tempStat.getLeft().getState() == 3){
+                   if(tempStat.getLeft().equals(MapleBuffStat.EnergyCharged)){
+                    mplew.writeInt(0);
+                    mplew.writeInt(0);
+                    mplew.write(0);
+                    mplew.writeInt(0);
+                 } else if (tempStat.getLeft().equals(MapleBuffStat.Dash_Speed)){
+                    mplew.writeInt(0);
+                    mplew.writeInt(0);
+                    mplew.write(0);
+                    mplew.writeInt(0);
+                 }else if (tempStat.getLeft().equals(MapleBuffStat.Dash_Jump)){
+                    mplew.writeInt(0);
+                    mplew.writeInt(0);
+                    mplew.write(0);
+                    mplew.writeInt(0);
+                 }else if (tempStat.getLeft().equals(MapleBuffStat.RideVehicle)){
+                     mplew.writeInt(tempStat.getRight());
+                     mplew.writeInt(0);
+                     mplew.write(0);
+                     mplew.writeInt(0);
+                 }else if (tempStat.getLeft().equals(MapleBuffStat.Booster)){
+                    mplew.writeInt(0);
+                    mplew.writeInt(0);
+                    mplew.write(0);
+                    mplew.writeInt(0);
+                    
+                    mplew.write(0);
+                    mplew.writeInt(0);
+                    mplew.writeShort(0);
+                 }else if (tempStat.getLeft().equals(MapleBuffStat.GuidedBullet)){
+                    mplew.writeInt(0);
+                    mplew.writeInt(0);
+                    mplew.write(0);
+                    mplew.writeInt(0);
+                    mplew.writeInt(0);
+                 }else if (tempStat.getLeft().equals(MapleBuffStat.Ghost)){
+                    mplew.writeInt(0);
+                    mplew.writeInt(0);
+                    mplew.write(0);
+                    mplew.writeInt(0);
+                 }
+              }
+            
+            }
         }
        
-        mplew.write(0);
-        mplew.write(0);
+        if (lock == 0){
+            mplew.write(0);
+            mplew.write(0);
+        }
+        //TwoState Buff
+       
         
         mplew.writeShort(0);
         
+        if(isMovementAffectingStat(statups))
+        mplew.write(0);
         
      return mplew.getPacket();
   }
