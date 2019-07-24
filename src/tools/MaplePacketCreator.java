@@ -2501,36 +2501,31 @@ public class MaplePacketCreator {
      * @param statups
      * @return
      */
+
     //1F 00 00 00 00 00 03 00 00 40 00 00 00 E0 00 00 00 00 00 00 00 00 E0 01 8E AA 4F 00 00 C2 EB 0B E0 01 8E AA 4F 00 00 C2 EB 0B 0C 00 8E AA 4F 00 00 C2 EB 0B 44 02 8E AA 4F 00 00 C2 EB 0B 44 02 8E AA 4F 00 00 C2 EB 0B 00 00 E0 7A 1D 00 8E AA 4F 00 00 00 00 00 00 00 00 03
     public static byte[] giveBuff(int buffid, int bufflength, List<Pair<MapleBuffStat, Integer>> statups) {
         final MaplePacketLittleEndianWriter mplew = new MaplePacketLittleEndianWriter();
         mplew.writeShort(SendOpcode.TemporaryStatSet.getValue());
-        boolean special = false;
         writeLongMask(mplew, statups);
-        for (Pair<MapleBuffStat, Integer> statup : statups) {
-            if (statup.getLeft().equals(MapleBuffStat.RideVehicle) || statup.getLeft().equals(MapleBuffStat.HOMING_BEACON)) {
-                special = true;
-        }else{
-            
-            mplew.writeShort(statup.getRight());
-            mplew.writeInt(buffid);
-            mplew.writeInt(bufflength);
-            }
+           
+        for (Pair<MapleBuffStat, Integer> tempStat : statups) {   
+           
+            if(!(tempStat.getLeft().isTwoState()))
+                {
+                 mplew.writeShort(tempStat.getRight());
+                 mplew.writeInt(buffid);
+                 mplew.writeInt(bufflength); 
+               }
         }
-        if(special == true){
-        for (int i = 0; i < 7; i++){
-        mplew.writeInt(0);
-        mplew.writeInt(0x3);
+       
         mplew.write(0);
-        mplew.writeInt(0);
-      }
-   }
-        mplew.writeShort(0);
         mplew.write(0);
         
-        return mplew.getPacket();
-    }
-
+        mplew.writeShort(0);
+        
+        
+     return mplew.getPacket();
+  }
     /**
      *
      * @param cid

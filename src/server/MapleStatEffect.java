@@ -218,7 +218,7 @@ public class MapleStatEffect {
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EPAD, Integer.valueOf(ret.EPAD));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EPDD, Integer.valueOf(ret.EPDD));
             addBuffStatPairToListIfNotZero(statups, MapleBuffStat.EMDD, Integer.valueOf(ret.EMDD));
-        
+        //Adds the buff stats 
            
            
            
@@ -276,8 +276,11 @@ public class MapleStatEffect {
                 case Noblesse.BALROG_MOUNT:
                 case Legend.BALROG_MOUNT:
                 case Mechanic.Mech_Protoype:
+                    if(sourceid == Mechanic.Mech_Protoype){
+                        statups.add(new Pair<>(MapleBuffStat.Mechanic, Integer.valueOf(sourceid)));
+                    }
                     statups.add(new Pair<>(MapleBuffStat.RideVehicle, Integer.valueOf(sourceid)));
-                    
+                    //adds the ride
                     break;
                 case Beginner.BERSERK_FURY:
                 case Noblesse.BERSERK_FURY:
@@ -948,6 +951,7 @@ public class MapleStatEffect {
             byte[] mbuff = null;
             if (getSummonMovementType() == null || isBeholder()) {
               buff = MaplePacketCreator.giveBuff((skill ? sourceid : -sourceid), localDuration, localstatups);
+              //packet for it to send to client
             }
             if (isDash()) {
                 buff = MaplePacketCreator.givePirateBuff(statups, sourceid, seconds);
